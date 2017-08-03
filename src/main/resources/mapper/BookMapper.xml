@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.three.zhongdian.mapper.BookMapper">
+
+    <resultMap id="findAll" type="com.three.zhongdian.po.Book">
+        <id column="id" property="id"></id>
+        <result column="name" property="name"></result>
+        <result column="words" property="words"></result>
+        <result column="author" property="author"></result>
+        <result column="section" property="section"></result>
+        <result column="click" property="click"></result>
+        <result column="picpath" property="picpath"></result>
+        <result column="filepath" property="filepath"></result>
+        <result column="info" property="info"></result>
+        <result column="status" property="status"></result>
+        <result column="sid" property="sid"></result>
+        <association property="smallType" javaType="com.three.zhongdian.po.SmallType">
+            <id column="smalltypeid" property="id"></id>
+            <result column="smalltypename" property="name"></result>
+            <result column="bid" property="bid"></result>
+            <association property="bigType" javaType="com.three.zhongdian.po.BigType">
+                <id column="bigtypeid" property="id"></id>
+                <result column="bigtypename" property="name"></result>
+            </association>
+        </association>
+    </resultMap>
+
+
+    <resultMap id="findtype" type="com.three.zhongdian.po.BigType">
+        <id column="bigtypeid" property="id"></id>
+        <result column="bigtypename" property="name"></result>
+        <collection property="smallTypes" ofType="com.three.zhongdian.po.SmallType">
+            <id column="smalltypeid" property="id"></id>
+            <result column="smalltypename" property="name"></result>
+            <result column="bid" property="bid"></result>
+        </collection>
+    </resultMap>
+    <select id="findBookAll" resultMap="findAll">
+		select
+            book.id,
+            book.name,
+            book.words,
+            book.author,
+            book.section,
+            book.click,
+            book.picpath,
+            book.filepath,
+            book.info,
+            book.status,
+            book.sid,
+            s.id smalltypeid,
+            s.name smalltypename,
+            s.bid,
+            b.id bigtypeid,
+            b.name bigtypename
+          from  book book ,smalltype s,bigtype b where book.sid = s.id and s.bid = b.id
+	</select>
+
+    <select id="findTypeAll" resultMap="findtype">
+       select b.id bigtypeid,b.name bigtypename,s.id smalltypeid,s.name smalltypename,s.bid from bigtype b,smalltype s where s.bid = b.id
+    </select>
+
+    <select id="findBigType" resultType="com.three.zhongdian.po.BigType">
+        select * from bigtype
+    </select>
+</mapper>

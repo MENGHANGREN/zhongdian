@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>起点中文网_阅文集团旗下网站</title>
+    <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
+    <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费">
+    <meta name="robots" content="all">
+    <meta name="googlebot" content="all">
+    <meta name="baiduspider" content="all">
+    <meta name="updatetime" content="2017-08-03,08:29:29">
+    <meta http-equiv="mobile-agent" content="format=wml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://h5.qidian.com/bookstore.html">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="baidu-site-verification" content="d4rhkT9Dh0">
+   <!-- <script src="//pingjs.qq.com/h5/stats.js?v2.0.2" name="MTAH5" sid="500451537"></script>
+    <script>document.domain = 'qidian.com';</script>
+    <script>function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg)) {
+          return (arr[2]);
+        } else {
+          return null;
+        }
+      }
+      //遇到cookie ns == 1 跳转到老版 加各域名
+      if (getCookie('ns') == 1) {
+        location.href = '//www.qidian.com/2009';
+      }</script>
+    <script>var speedTimer = [],
+      speedZero = new Date().getTime();</script>
+    <script>//遇到cookie tf=1的话留在本站，否则跳转移动站
+      if (getCookie('tf') != 1) {
+        //判断是以下设备后跳转到m站
+        if (navigator.userAgent.match(/(iPhone|iPod|Android)/i)) {
+          location.href = "//m.qidian.com"
+        }
+      } else {
+        // M站设置了一年，这里fixed
+        setCookie('tf', 1, 'qidian.com', '/', 0);
+      }
+      // start 防劫持
+      //设置cookie
+      function setCookie(name, value, domain, path, expires) {
+        if (expires) {
+          expires = new Date( + new Date() + expires);
+        }
+        var tempcookie = name + '=' + escape(value) + ((expires) ? '; expires=' + expires.toGMTString() : '') + ((path) ? '; path=' + path: '') + ((domain) ? '; domain=' + domain: '');
+        //Ensure the cookie's size is under the limitation
+        if (tempcookie.length < 4096) {
+          document.cookie = tempcookie;
+        }
+      }
+      //获取cookie
+      function getCookie(name) {
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg)) return (arr[2]);
+        else return null;
+      }
+      //创建并发送请求
+      function createSender(url) {
+        var img = new Image();
+        img.onload = img.onerror = function() {
+          img = null;
+        };
+        img.src = url;
+      }; (function() {
+        /*
+         *防劫持逻辑所需参数在此处设置参数即可
+         *cookieName:用于记录连续被劫持的次数，为防止死循环，cookie值为3以上则不进行url重置
+         *cookieDomain:cookie所在的域
+         *reportUrl:非连续性劫持时上报的接口地址【如无需上报，可不填】
+         *reportUrl2：连续性劫持时上报的接口地址【如无需上报，可不填】
+         */
+        var cookieName = 'hiijack';
+        var cookieDomain = '.qidian.com';
+        var reportUrl = '//book.qidian.com/ajax/safe/hiijackReport?times=1&_csrfToken=' + getCookie('_csrfToken') || '';
+        var reportUrl2 = '//book.qidian.com/ajax/safe/hiijackReport?times=3&_csrfToken=' + getCookie('_csrfToken') || '';
+        //判断是否被iframe
+        if (top.location.href !== self.location.href) {
+          //用于记录被劫持的次数
+          var countHijack;
+          //如果未设置cookie，则需要set一下cookie，否则获取此cookie的值
+          if (!getCookie(cookieName)) {
+            setCookie(cookieName, 0, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
+            countHijack = 0;
+          } else {
+            countHijack = parseInt(getCookie(cookieName));
+          }
+          //如果连续被劫持的次数大于等于3次，则发请求上报此情况,否则上报非连续性的情况,同时累加被劫持次数、重置当前url
+          if (countHijack >= 3) {
+            reportUrl2 && reportUrl2 != '' && createSender(reportUrl2);
+          } else {
+            reportUrl && reportUrl != '' && createSender(reportUrl);
+            countHijack++;
+            setCookie(cookieName, countHijack, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
+            top.location = self.location.href;
+          }
+        }
+        //每次成功进入页面则计数清0
+        setCookie(cookieName, 0, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
+      })();
+      //end 防劫持
+      </script>-->
+    <link data-ignore="true" rel="shortcut icon" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.3.ico">
+    <link data-ignore="true" rel="Bookmark" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.3.ico">
+    <link rel="stylesheet" data-ignore="true" href="css/Autocomplete.0.75.css">
+    <link charset="utf-8" rel="stylesheet" href="css/Dropdown.css">
+    
+    <link charset="utf-8" rel="stylesheet" href="css/Autocomplete.css">
+    <link charset="utf-8" rel="stylesheet" href="css/Popup.css"></head>
+  
+  <body class="index" data-dynamic="false" style="background-image: url(&quot;&quot;); zoom: 1;">
+    <div class="share-img">
+      <img src="//qidian.gtimg.com/qd/images/common/share.0.1.png" width="300" height="300"></div>
+      <div class="top-nav" data-l1="1">
+        <div class="box-center cf">
+          <div class="login-box fr">
+            <div class="sign-in hidden">
+              <span>你好，</span>
+              <a class="black" id="user-name" href="//me.qidian.com" target="_blank" data-eid="qd_A08"></a>
+              <em>|</em>
+              <a class="black" id="msg-btn" href="//me.qidian.com/msg/systems.aspx?page=1" target="_blank" data-eid="qd_A09">消息
+                <cite id="msg-box">(
+                  <i></i>)</cite>
+              </a>
+              <em>|</em>
+              <a id="exit-btn" href="javascript:" data-eid="qd_A10">退出</a></div>
+            <div class="sign-out">
+              <a id="login-btn" class="black" href="javascript:" data-eid="qd_A06">登录</a>
+              <em>|</em>
+              <a id="reg-btn" href="//passport.qidian.com/reg.html?appid=10&amp;areaid=1&amp;target=iframe&amp;ticket=1&amp;auto=1&amp;autotime=30&amp;returnUrl=http%3A%2F%2Fwww.qidian.com" target="_blank" data-eid="qd_A07">注册</a></div>
+          </div>
+          <div class="nav-link fl">
+            <a class="act" href="//www.qidian.com" data-eid="qd_A01">起点中文网</a>
+            <a href="//www.qdmm.com" target="_blank" data-eid="qd_A02">起点女生网</a>
+            <em>|</em>
+            <a href="http://chuangshi.qq.com" target="_blank" data-eid="qd_A03">创世中文网</a>
+            <em>|</em>
+            <a href="http://yunqi.qq.com" target="_blank" data-eid="qd_A04">云起书院</a>
+            <em>|</em>
+            <a href="javascript:" id="switchEl" data-eid="qd_A182">繁体版</a>
+            <!--<em>|</em>
+            <a class="black" id="back-old" href="javascript:" data-eid="qd_A05">返回旧版</a>--></div>
+        </div>
+      </div>
+      <div class="top-op-box" id="j-topOpBox">
+        <!-- start 顶部随机广告 -->
+        <div class="top-game-op" id="topGameOp" data-l1="34" style="display: block;">
+          <div class="game-wrap">
+            <a class="close" id="closeTopGame" href="javascript:" data-eid="qd_A184">
+              <em class="iconfont"></em></a>
+            <a href="http://cpgame.qd.game.qidian.com/Home/Index/directLogin/name/mxsj/way/1?qd_game_key=mxsjcp1200x60&amp;qd_dd_p1=448" target="_blank" data-eid="qd_A183" data-qd_dd_p1="1">
+              <img src="//qidian.qpic.cn/qidian_common/349573/b294645003b4b3b053c5fc4a19ce695e/0">
+              <span class="op-tag"></span>
+            </a>
+          </div>
+        </div>
+        <!-- end 顶部随机广告 --></div>
+      <div class="logo-wrap box-center" data-l1="2">
+        <div class="box-center cf">
+          <div class="book-shelf fr">
+            <a href="//me.qidian.com/bookCase/bookCase.aspx?caseId=-2" target="_blank" data-eid="qd_A14" id="numero2">
+              <em class="iconfont shelf"></em>
+              <i>我的书架</i>
+            </a>
+          </div>
+          <div class="logo fl">
+            <a href="//www.qidian.com" data-eid="qd_A11"></a>
+          </div>
+          <div class="search-wrap fl">
+            <form id="formUrl" action="//se.qidian.com" method="get" target="_blank">
+              <p>
+                <input class="search-box" id="s-box" name="kw" type="text" placeholder="超神机械师" autocomplete="off"></p>
+              <input class="submit-input" type="submit" id="searchSubmit" data-eid="qd_A13">
+              <label id="search-btn" class="search-btn" for="searchSubmit">
+                <em class="iconfont" data-eid="qd_A13"></em></label>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="main-nav-wrap" data-l1="3">
+        <div class="main-nav box-center cf">
+          <ul>
+            <li class="first">
+              <span>
+                <em>
+                  <i>
+                  </i>
+                  <i>
+                  </i>
+                  <i>
+                  </i>
+                </em>作品分类</span>
+            </li>
+            <li class="nav-li">
+              <a href="//a.qidian.com" data-eid="qd_A15">全部作品</a></li>
+            <li class="nav-li">
+              <a href="//r.qidian.com" data-eid="qd_A16">排行</a></li>
+            <li class="nav-li">
+              <a href="//fin.qidian.com" data-eid="qd_A17">完本</a></li>
+            <li class="nav-li">
+              <a href="//f.qidian.com" data-eid="qd_A18">免费</a></li>
+            <li class="nav-li">
+              <a href="http://write.qq.com/public/login.html" target="_blank" data-eid="qd_A19">作家专区</a></li>
+            <li class="nav-li">
+              <a href="http://www.yuewen.com/app.html#appqd" target="_blank" data-eid="qd_A20">
+                <b class="iconfont client"></b>客户端</a></li>
+            <li class="game phone" id="game-phone">
+              <a class="phone-game" href="http://sy.qidian.com" target="_blank" data-eid="qd_A22">
+                <b class="iconfont webgame"></b>手游</a>
+              <div class="game-dropdown hidden" id="phone-dropdown">
+                <cite></cite>
+                <dl class="phone-list">
+                  <dd>
+                    <h3>
+                      <span></span>
+                      <a href="" data-eid="qd_A39" target="_blank">特工皇妃楚乔传</a>
+                      <i>解锁剧情</i>
+                    </h3>
+                    <p>
+                      <a href="http://collect.game.qidian.com/Home/Stat/Index?gourl=aHR0cDovL3N5LnFpZGlhbi5jb20vSG9tZS9QYy9JbmRleC9kZXRhaWwvZ2FtZWlkLzIwMDU3Nw==&amp;code=5733ed85f2cd0" target="_blank" data-eid="qd_A39">
+                        <img src="//qidian.qpic.cn/qidian_common/349573/063db37bebfdcf5723cc1aa6da7c1aee/0">
+                        <i class="op-tag"></i>
+                      </a>
+                    </p>
+                  </dd>
+                  <dd>
+                    <h3>
+                      <a href="" data-eid="qd_A40" target="_blank">梦道</a>
+                      <i>浪漫修仙</i>
+                    </h3>
+                    <p>
+                      <a href="http://collect.game.qidian.com/Home/Stat/Index?gourl=aHR0cDovL3N5LnFpZGlhbi5jb20vYXBpL3N5eHMvc2dhbWUvUGxheS5waHA/Z2FtZWlkPTIwMDU2NiZzZXJ2ZXJpZD0xJnR5PTE=&amp;code=5733edc4a3435" target="_blank" data-eid="qd_A40">
+                        <img src="//qidian.qpic.cn/qidian_common/349573/6417566d1ae89edb5da7e200bc72f989/0">
+                        <i class="op-tag"></i>
+                      </a>
+                    </p>
+                  </dd>
+                  <dd>
+                    <h3>
+                      <a href="" data-eid="qd_A41" target="_blank">绝世神功</a>
+                      <i>随时PK</i>
+                    </h3>
+                    <p>
+                      <a href="http://collect.game.qidian.com/Home/Stat/Index?gourl=aHR0cDovL3N5LnFpZGlhbi5jb20vYXBpL3N5eHMvc2dhbWUvUGxheS5waHA/Z2FtZWlkPTIwMDUwNiZzZXJ2ZXJpZD0yJnR5PTE=&amp;code=5769f94031529" target="_blank" data-eid="qd_A41">
+                        <img src="//qidian.qpic.cn/qidian_common/349573/1dc8f8283b6f652f1bb3f4b39676f663/0">
+                        <i class="op-tag"></i>
+                      </a>
+                    </p>
+                  </dd>
+                </dl>
+                <div class="bottom">
+                  <h4>新游上线|热血修仙</h4>
+                  <p>
+                    <a href="http://sy.qidian.com/api/syxs/sgame/Play.php?gameid=200582&amp;serverid=1&amp;ty=1&amp;qd_game_key=192x86&amp;qd_dd_p1=141" data-eid="qd_A42" target="_blank">
+                      <img src="//qidian.qpic.cn/qidian_common/349573/c796b7d4a0a0a490d657ce1294736e68/0" alt="">
+                      <i class="op-tag"></i>
+                    </a>
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="game web" id="game-web">
+              <a class="web-game" href="http://game.qidian.com/" target="_blank" data-eid="qd_A21">
+                <b class="iconfont"></b>页游</a>
+              <div class="game-dropdown hidden" id="web-dropdown">
+                <cite></cite>
+                <div class="web-game-list">
+                  <dl class="lately" id="lately">
+                    <dt>最近玩过</dt>
+                    <dd data-rid="1">
+                      <a class="name" href="javascript:" target="_blank" data-eid="qd_A29"></a>
+                      <strong></strong>
+                      <a class="link" href="javascript:" target="_blank" data-eid="qd_A29">GO
+                        <i>&gt;</i>
+                      </a>
+                    </dd>
+                    <dd data-rid="2">
+                      <a class="name" href="javascript:" target="_blank" data-eid="qd_A30"></a>
+                      <strong></strong>
+                      <a class="link" href="javascript:" target="_blank" data-eid="qd_A30">GO
+                        <i>&gt;</i>
+                      </a>
+                    </dd>
+                  </dl>
+                  <dl class="web-list" id="log-web-list">
+                    <dt>今日开服</dt>
+                    <dd class="act" data-rid="1">
+                      <h3>
+                        <span></span>
+                        <i>08-02</i>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=mxsj" data-eid="qd_A31" target="_blank">冒险世界</a>
+                        <strong>5区</strong></h3>
+                      <p>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=mxsj" data-eid="qd_A31" target="_blank">
+                          <img src="//qidian.qpic.cn/qidian_common/349573/0a01a386c210c891a80b11f45b3dbcf5/0">
+                          <i class="op-tag"></i>
+                        </a>
+                      </p>
+                    </dd>
+                    <dd data-rid="2">
+                      <h3>
+                        <span></span>
+                        <i>08-02</i>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=ytx" data-eid="qd_A32" target="_blank">御天下</a>
+                        <strong>12区</strong></h3>
+                      <p>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=ytx" data-eid="qd_A32" target="_blank">
+                          <img src="//qidian.qpic.cn/qidian_common/349573/626d914bf262e401063bb7ff3e099dc2/0">
+                          <i class="op-tag"></i>
+                        </a>
+                      </p>
+                    </dd>
+                    <dd data-rid="3">
+                      <h3>
+                        <span></span>
+                        <i>08-02</i>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=dhhj" data-eid="qd_A33" target="_blank">大航海家</a>
+                        <strong>76区</strong></h3>
+                      <p>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=dhhj" data-eid="qd_A33" target="_blank">
+                          <img src="//qidian.qpic.cn/qidian_common/349573/61db550a72b0f804159fa0955277d710/0">
+                          <i class="op-tag"></i>
+                        </a>
+                      </p>
+                    </dd>
+                    <dd data-rid="4">
+                      <h3>
+                        <span></span>
+                        <i>08-02</i>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=xjstm" data-eid="qd_A34" target="_blank">绝世唐门</a>
+                        <strong>13区</strong></h3>
+                      <p>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=xjstm" data-eid="qd_A34" target="_blank">
+                          <img src="//qidian.qpic.cn/qidian_common/349573/87025686a9730026e8ef2264c1a39272/0">
+                          <i class="op-tag"></i>
+                        </a>
+                      </p>
+                    </dd>
+                    <dd data-rid="5">
+                      <h3>
+                        <span></span>
+                        <i>08-01</i>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=zjzr" data-eid="qd_A35" target="_blank">最佳阵容</a>
+                        <strong>24区</strong></h3>
+                      <p>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=zjzr" data-eid="qd_A35" target="_blank">
+                          <img src="//qidian.qpic.cn/qidian_common/349573/9d8731887c36f3054d1469bb53e1e913/0">
+                          <i class="op-tag"></i>
+                        </a>
+                      </p>
+                    </dd>
+                    <dd data-rid="6">
+                      <h3>
+                        <span></span>
+                        <i>08-01</i>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=rxsg3" data-eid="qd_A36" target="_blank">热血三国3</a>
+                        <strong>45区</strong></h3>
+                      <p>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=rxsg3" data-eid="qd_A36" target="_blank">
+                          <img src="//qidian.qpic.cn/qidian_common/349573/426a21216cb6ca08ee1effeb87bffcca/0">
+                          <i class="op-tag"></i>
+                        </a>
+                      </p>
+                    </dd>
+                    <dd data-rid="7">
+                      <h3>
+                        <span></span>
+                        <i>08-01</i>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=jyyx" data-eid="qd_A37" target="_blank">锦衣夜行</a>
+                        <strong>34区</strong></h3>
+                      <p>
+                        <a href="http://cpgame.qd.game.qidian.com/Home/GameServer/lists?name=jyyx" data-eid="qd_A37" target="_blank">
+                          <img src="//qidian.qpic.cn/qidian_common/349573/95dacfefa7a58c9becddb69f1f28fac9/0">
+                          <i class="op-tag"></i>
+                        </a>
+                      </p>
+                    </dd>
+                  </dl>
+                  <div class="bottom">
+                    <h4>悬赏</h4>
+                    <p>
+                      <a href="http://xs.game.qidian.com/?qd_game_key=xs192x86&amp;qd_dd_p1=124" data-eid="qd_A38" target="_blank">
+                        <img src="//qidian.qpic.cn/qidian_common/349573/88abf71a366b64ef0b5d53cf58d747ca/0">
+                        <span class="op-tag"></span>
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="focus-wrap box-center mb40 cf">
+        <div class="classify-list fl so-awesome" id="classify-list" data-l1="3">
+          <dl>
+            <dd>
+              <a href="//xuanhuan.qidian.com/" target="_blank" data-eid="qd_A71">
+                <cite>
+                  <em class="iconfont"></em>
+                  <span class="info">
+                    <i>玄幻</i>
+                    <b>584400</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+            <dd>
+              <a href="//qihuan.qidian.com/" target="_blank" data-eid="qd_A72">
+                <cite>
+                  <em class="iconfont"></em>
+                  <span class="info">
+                    <i>奇幻</i>
+                    <b>124571</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+            <dd class="even">
+              <a href="//wuxia.qidian.com/" target="_blank" data-eid="qd_A73">
+                <cite>
+                  <em class="iconfont"></em>
+                  <span class="info">
+                    <i>武侠</i>
+                    <b>33749</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+            <dd class="even">
+              <a href="//xianxia.qidian.com/" target="_blank" data-eid="qd_A74">
+                <cite>
+                  <em class="iconfont"></em>
+                  <span class="info">
+                    <i>仙侠</i>
+                    <b>202487</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+            <dd>
+              <a href="//dushi.qidian.com/" target="_blank" data-eid="qd_A75">
+                <cite>
+                  <em class="iconfont"></em>
+                  <span class="info">
+                    <i>都市</i>
+                    <b>318019</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+            <dd>
+              <a href="//xianshi.qidian.com/" target="_blank" data-eid="qd_A76">
+                <cite>
+                  <em class="iconfont"></em>
+                  <span class="info">
+                    <i>现实</i>
+                    <b>14575</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+            <dd class="even">
+              <a href="//junshi.qidian.com/" target="_blank" data-eid="qd_A77">
+                <cite>
+                  <em class="iconfont"></em>
+                  <span class="info">
+                    <i>军事</i>
+                    <b>17885</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+            <dd class="even">
+              <a href="//lishi.qidian.com/" target="_blank" data-eid="qd_A78">
+                <cite>
+                  <em class="iconfont"></em>
+                  <span class="info">
+                    <i>历史</i>
+                    <b>67567</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+            <dd>
+              <a href="//youxi.qidian.com/" target="_blank" data-eid="qd_A79">
+                <cite>
+                  <em class="iconfont"></em>
+                  <span class="info">
+                    <i>游戏</i>
+                    <b>90730</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+            <dd>
+              <a href="//tiyu.qidian.com/" target="_blank" data-eid="qd_A80">
+                <cite>
+                  <em class="iconfont tiyu"></em>
+                  <span class="info">
+                    <i>体育</i>
+                    <b>8869</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+            <dd class="even">
+              <a href="//kehuan.qidian.com/" target="_blank" data-eid="qd_A81">
+                <cite>
+                  <em class="iconfont"></em>
+                  <span class="info">
+                    <i>科幻</i>
+                    <b>120918</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+            <dd class="even">
+              <a href="//lingyi.qidian.com/" target="_blank" data-eid="qd_A82">
+                <cite>
+                  <em class="iconfont lingyi"></em>
+                  <span class="info">
+                    <i>灵异</i>
+                    <b>48624</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+            <dd>
+              <a href="//www.qdmm.com/" target="_blank" data-eid="qd_A83">
+                <cite>
+                  <em class="iconfont"></em>
+                  <span class="info">
+                    <i>女生网</i>
+                    <b>600427</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+            <dd>
+              <a href="//2cy.qidian.com/" target="_blank" data-eid="qd_A84">
+                <cite>
+                  <em class="iconfont erciyuan"></em>
+                  <span class="info">
+                    <i>二次元</i>
+                    <b>80744</b>
+                  </span>
+                </cite>
+              </a>
+            </dd>
+          </dl>
+        </div>
+        <div class="focus-box fl" data-l1="6">
+          <div class="focus-slider">
+            <div class="lbf-slides switchable-slides" id="switchable-slides">
+              <a class="more" href="//www.qidian.com/book/coverrec" target="_blank" data-eid="qd_A173">
+                <i>
+                  <em></em>
+                  <em></em>
+                  <em></em>
+                </i>
+              </a>
+              <ul>
+                <li id="item1" data-rid="1" style="transition: transform 300ms linear; backface-visibility: hidden; transform: translateX(-100%);">
+                  <a href="http://book.qidian.com/info/1004179164" target="_blank" data-eid="qd_A85">
+                    <img src="//qidian.qpic.cn/qidian_common/349573/f65056c78a7e6967d6a8c775b4ae9305/0" width="100%"></a>
+                </li>
+                <li id="item2" data-rid="2" style="display: list-item; transition: transform 300ms linear; transform: translateX(0%); backface-visibility: hidden;">
+                  <a href="http://book.qidian.com/info/1004936518" target="_blank" data-eid="qd_A86">
+                    <img class="load" data-src=" //qidian.qpic.cn/qidian_common/349573/39278a3fff9a2914af715ed92c503a25/0" width="100%" src=" //qidian.qpic.cn/qidian_common/349573/39278a3fff9a2914af715ed92c503a25/0"></a>
+                </li>
+                <li id="item3" data-rid="3" style="display: list-item; transition: transform 300ms linear; transform: translateX(-100%); backface-visibility: hidden;">
+                  <a href="http://book.qidian.com/info/1005406434" target="_blank" data-eid="qd_A87">
+                    <img class="load" data-src=" //qidian.qpic.cn/qidian_common/349573/f8306efad226a81c7b1d6a41bec4a7d0/0" width="100%" src=" //qidian.qpic.cn/qidian_common/349573/f8306efad226a81c7b1d6a41bec4a7d0/0"></a>
+                </li>
+                <li id="item4" data-rid="4" style="display: list-item; transition: transform 300ms linear; transform: translateX(-100%); backface-visibility: hidden;">
+                  <a href="http://book.qidian.com/info/1005787955" target="_blank" data-eid="qd_A88">
+                    <img class="load" data-src=" //qidian.qpic.cn/qidian_common/349573/7f4b8eb04de8bc1d6eb62e636aa4fab5/0" width="100%" src=" //qidian.qpic.cn/qidian_common/349573/7f4b8eb04de8bc1d6eb62e636aa4fab5/0"></a>
+                </li>
+                <li id="item5" data-rid="5" style="display: list-item; transition: transform 300ms linear; transform: translateX(-100%); backface-visibility: hidden;">
+                  <a href="http://cpgame.qd.game.qidian.com/Home/Index/directLogin/name/xjstm/way/1?qd_game_key=jstm748x298&amp;qd_dd_p1=992" target="_blank" data-eid="qd_A89" data-qd_dd_p1="1">
+                    <img class="load" data-src=" //qidian.qpic.cn/qidian_common/349573/5cc67e41b3da2b8dc40f081ad8c34474/0" width="100%" src=" //qidian.qpic.cn/qidian_common/349573/5cc67e41b3da2b8dc40f081ad8c34474/0"></a>
+                  <span class="op-tag"></span>
+                </li>
+              </ul>
+              <div class="thumb lbf-button-group nav" id="thumb">
+                <a href="#item1" class="lbf-button" data-eid="qd_A185">
+                  <span></span>重生明朝当皇帝</a>
+                <a href="#item2" class="lbf-button active" data-eid="qd_A186">未来天王</a>
+                <a href="#item3" class="lbf-button" data-eid="qd_A187">我的影子会挂机</a>
+                <a href="#item4" class="lbf-button" data-eid="qd_A188">火影之恶魔法则</a>
+                <a href="#item5" class="lbf-button game-link" target="_blank" data-eid="qd_A189">
+                  <em class="iconfont yxtd"></em>新品免费看</a></div>
+            </div>
+          </div>
+          <div class="focus-img cf">
+            <ul>
+              <li>
+                <span class="op-tag"></span>
+                <a href="https://acts.qidian.com/2017/5913967/" target="_blank" data-eid="qd_A90" data-qd_dd_p1="1">
+                  <img src="//qidian.qpic.cn/qidian_common/349573/b0231238d20ae42d7bb9741b6e560cb6/0"></a>
+              </li>
+              <li class="middle">
+                <span class="op-tag"></span>
+                <a href="http://cpgame.qd.game.qidian.com/Home/Index/directLogin/name/mxsj/way/1?qd_game_key=mxsjcp180x140&amp;qd_dd_p1=252" target="_blank" data-eid="qd_A91" data-qd_dd_p1="1">
+                  <img src="//qidian.qpic.cn/qidian_common/349573/3300cb79546bc50c4dd2d3a22b49b3f3/0"></a>
+              </li>
+              <li>
+                <span class="op-tag"></span>
+                <a href="http://www.qidian.com/news/detail/481892234" target="_blank" data-eid="qd_A92" data-qd_dd_p1="1">
+                  <img src="//qidian.qpic.cn/qidian_common/349573/b7b02e2833c020f10950c6e0bc269489/0"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="notice-wrap fr">
+          <div class="notice" id="notice" data-l1="7">
+            <a class="more" id="more-notice" href="//www.qidian.com/news/index" target="_blank" data-eid="qd_A190">
+              <em class="dib-wrap point">
+                <span></span>
+                <span></span>
+                <span></span>
+              </em>
+              <i>
+              </i>
+            </a>
+            <h3>
+              <a href="http://acts.qidian.com/2017/5823523/index.html" target="_blank" data-eid="qd_A93">剑指玄幻王，等你来战</a></h3>
+            <div class="notice-list">
+              <ul>
+                <li class="color-type_0" data-rid="1">
+                  <a href="http://www.colpc.cn/" target="_blank" data-eid="qd_A94">
+                    <i>「</i>资讯
+                    <i>」</i>中国网络文学+ 大会</a>
+                </li>
+                <li class="color-type_0" data-rid="2">
+                  <a href="https://acts.qidian.com/2017/5921333/index.html" target="_blank" data-eid="qd_A95">
+                    <i>「</i>资讯
+                    <i>」</i>热血九书·忠诚之美</a>
+                </li>
+                <li class="color-type_0" data-rid="3">
+                  <a href="http://pages.book.qq.com/cs/htsyprize.html" target="_blank" data-eid="qd_A96">
+                    <i>「</i>资讯
+                    <i>」</i>环塔沙域征文获奖公布</a>
+                </li>
+                <li class="color-type_0" data-rid="4">
+                  <a href="http://www.qidian.com/news/detail/493539236" target="_blank" data-eid="qd_A97">
+                    <i>「</i>资讯
+                    <i>」</i>黎川作家班报名开始！</a>
+                </li>
+                <li class="color-type_0" data-rid="5">
+                  <a class="red" href="http://cpgame.qd.game.qidian.com/Home/Index/directLogin/name/mxsj/way/1?qd_game_key=mxsj-7&amp;qd_dd_p1=99" target="_blank" data-eid="qd_A98" data-qd_dd_p1="1">
+                    <em>页游</em>冒险岛</a></li>
+                <li class="color-type_0" data-rid="6">
+                  <a class="red" href="http://act.game.qidian.com/thinkphp/index.php?s=Home/ActXnzwWeb/index&amp;qd_game_key=xn-7&amp;qd_dd_p1=362" target="_blank" data-eid="qd_A99" data-qd_dd_p1="1">
+                    <em>手游</em>《仙逆》续篇征文大赛</a></li>
+              </ul>
+            </div>
+            <div class="attention">
+              <ul id="wordSlide" class="word_slide" data-rel="#wordSlide li">
+                <em class="iconfont"></em>
+                <li id="wordList1" style="display: list-item; transition: transform 250ms linear; backface-visibility: hidden; transform: translateY(0%);" data-rel="wordList1" data-rid="1">
+                  <a href="http://www.qidian.com/Book/1001836.aspx" target="_blank" data-eid="qd_A100">八指琴魔1230订阅了《大唐御医》</a></li>
+                <li id="wordList2" data-rel="wordList2" data-rid="1" style="display: list-item; transition: transform 250ms linear; transform: translateY(-100%); backface-visibility: hidden;">
+                  <a href="http://www.qidian.com/Book/3184195.aspx" target="_blank" data-eid="qd_A100">孙宗义订阅了《太浩》</a></li>
+                <li id="wordList3" data-rel="wordList3" data-rid="2" style="display: list-item; transition: transform 250ms linear; transform: translateY(-100%); backface-visibility: hidden;">
+                  <a href="http://www.qidian.com/Book/1003782761.aspx" target="_blank" data-eid="qd_A100">太阳爱冰棒订阅了《我是杀毒软件》</a></li>
+                <li id="wordList4" data-rel="wordList4" data-rid="3" style="display: list-item; transition: transform 250ms linear; transform: translateY(-100%); backface-visibility: hidden;">
+                  <a href="http://www.qidian.com/Book/1931432.aspx" target="_blank" data-eid="qd_A100">放飞的人订阅了《校花的贴身高手》</a></li>
+                <li id="wordList5" data-rel="wordList5" data-rid="4" style="display: list-item; transition: transform 250ms linear; transform: translateY(-100%); backface-visibility: hidden;">
+                  <a href="http://www.qidian.com/Book/1004049700.aspx" target="_blank" data-eid="qd_A100">永夜之旅订阅了《美酒供应商》</a></li>
+                <li id="wordList6" data-rel="wordList6" data-rid="5" style="display: list-item; transition: transform 250ms linear; transform: translateY(-100%); backface-visibility: hidden;">
+                  <a href="http://www.qidian.com/Book/1004139649.aspx" target="_blank" data-eid="qd_A100">暗夜※繁星订阅了《有扇通往地下城的门》</a></li>
+                <li id="wordList7" data-rel="wordList7" data-rid="6" style="display: list-item; transition: transform 250ms linear; transform: translateY(-100%); backface-visibility: hidden;">
+                  <a href="http://www.qidian.com/Book/1004052452.aspx" target="_blank" data-eid="qd_A100">猫修罗订阅了《最强炊事兵》</a></li>
+                <li id="wordList8" data-rel="wordList8" data-rid="7" style="display: list-item; transition: transform 250ms linear; transform: translateY(-100%); backface-visibility: hidden;">
+                  <a href="http://www.qidian.com/Book/1003530168.aspx" target="_blank" data-eid="qd_A100">修罗之刻订阅了《特拉福买家俱乐部》</a></li>
+                <li id="wordList9" data-rel="wordList9" data-rid="8" style="display: list-item; transition: transform 250ms linear; transform: translateY(-100%); backface-visibility: hidden;">
+                  <a href="http://www.qidian.com/Book/3584720.aspx" target="_blank" data-eid="qd_A100">？小小？订阅了《超级美食帝国》</a></li>
+                <li id="wordList10" data-rel="wordList10" data-rid="9" style="display: list-item; transition: transform 250ms linear; transform: translateY(-100%); backface-visibility: hidden;">
+                  <a href="http://www.qidian.com/Book/1551407.aspx" target="_blank" data-eid="qd_A100">风月风云订阅了《末世超级商人》</a></li>
+                <li id="wordList11" data-rel="wordList11" data-rid="10" style="display: list-item; transition: transform 250ms linear; transform: translateY(-100%); backface-visibility: hidden;">
+                  <a href="http://www.qidian.com/Book/1003578910.aspx" target="_blank" data-eid="qd_A100">svgngj订阅了《重生封神之逆天成圣》</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="notice-banner" id="tr-banner" data-l1="30">
+            <div class="op-tag"></div>
+            <a href="http://cpgame.qd.game.qidian.com/Home/Index/directLogin/name/ytx/way/1?qd_game_key=ytx216x150&amp;qd_dd_p1=893" target="_blank" data-eid="qd_A101" data-qd_dd_p1="1" style="display: inline;">
+              <img src="//qidian.qpic.cn/qidian_common/349573/32c7c8659daa6e198dc0396f2578327a/0"></a>
+            <a href="javascript:" target="_blank" data-eid="qd_A101" data-qd_dd_p1="1"></a>
+          </div>
+        </div>
+          </div>
+	</body>
+</html>
