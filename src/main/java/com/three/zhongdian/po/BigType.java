@@ -6,15 +6,8 @@ public class BigType {
     private Integer id;
     private String name;
 
-    private List<SmallType> smallTypes;
+    private List<Book> books;
 
-    public List<SmallType> getSmallTypes() {
-        return smallTypes;
-    }
-
-    public void setSmallTypes(List<SmallType> smallTypes) {
-        this.smallTypes = smallTypes;
-    }
 
     public Integer getId() {
         return id;
@@ -32,13 +25,20 @@ public class BigType {
         this.name = name;
     }
 
+    public List<Book> getBooks() {
+        return books;
+    }
+
+    public void setBooks(List<Book> books) {
+        this.books = books;
+    }
+
     @Override
     public String toString() {
         return "BigType{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", smallTypes=" + smallTypes +
+                ", books=" + books +
                 '}';
     }
-
 }

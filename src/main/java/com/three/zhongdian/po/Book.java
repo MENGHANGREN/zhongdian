@@ -11,10 +11,10 @@ public class Book implements java.io.Serializable {
     private String picpath;
     private String filepath;
     private String info;
-    private Integer sid;
+    private Integer bid;
     private String status;
 
-    private SmallType smallType;
+    private BigType bigType;
 
     @Override
     public String toString() {
@@ -28,18 +28,18 @@ public class Book implements java.io.Serializable {
                 ", picpath='" + picpath + '\'' +
                 ", filepath='" + filepath + '\'' +
                 ", info='" + info + '\'' +
-                ", sid=" + sid +
+                ", bid=" + bid +
                 ", status='" + status + '\'' +
-                ", smallType=" + smallType +
+                ", bigType=" + bigType +
                 '}';
     }
 
-    public SmallType getSmallType() {
-        return smallType;
+    public BigType getBigType() {
+        return bigType;
     }
 
-    public void setSmallType(SmallType smallType) {
-        this.smallType = smallType;
+    public void setBigType(BigType bigType) {
+        this.bigType = bigType;
     }
 
     public String getStatus() {
@@ -122,11 +122,11 @@ public class Book implements java.io.Serializable {
         this.info = info;
     }
 
-    public Integer getSid() {
-        return sid;
+    public Integer getBid() {
+        return bid;
     }
 
-    public void setSid(Integer sid) {
-        this.sid = sid;
+    public void setBid(Integer bid) {
+        this.bid = bid;
     }
 }
