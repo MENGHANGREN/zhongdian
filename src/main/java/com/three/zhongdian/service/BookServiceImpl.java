@@ -43,7 +43,6 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public List<Book> findBookByMap(Map<String, Object> map) {
-        PageHelper.startPage(1,10);
         return bookMapper.findBookByMap(map);
     }
 }

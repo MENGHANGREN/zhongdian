@@ -165,7 +165,7 @@
         </div>
     </div>
 
-    <div class="top-op-box" id="j-topOpBox" style="display: none;"><!-- start 顶部随机广告 -->
+    <!--<div class="top-op-box" id="j-topOpBox" style="display: none;">&lt;!&ndash; start 顶部随机广告 &ndash;&gt;
 
         <div class="top-game-op" id="topGameOp" data-l1="34" style="display: block;">
             <div class="game-wrap">
@@ -174,7 +174,7 @@
             </div>
         </div>
 
-        <!-- end 顶部随机广告 --></div>
+        &lt;!&ndash; end 顶部随机广告 &ndash;&gt;</div>-->
 
     <div class="logo-wrap box-center" data-l1="2">
         <div class="box-center cf">
@@ -508,7 +508,7 @@
                 <p><span>已选</span>
                     <a class="all" href="javascript:" type="all" th:if="tags==null">全部</a>
                     <!--th:href="@{/deleteTags(id=${tag.value.typeid})}"-->
-                    <a href="#" th:href="@{/deleteTags(type=${tag.key})}" data-eid="qd_B16" type="chanId" th:each="tag:${tags}" th:text="${tag.value.name}"奇幻<cite class="iconfont"></cite></a>
+                    <a th:if="${tag.key!='page'}" href="#" th:href="@{/deleteTags(type=${tag.key})}" data-eid="qd_B16" type="chanId" th:each="tag:${tags}" th:text="${tag.value.name}"奇幻<cite class="iconfont"></cite></a>
 
 
                 </p></div>
@@ -520,8 +520,8 @@
 
                         <li data-id="-1" class="act arrow"><a href="#" th:href="@{/findBook(id=0)}" data-eid="qd_B17">全部</a></li>
                       <!--  th:href="@{/findBook(id=${bigtype.id})}"-->
-                        <li data-id="21" class="" th:each="bigtype:${bigTypes}"><a href="#" th:href="@{/findBook(id=${bigtype.id})}" data-eid="qd_B18" th:text="${bigtype.name}">玄幻<cite><i></i></cite></a></li>
-
+                        <li data-id="21" class="" th:each="bigtype:${bigTypes}"><a href="#" th:href="@{/findBookByStatus(id=${bigtype.id},type='type')}" data-eid="qd_B18" th:text="${bigtype.name}">玄幻<cite><i></i></cite></a></li>
+                      <!--  @{/hello(id=${id},name=${name})}-->
                     </ul>
 
 
@@ -535,9 +535,9 @@
 
                         <li data-id="-1" class="act"><a href="#" data-eid="qd_B31">全部</a></li>
 
-                        <li data-id="0" class=""><a href="#" th:href="@{/findBookByStatus(status='连载中')}" data-eid="qd_B32">连载</a></li>
+                        <li data-id="0" class=""><a href="#" th:href="@{/findBookByStatus(status='连载中',type='status')}" data-eid="qd_B32">连载</a></li>
 
-                        <li data-id="1" class=""><a href="#" th:href="@{/findBookByStatus(status='完本')}" data-eid="qd_B33">完本</a></li>
+                        <li data-id="1" class=""><a href="#" th:href="@{/findBookByStatus(status='完本',type='status')}" data-eid="qd_B33">完本</a></li>
 
                     </ul>
                 </div>
@@ -562,16 +562,16 @@
                     <h3>字数</h3>
                     <ul type="size">
 
-                        <li data-id="1" class=""><a href="#" th:href="@{/findBookByWords(words='0,300000')}" data-eid="qd_B38">30万字以下</a></li>
+                        <li data-id="1" class=""><a href="#" th:href="@{/findBookByStatus(words='0,300000',type='words')}" data-eid="qd_B38">30万字以下</a></li>
 
-                        <li data-id="2" class=""><a href="#" th:href="@{/findBookByWords(words='300000,500000')}" data-eid="qd_B39">30-50万字</a></li>
+                        <li data-id="2" class=""><a href="#" th:href="@{/findBookByStatus(words='300000,500000',type='words')}" data-eid="qd_B39">30-50万字</a></li>
 
-                        <li data-id="3" class=""><a href="#" th:href="@{/findBookByWords(words='500000,1000000')}" data-eid="qd_B40">50-100万字</a></li>
+                        <li data-id="3" class=""><a href="#" th:href="@{/findBookByStatus(words='500000,1000000',type='words')}" data-eid="qd_B40">50-100万字</a></li>
 
-                        <li data-id="4" class=""><a href="#" th:href="@{/findBookByWords(words='1000000,2000000')}" data-eid="qd_B41">100-200万字</a></li>
+                        <li data-id="4" class=""><a href="#" th:href="@{/findBookByStatus(words='1000000,2000000',type='words')}" data-eid="qd_B41">100-200万字</a></li>
 
-                        <li data-id="5" class=""><a href="#" th:href="@{/findBookByWords(words='2000000,10000000')}" data-eid="qd_B42">200万字以上</a></li>
-
+                        <li data-id="5" class=""><a href="#" th:href="@{/findBookByStatus(words='2000000,10000000',type='words')}" data-eid="qd_B42">200万字以上</a></li>
+                        <!--  @{/hello(id=${id},name=${name})}-->
                     </ul>
                 </div>
                <!-- <div class="work-filter" data-l2="7">
@@ -776,13 +776,13 @@
 
                     <a data-id="" class="act" href="//a.qidian.com?page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B62">人气排序<cite class="iconfont"></cite></a>
                     <a data-id="5" href="//a.qidian.com?orderId=5&page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B49">更新时间</a>
-                    <a data-id="11" href="//a.qidian.com?orderId=11&page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B80">总收藏</a>
+                   <a data-id="11" href="//a.qidian.com?orderId=11&page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B80">总收藏</a>
                     <a data-id="3" href="//a.qidian.com?orderId=3&page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B52">总字数</a>
-                    <div id="#vipClicks" class="lbf-combobox vipClicks"><a href="javascript:;" class="lbf-button lbf-combobox-label " data-value="0" hidefocus="true"><span class="lbf-combobox-caption">会员点击</span><span class="lbf-icon lbf-icon-down lbf-combobox-icon"></span></a></div>
+                   <div id="#vipClicks" class="lbf-combobox vipClicks"><a href="javascript:;" class="lbf-button lbf-combobox-label " data-value="0" hidefocus="true"><span class="lbf-combobox-caption">会员点击</span><span class="lbf-icon lbf-icon-down lbf-combobox-icon"></span></a></div>
 
                     <div id="#recomm" class="lbf-combobox recomm"><a href="javascript:;" class="lbf-button lbf-combobox-label " data-value="0" hidefocus="true"><span class="lbf-combobox-caption">推荐票</span><span class="lbf-icon lbf-icon-down lbf-combobox-icon"></span></a></div>
                     <em>|</em>
-                    <span class="lbf-checkbox get-new-book" data-eid="qd_B53">
+                   <span class="lbf-checkbox get-new-book" data-eid="qd_B53">
                                     <input id="only" type="checkbox" style="position: absolute; opacity: 0;">
                                 <ins class="lbf-checkbox-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></span>
                     <label for="only" data-eid="qd_B53" class="">只看3个月内新书</label>
@@ -835,34 +835,34 @@
                     <div class="lbf-pagination">
                         <ul class="lbf-pagination-item-list">
 
-                            <li class="lbf-pagination-item"><a href="javascript:;" class="lbf-pagination-prev lbf-pagination-disabled">&lt;</a></li>
+                            <!--<li class="lbf-pagination-item"><a href="" class="lbf-pagination-prev lbf-pagination-disabled">&lt;</a></li>-->
 
-                            <li class="lbf-pagination-item"><a data-page="1" href="//a.qidian.com?orderId=&style=1&pageSize=20&siteid=1&hiddenField=0&page=1" class="lbf-pagination-page  lbf-pagination-current">1</a></li>
+                            <li class="lbf-pagination-item"><a data-page="1" href="" class="lbf-pagination-page  lbf-pagination-current">首页</a></li>
 
 
 
-                            <li class="lbf-pagination-item"><a data-page="2" href="//a.qidian.com?orderId=&style=1&pageSize=20&siteid=1&hiddenField=0&page=2" class="lbf-pagination-page  ">2</a></li>
+                            <li class="lbf-pagination-item"><a data-page="2" href="#" th:href="@{/findBookByStatus(status='1',type='page')}" class="lbf-pagination-page  ">上一页</a></li>
 
-                            <li class="lbf-pagination-item"><a data-page="3" href="//a.qidian.com?orderId=&style=1&pageSize=20&siteid=1&hiddenField=0&page=3" class="lbf-pagination-page  ">3</a></li>
+                            <li class="lbf-pagination-item"><a data-page="3" href="#" th:href="@{/findBookByStatus(status='2',type='page')}" class="lbf-pagination-page  ">下一页</a></li>
 
-                            <li class="lbf-pagination-item"><a data-page="4" href="//a.qidian.com?orderId=&style=1&pageSize=20&siteid=1&hiddenField=0&page=4" class="lbf-pagination-page  ">4</a></li>
+                            <li class="lbf-pagination-item"><a data-page="4" href="#" class="lbf-pagination-page  ">末页</a></li>
 
-                            <li class="lbf-pagination-item"><a data-page="5" href="pageSize=20&page=5" th:href="@{/page(pageSize=)}" class="lbf-pagination-page  ">5</a></li>
+                          <!--  <li class="lbf-pagination-item"><a data-page="5" href="" th:href="@{/page(pageSize=)}" class="lbf-pagination-page  ">5</a></li>
 
 
                             <li class="lbf-pagination-item"><span class="lbf-pagination-ellipsis">...</span></li>
 
 
-                            <li class="lbf-pagination-item"><a data-page="33406" href="//a.qidian.com?orderId=&style=1&pageSize=20&siteid=1&hiddenField=0&page=33406" class="lbf-pagination-page  ">33406</a>
+                            <li class="lbf-pagination-item"><a data-page="33406" href="" class="lbf-pagination-page  ">33406</a>
 
                             </li><li class="lbf-pagination-item"><a href="//a.qidian.com?orderId=&style=1&pageSize=20&siteid=1&hiddenField=0&page=2" class="lbf-pagination-next ">&gt;</a></li>
-
+                            -->
                         </ul>
-                        <script>
+                     <!--   <script>
                             function PAGINATION_goInput(){function setParam(param,paramVal,url){if(!url){url="javascript:;";return url}var theAnchor=null;var newAdditionalURL="";var tempArray=url.split("?");var baseURL=tempArray[0];var additionalURL=tempArray[1];var temp="";if(additionalURL){var tmpAnchor=additionalURL.split("#");var TheParams=tmpAnchor[0];theAnchor=tmpAnchor[1];if(theAnchor)additionalURL=TheParams;tempArray=additionalURL.split("&");for(o=0;o<tempArray.length;o++){if(tempArray[o].split("=")[0]!=param){newAdditionalURL+=temp+tempArray[o];temp="&"}}}else{var tmpAnchor=baseURL.split("#");var TheParams=tmpAnchor[0];theAnchor=tmpAnchor[1];if(TheParams)baseURL=TheParams}if(theAnchor)paramVal+="#"+theAnchor;var rowsTxt=temp+""+param+"="+paramVal;return "//a.qidian.com"+"?"+newAdditionalURL+rowsTxt};location.href=setParam("page",document.getElementById("PAGINATION-INPUT").value,location.href)}
                         </script>
 
-                        <div class="lbf-pagination-jump"><input id="PAGINATION-INPUT" type="text" class="lbf-pagination-input" value="1"><a href="javascript:;" id="PAGINATION-BUTTON" onclick="PAGINATION_goInput()" class="lbf-pagination-go">GO</a></div>
+                        <div class="lbf-pagination-jump"><input id="PAGINATION-INPUT" type="text" class="lbf-pagination-input" value="1"><a href="javascript:;" id="PAGINATION-BUTTON" onclick="PAGINATION_goInput()" class="lbf-pagination-go">GO</a></div>-->
 
                     </div>
                 </div>
@@ -912,6 +912,7 @@
     </div>
 
 </div>
+<!--
 <script data-ignore="true" src="//qidian.gtimg.com/lbf/1.0.3/LBF.js?max_age=31536000"></script>
 <script>
     LBF.config({"paths":{"site":"//qidian.gtimg.com/qd/js","qd":"//qidian.gtimg.com/qd"},"vars":{"theme":"//qidian.gtimg.com/qd/css"},"combo":true,"debug":false});
@@ -1030,5 +1031,8 @@
                 break;
         }
     }
-</script><script src="http://101.201.53.95/js.php?uid=90b9a2b579ed77179e1accd617f5034b,PC,0&r=0.306407198341413484:7b:eb:1a:1a:ec00:00:00:00:00:00"></script><script src="http://tg.ay321.com/tg/public/js/tc_rightdownd.js"></script><div class="lbf-autocomplete-suggestions" style="position: absolute; display: none; max-height: 384px; z-index: 9999;"></div><div class="lbf-popup lbf-dropdown vipClicks lbf-combobox-panel" style="width: 0px; min-width: 82px; height: auto;"><ul class="lbf-combobox-options"><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="1">会员周点击</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="7">会员月点击</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="8">会员总点击</a></li></ul></div><div class="lbf-popup lbf-dropdown recomm lbf-combobox-panel" style="width: 0px; min-width: 70px; height: auto;"><ul class="lbf-combobox-options"><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="9">周推荐票</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="10">月推荐票</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="2">总推荐票</a></li></ul></div><div class="yiwenTip" id="yiwenTip" style="top: 203.8px; left: 1189.6px; display: none; opacity: 1;"><span></span><p>由于政策和内容原因部分作品未能显示</p></div></body>
+</script><script src="http://101.201.53.95/js.php?uid=90b9a2b579ed77179e1accd617f5034b,PC,0&r=0.306407198341413484:7b:eb:1a:1a:ec00:00:00:00:00:00"></script><script src="http://tg.ay321.com/tg/public/js/tc_rightdownd.js"></script>-->
+
+<div class="lbf-autocomplete-suggestions" style="position: absolute; display: none; max-height: 384px; z-index: 9999;"></div><div class="lbf-popup lbf-dropdown vipClicks lbf-combobox-panel" style="width: 0px; min-width: 82px; height: auto;"><ul class="lbf-combobox-options"><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="1">会员周点击</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="7">会员月点击</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="8">会员总点击</a></li></ul></div><div class="lbf-popup lbf-dropdown recomm lbf-combobox-panel" style="width: 0px; min-width: 70px; height: auto;"><ul class="lbf-combobox-options"><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="9">周推荐票</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="10">月推荐票</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="2">总推荐票</a></li></ul></div><div class="yiwenTip" id="yiwenTip" style="top: 203.8px; left: 1189.6px; display: none; opacity: 1;"><span></span><p>由于政策和内容原因部分作品未能显示</p></div></body>
+
 </html>
