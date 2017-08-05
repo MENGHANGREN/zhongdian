@@ -1,0 +1,199 @@
+<html><head>
+    <meta charset="UTF-8">
+    <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费">
+    <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
+    <meta name="robots" content="all">
+    <meta name="googlebot" content="all">
+    <meta name="baiduspider" content="all">
+    <meta http-equiv="mobile-agent" content="format=wml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.qidian.com">
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://h5.qidian.com/bookstore.html">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <title>账号登录 | 起点中文网_起点中文网_阅文集团旗下网站</title>
+    <link rel="stylesheet" type="text/css" href="https://sta.gtimg.com/c/=/qd2/css/cssreset.css,/qd2/css/header.css,/qd2/css/login.css,/qd2/css/layout.css,/qd2/css/sprites.css,/qd2/css/ui.css,/qd2/css/footer.css,/qd2/css/font.css,/qd2/css/reg.css,/qd2/css/pact.css">
+    <link rel="shortcut icon" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.2.ico">
+    <link rel="Bookmark" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.2.ico"></head>
+<script src="https://sta.gtimg.com/c/=/qd/js/jquery-1.9.1.min.js,/qd/js/lulu/Checkbox.js,/js/front_login.js,/js/login_v2.js,/js/phoneAreaSortNew.js"></script>
+<script src="https://qidian.gtimg.com/lbf/2.0.0/qidian/report.js"></script>
+<body>
+<style>
+    body {
+        background:none;
+    }
+</style>
+<script>
+    function login(){
+        var username = $("#username").val();
+        var password = $("#password").val();
+        $.post("user/login",{username:username,password:password},function(data){
+
+        })
+        
+    }
+</script>
+<!-- start 登录区 -->
+<div class="login-wrap fl">
+    <a class="close" id="close" onclick="parent.closelogin()" style="cursor:hand"><em class="iconfont"></em></a>    <!-- start 登录切换 -->
+    <div class="login-tab cf" id="j_loginTab">
+        <ul>
+            <li class="lang act stat" tab="qidian" data-stat="qd_L01|账号登录|1">账号登录</li>
+            <li class="lang  stat" tab="qq" data-stat="qd_L02|QQ登录|1">QQ登录</li>
+            <li class="lang  stat" tab="weixin" data-stat="qd_L03|微信登录|1">微信登录</li>
+        </ul>
+    </div>
+    <!-- end 登录切换 -->
+
+    <!-- start 登录切换容器 -->
+    <div class="login-switch-wrap">
+        <div class="login-tab-wrap" id="j_loginSwitchWrap">
+            <!-- start 阅文通行证 -->
+            <div class="login-box qd-login yw-login ">
+                <!-- start webPC登录容器 -->
+                <div class="web-login-wrap">
+                    <!-- start 两种输入模式容器 -->
+                    <div class="login-input-mode" id="j-loginInputMode">
+                        <!-- start 输入登录模式 -->
+                        <div class="login-mode input-mode show" id="j-inputMode">
+                            <div class="error-tip hidden"></div>
+                            <dl>
+                                <dd><em class="iconfont">
+                                    </em><input type="text" tabindex="1" placeholder="手机/邮箱/用户名" id="username" name="username">
+                                </dd>
+                                <dd><em class="iconfont">
+                                    </em><input type="password" tabindex="2" placeholder="密码" id="password" name="password">
+                                </dd>
+                              <!--  <dd class="code-input" style="display:none;" id="dvCode"><em class="iconfont">
+                                    </em><input type="text" id="txtCode" placeholder="请输入验证码">
+                                    <img src="" id="imgCode" alt="验证码">
+                                    <div class="code-tip">
+                                        <cite></cite>
+                                        <p>点击图片刷新</p>
+                                    </div>
+                                </dd>-->
+                            </dl>
+                            <!-- start 登录操作 -->
+                            <div class="login-common-wrap">
+                                <div class="auto-login-box cf">
+                                    <div class="link fr">
+                                        <a href="https://aq.yuewen.com/welcome/validateuser" target="_blank" id="forgetPsw">忘记密码</a>
+                                    </div>
+                                    <input type="checkbox" id="autologin" tabindex="3" name="checkbox" checked="checked">
+                                    <label for="autologin" class="ui-checkbox" data-stat="qd_L04|勾选自动登录|2" data-off-stat="qd_L05|取消自动登录|2"></label><label for="autologin">自动登录</label>
+                                </div>
+                                <a class="red-btn go-login btnLogin login-button" onclick="login()">登 录</a>
+                            </div>
+                            <!-- end 登录操作 -->
+                        </div>
+                        <!-- end 输入登录模式 -->
+
+
+                        <!-- end 手机登录模式 -->
+                        <!-- start 通用结构 -->
+                        <div class="common-html-wrap">
+                            <!-- start 注册 -->
+                            <div class="reg-wrap">
+                                <p>
+                                    <a class="input" href="javascript:" id="j-switchToggle">手机验证码登录</a><em id="emRegQd">|</em><a href="/reg.html?appid=10&amp;areaid=1&amp;target=iframe&amp;ticket=1&amp;auto=1&amp;autotime=30&amp;ajaxdm=&amp;returnUrl=http%3A%2F%2Fac.qidian.com%2Flogin%2Findex%3Fsurl%3Dhttp%253A%252F%252Fwww.qidian.com%252F%26qdFrom%3D1" target="_blank" id="regQd">免费注册</a>
+                                </p>
+                            </div>
+                            <!-- end 注册 -->
+                            <!-- start 其他登录方式 -->
+                            <div class="other-way" id="j-moreMode">
+                                <p style="display: block; opacity: 1;">
+                                    <a class="icon-alipay" href="https://ptlogin.qidian.com/login/alipaylogin?appid=10&amp;areaid=1&amp;target=iframe&amp;ticket=1&amp;auto=1&amp;autotime=30&amp;ajaxdm=&amp;returnUrl=http%3A%2F%2Fac.qidian.com%2Flogin%2Findex%3Fsurl%3Dhttp%253A%252F%252Fwww.qidian.com%252F%26qdFrom%3D1&amp;jumpdm=qidian" target="_blank"><em class="iconfont">
+                                        </em></a>
+                                    <a class="icon-sina" href="https://ptlogin.qidian.com/login/weibologin?appid=10&amp;areaid=1&amp;target=iframe&amp;ticket=1&amp;auto=1&amp;autotime=30&amp;ajaxdm=&amp;returnUrl=http%3A%2F%2Fac.qidian.com%2Flogin%2Findex%3Fsurl%3Dhttp%253A%252F%252Fwww.qidian.com%252F%26qdFrom%3D1&amp;jumpdm=qidian" target="_blank"><em class="iconfont">
+                                        </em></a>
+                                    <a class="icon-baidu" href="https://ptlogin.qidian.com/login/baidulogin?appid=10&amp;areaid=1&amp;target=iframe&amp;ticket=1&amp;auto=1&amp;autotime=30&amp;ajaxdm=&amp;returnUrl=http%3A%2F%2Fac.qidian.com%2Flogin%2Findex%3Fsurl%3Dhttp%253A%252F%252Fwww.qidian.com%252F%26qdFrom%3D1&amp;jumpdm=qidian" target="_blank"><em class="iconfont">
+                                        </em></a>
+                                </p>
+                            </div>
+                            <!-- end 通用结构 -->
+                            <!-- start 更多登录方式 -->
+                            <div class="more-wrap">
+                                <a class="more-btn" id="j-moreBtn" href="javascript:">更多登录方式</a>
+                            </div>
+                            <!-- end 更多登录方式 -->
+                        </div>
+                        <!-- end 两种模式通用结构 -->
+
+                    </div>
+                    <!-- end 两种输入模式容器 -->
+                    <!-- login-mode-switch 后加 class切换   input：输入模式 scan：扫码模式 -->
+                    <!-- start 右下角扫码和输入模式登录切换 -->
+                    <div class="login-mode-switch scan" id="j-switchLoginMode">
+                        <a href="javascript:"></a>
+                    </div>
+                    <!-- end 右下角扫码和输入模式登录切换 -->
+                    <!-- start 扫码登录容器 -->
+                    <div class="scan-mode hidden" id="j-scanMode">
+                        <h3>扫码登录</h3>
+                        <div class="qr-code">
+                            <div class="reload hidden">
+                                <div class="info">
+                                    <em class="iconfont" id="iconImgQrCodeReload"></em>
+                                    <p>二维码已过期</p>
+                                    <p><a id="imgQrCodeReload" href="javascript:">点击刷新</a></p>
+                                </div>
+                            </div>
+                            <img id="imgQrCode" alt="二维码" src="">
+                            <p>
+                                打开<a href="http://www.yuewen.com/app.html#appqd" class="blue" target="_blank">起点读书客户端</a>扫一扫登录
+                            </p>
+                        </div>
+                        <div class="icon-wrap">
+                            <span><em class="iconfont"></em>免输入</span>
+                            <span><em class="iconfont"></em>更安全</span>
+                            <span><em class="iconfont"></em>更快捷</span>
+                        </div>
+                    </div>
+                    <!-- end 扫码登录容器 -->
+                </div>
+                <!-- end webPC登录容器 -->
+
+                <!-- start 滑块验证码 -->
+                <div class="slide-check hidden" id="j-slideCheck">
+                    <h3>完成下方验证进行登录</h3>
+                    <!--如果是http域名使用&#45;&#45;captcha.qq.com，https使用ssl.captcha.qq.com-->
+                    <!-- http://captcha.qq.com/template/TCapIframeApi.js?aid=1600000770&amp;rand=0.7595169853884727&amp;clientype=2&amp;apptype=1&amp;captype=7&amp;disturblevel=1-->
+                    <div id="cap_iframe" style="width:300px;height:44px; margin: 0 auto"></div>
+                </div>
+                <!-- end 滑块验证码 -->
+
+            </div>
+            <!-- end 阅文通行证 -->
+            <!-- start QQ登录容0器 -->
+            <div class="login-box qq-login hidden">
+                <div id="div_qqlogin" style="height:351px;">
+                </div>
+            </div>
+            <!-- end QQ登录容器 -->
+            <!-- start 微信登录容器 -->
+            <div class="login-box wechat-login hidden">
+                <div id="div_weixinlogin" style="height:360px;">
+                </div>
+            </div>
+            <!-- end 微信登录容器 -->
+        </div>
+    </div>
+    <!-- end 登录切换容器 -->
+
+</div>
+<!-- end 登录区 -->
+
+<script src="https://sta.gtimg.com/c/=/qd/js/jquery-1.9.1.min.js,/qd/js/lulu/Checkbox.js,/js/front_login.js,/js/login_v2.js,/js/phoneAreaSortNew.js"></script>
+<script>
+    $(function () {
+        LoginV1.init({"appId":"10","areaId":"1","format":"json","method":"","autoTime":30,"autoShow":1,"target":"iframe","autoLoginFlag":"1","returnUrl":"http:\/\/ac.qidian.com\/login\/index?surl=http%3A%2F%2Fwww.qidian.com%2F&qdFrom=1","loginfrom":"","tab":"qidian","ticket":1,"popup":1,"domain":"passport.qidian.com","baseUrl":"https:\/\/ptlogin.qidian.com","qqBaseUrl":"https:\/\/login.book.qq.com","qqDomain":".qq.com","cssPath":"https:\/\/sta.gtimg.com","isQidian":true,"ajaxdm":"","jumpdm":"qidian","style":0});
+        LoginV1.initPhoneAreaSelect();
+    });
+</script><script src="https://qidian.gtimg.com/lbf/2.0.0/qidian/report.js"></script>
+<script src="https://sta.gtimg.com/js/stat.js"></script>
+<script>
+    $(function () {
+        Stat.init();
+    });
+</script>
+
+</body></html>

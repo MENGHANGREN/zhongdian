@@ -17,95 +17,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="renderer" content="webkit">
     <meta name="baidu-site-verification" content="d4rhkT9Dh0">
-   <!-- <script src="//pingjs.qq.com/h5/stats.js?v2.0.2" name="MTAH5" sid="500451537"></script>
+    <link rel="stylesheet" type="text/css" href="https://sta.gtimg.com/c/=/qd2/css/cssreset.css,/qd2/css/header.css,/qd2/css/login.css,/qd2/css/layout.css,/qd2/css/sprites.css,/qd2/css/ui.css,/qd2/css/footer.css,/qd2/css/font.css,/qd2/css/reg.css,/qd2/css/pact.css">
+    <link rel="shortcut icon" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.2.ico">
+    <link rel="Bookmark" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.2.ico">
+    <link data-ignore="true" rel="shortcut icon" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.3.ico">
+    <link data-ignore="true" rel="Bookmark" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.3.ico">
+    <link rel="stylesheet" data-ignore="true" href="//qidian.gtimg.com/c/=/qd/css/reset.0.77.css,/qd/css/lbfUI/css/icon.0.76.css,/qd/css/global.0.51.css,/qd/css/font.0.87.css,/qd/css/header.01.2.css,/qd/css/module.1.27.css,/qd/css/index.1.33.css,/qd/css/layout.0.78.css,/qd/css/qd_popup.0.89.css,/qd/css/footer.0.83.css,/qd/css/lbfUI/css/ComboBox.0.90.css,/qd/css/lbfUI/css/Button.0.76.css,/qd/css/lbfUI/css/Autocomplete.0.76.css">
+    <link charset="utf-8" rel="stylesheet" href="http://qidian.gtimg.com/qd/css/lbfUI/css/Dropdown.css">
+    <link charset="utf-8" rel="stylesheet" href="http://qidian.gtimg.com/qd/css/lbfUI/css/Autocomplete.css">
+    <link charset="utf-8" rel="stylesheet" href="http://qidian.gtimg.com/qd/css/lbfUI/css/Popup.css">
+    <script type="text/javascript" charset="utf-8" async="" src="http://ecma.bdimg.com/public03/imageplus/sticker/pa_lu_nobtn_inviewshow.app.js?cacheTime=417180"></script>
+    <script type="text/javascript" charset="utf-8" async="" src="http://ecma.bdimg.com/public03/imageplus/sticker/pa_links_new2_cs_colorconfigurable.app.js?cacheTime=417180"></script>
+    <script type="text/javascript" async="" src="http://cpro.baidustatic.com/cpro/ui/pr.js"></script>
+    <script type="text/javascript" async="" src="http://1.yhzm.cc/aeycbycerddwruuycx.js"></script>
+    <script src="//pingjs.qq.com/h5/stats.js?v2.0.2" name="MTAH5" sid="500451537"></script>
     <script>document.domain = 'qidian.com';</script>
-    <script>function getCookie(name) {
-        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-        if (arr = document.cookie.match(reg)) {
-          return (arr[2]);
-        } else {
-          return null;
-        }
-      }
-      //遇到cookie ns == 1 跳转到老版 加各域名
-      if (getCookie('ns') == 1) {
-        location.href = '//www.qidian.com/2009';
-      }</script>
-    <script>var speedTimer = [],
-      speedZero = new Date().getTime();</script>
-    <script>//遇到cookie tf=1的话留在本站，否则跳转移动站
-      if (getCookie('tf') != 1) {
-        //判断是以下设备后跳转到m站
-        if (navigator.userAgent.match(/(iPhone|iPod|Android)/i)) {
-          location.href = "//m.qidian.com"
-        }
-      } else {
-        // M站设置了一年，这里fixed
-        setCookie('tf', 1, 'qidian.com', '/', 0);
-      }
-      // start 防劫持
-      //设置cookie
-      function setCookie(name, value, domain, path, expires) {
-        if (expires) {
-          expires = new Date( + new Date() + expires);
-        }
-        var tempcookie = name + '=' + escape(value) + ((expires) ? '; expires=' + expires.toGMTString() : '') + ((path) ? '; path=' + path: '') + ((domain) ? '; domain=' + domain: '');
-        //Ensure the cookie's size is under the limitation
-        if (tempcookie.length < 4096) {
-          document.cookie = tempcookie;
-        }
-      }
-      //获取cookie
-      function getCookie(name) {
-        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-        if (arr = document.cookie.match(reg)) return (arr[2]);
-        else return null;
-      }
-      //创建并发送请求
-      function createSender(url) {
-        var img = new Image();
-        img.onload = img.onerror = function() {
-          img = null;
-        };
-        img.src = url;
-      }; (function() {
-        /*
-         *防劫持逻辑所需参数在此处设置参数即可
-         *cookieName:用于记录连续被劫持的次数，为防止死循环，cookie值为3以上则不进行url重置
-         *cookieDomain:cookie所在的域
-         *reportUrl:非连续性劫持时上报的接口地址【如无需上报，可不填】
-         *reportUrl2：连续性劫持时上报的接口地址【如无需上报，可不填】
-         */
-        var cookieName = 'hiijack';
-        var cookieDomain = '.qidian.com';
-        var reportUrl = '//book.qidian.com/ajax/safe/hiijackReport?times=1&_csrfToken=' + getCookie('_csrfToken') || '';
-        var reportUrl2 = '//book.qidian.com/ajax/safe/hiijackReport?times=3&_csrfToken=' + getCookie('_csrfToken') || '';
-        //判断是否被iframe
-        if (top.location.href !== self.location.href) {
-          //用于记录被劫持的次数
-          var countHijack;
-          //如果未设置cookie，则需要set一下cookie，否则获取此cookie的值
-          if (!getCookie(cookieName)) {
-            setCookie(cookieName, 0, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
-            countHijack = 0;
-          } else {
-            countHijack = parseInt(getCookie(cookieName));
-          }
-          //如果连续被劫持的次数大于等于3次，则发请求上报此情况,否则上报非连续性的情况,同时累加被劫持次数、重置当前url
-          if (countHijack >= 3) {
-            reportUrl2 && reportUrl2 != '' && createSender(reportUrl2);
-          } else {
-            reportUrl && reportUrl != '' && createSender(reportUrl);
-            countHijack++;
-            setCookie(cookieName, countHijack, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
-            top.location = self.location.href;
-          }
-        }
-        //每次成功进入页面则计数清0
-        setCookie(cookieName, 0, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
-      })();
-      //end 防劫持
-      </script>-->
+    <script type="text/javascript" src="//dup.baidustatic.com/js/ds.js"></script>
+    <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/i.js"></script>
+    <script type="text/javascript" src="http://1.yhzm.cc/gx3a1ece96ffc3fe30db4c3e92a9e43aa156e1.js"></script>
+
+    <!-- <script src="//pingjs.qq.com/h5/stats.js?v2.0.2" name="MTAH5" sid="500451537"></script>
+     <script>document.domain = 'qidian.com';</script>
+     <script>function getCookie(name) {
+         var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+         if (arr = document.cookie.match(reg)) {
+           return (arr[2]);
+         } else {
+           return null;
+         }
+       }
+       //遇到cookie ns == 1 跳转到老版 加各域名
+       if (getCookie('ns') == 1) {
+         location.href = '//www.qidian.com/2009';
+       }</script>
+     <script>var speedTimer = [],
+       speedZero = new Date().getTime();</script>
+     <script>//遇到cookie tf=1的话留在本站，否则跳转移动站
+       if (getCookie('tf') != 1) {
+         //判断是以下设备后跳转到m站
+         if (navigator.userAgent.match(/(iPhone|iPod|Android)/i)) {
+           location.href = "//m.qidian.com"
+         }
+       } else {
+         // M站设置了一年，这里fixed
+         setCookie('tf', 1, 'qidian.com', '/', 0);
+       }
+       // start 防劫持
+       //设置cookie
+       function setCookie(name, value, domain, path, expires) {
+         if (expires) {
+           expires = new Date( + new Date() + expires);
+         }
+         var tempcookie = name + '=' + escape(value) + ((expires) ? '; expires=' + expires.toGMTString() : '') + ((path) ? '; path=' + path: '') + ((domain) ? '; domain=' + domain: '');
+         //Ensure the cookie's size is under the limitation
+         if (tempcookie.length < 4096) {
+           document.cookie = tempcookie;
+         }
+       }
+       //获取cookie
+       function getCookie(name) {
+         var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+         if (arr = document.cookie.match(reg)) return (arr[2]);
+         else return null;
+       }
+       //创建并发送请求
+       function createSender(url) {
+         var img = new Image();
+         img.onload = img.onerror = function() {
+           img = null;
+         };
+         img.src = url;
+       }; (function() {
+         /*
+          *防劫持逻辑所需参数在此处设置参数即可
+          *cookieName:用于记录连续被劫持的次数，为防止死循环，cookie值为3以上则不进行url重置
+          *cookieDomain:cookie所在的域
+          *reportUrl:非连续性劫持时上报的接口地址【如无需上报，可不填】
+          *reportUrl2：连续性劫持时上报的接口地址【如无需上报，可不填】
+          */
+         var cookieName = 'hiijack';
+         var cookieDomain = '.qidian.com';
+         var reportUrl = '//book.qidian.com/ajax/safe/hiijackReport?times=1&_csrfToken=' + getCookie('_csrfToken') || '';
+         var reportUrl2 = '//book.qidian.com/ajax/safe/hiijackReport?times=3&_csrfToken=' + getCookie('_csrfToken') || '';
+         //判断是否被iframe
+         if (top.location.href !== self.location.href) {
+           //用于记录被劫持的次数
+           var countHijack;
+           //如果未设置cookie，则需要set一下cookie，否则获取此cookie的值
+           if (!getCookie(cookieName)) {
+             setCookie(cookieName, 0, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
+             countHijack = 0;
+           } else {
+             countHijack = parseInt(getCookie(cookieName));
+           }
+           //如果连续被劫持的次数大于等于3次，则发请求上报此情况,否则上报非连续性的情况,同时累加被劫持次数、重置当前url
+           if (countHijack >= 3) {
+             reportUrl2 && reportUrl2 != '' && createSender(reportUrl2);
+           } else {
+             reportUrl && reportUrl != '' && createSender(reportUrl);
+             countHijack++;
+             setCookie(cookieName, countHijack, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
+             top.location = self.location.href;
+           }
+         }
+         //每次成功进入页面则计数清0
+         setCookie(cookieName, 0, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
+       })();
+       //end 防劫持
+       </script>-->
     <link data-ignore="true" rel="shortcut icon" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.3.ico">
     <link data-ignore="true" rel="Bookmark" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.3.ico">
     <link rel="stylesheet" data-ignore="true" href="css/Autocomplete.0.75.css">
@@ -131,7 +150,7 @@
               <em>|</em>
               <a id="exit-btn" href="javascript:" data-eid="qd_A10">退出</a></div>
             <div class="sign-out">
-              <a id="login-btn" class="black" href="javascript:" data-eid="qd_A06">登录</a>
+              <a id="login-btn" class="black" href="javascript:" data-eid="qd_A06" onclick="document.getElementById('tologin').style.display='block'">登录</a>
               <em>|</em>
               <a id="reg-btn" href="//passport.qidian.com/reg.html?appid=10&amp;areaid=1&amp;target=iframe&amp;ticket=1&amp;auto=1&amp;autotime=30&amp;returnUrl=http%3A%2F%2Fwww.qidian.com" target="_blank" data-eid="qd_A07">注册</a></div>
           </div>
@@ -698,5 +717,21 @@
           </div>
         </div>
           </div>
+
+
+<!--登录模态框-->
+    <div style="display:none;"  id="tologin">
+      <div class="mask"></div>
+
+      <div class="qdlogin-wrap">
+        <iframe id="loginIfr" src="login.html" name="frameLG" allowtransparentcy="true" width="100%" height="100%" scrolling="no"
+                frameborder="no"></iframe>
+      </div>
+    </div>
+  <script>
+    function closelogin(){
+        document.getElementById('tologin').style.display='none';
+    }
+  </script>
 	</body>
 </html>

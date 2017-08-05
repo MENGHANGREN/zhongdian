@@ -2,9 +2,9 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.three.zhongdian.mapper.BookMapper">
+<mapper namespace="com.three.zhongdian.book.mapper.BookMapper">
 
-    <resultMap id="findAll" type="com.three.zhongdian.po.Book">
+    <resultMap id="findAll" type="com.three.zhongdian.book.po.Book">
         <id column="id" property="id"></id>
         <result column="name" property="name"></result>
         <result column="words" property="words"></result>
@@ -16,14 +16,14 @@
         <result column="info" property="info"></result>
         <result column="status" property="status"></result>
         <result column="bid" property="bid"></result>
-        <association property="bigType" javaType="com.three.zhongdian.po.BigType">
+        <association property="bigType" javaType="com.three.zhongdian.book.po.BigType">
             <id column="bigtypeid" property="id"></id>
             <result column="bigtypename" property="name"></result>
         </association>
     </resultMap>
 
 
-   <!-- <resultMap id="findtype" type="com.three.zhongdian.po.BigType">
+   <!-- <resultMap id="findtype" tyBigTypeType">
         <id column="bigtypeid" property="id"></id>
         <result column="bigtypename" property="name"></result>
         <collection property="smallTypes" ofType="com.three.zhongdian.po.SmallType">
@@ -50,7 +50,7 @@
           from  book book ,bigtype b where book.bid = b.id
 	</select>
 
-    <select id="findBigType" resultType="com.three.zhongdian.po.BigType">
+    <select id="findBigType" resultType="com.three.zhongdian.book.po.BigType">
         select * from bigtype
     </select>
     <select id="findBookByType" parameterType="int" resultMap="findAll">
@@ -70,7 +70,7 @@
             b.name bigtypename
           from  book book ,bigtype b where book.bid = b.id and b.id = #{id}
     </select>
-    <select id="findTypeById" parameterType="int" resultType="com.three.zhongdian.po.BigType">
+    <select id="findTypeById" parameterType="int" resultType="com.three.zhongdian.book.po.BigType">
     select * from bigtype where id = #{id}
     </select>
 
