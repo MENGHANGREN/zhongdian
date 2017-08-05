@@ -1,19 +1,17 @@
 package com.three.zhongdian.controller;
 
 import com.github.pagehelper.PageHelper;
-import com.three.zhongdian.config.ToolPage;
 import com.three.zhongdian.po.BigType;
 import com.three.zhongdian.po.Book;
 import com.three.zhongdian.po.Tag;
 import com.three.zhongdian.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -59,7 +57,8 @@ public class BookController {
         mv.addObject("tags",tags);
         return mv;
     }*/
-
+    /* @RequestMapping("/{url}")
+     public String url(@PathVariable("url") String url){return url;}*/
     @RequestMapping("/deleteTags")
     public ModelAndView deleteTags(String type,HttpSession session){
         System.out.println(type);
