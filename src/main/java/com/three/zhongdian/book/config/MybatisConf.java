@@ -1,4 +1,4 @@
-package com.three.zhongdian.config;
+package com.three.zhongdian.book.config;
 
 import com.github.pagehelper.PageHelper;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.three.zhongdian.po;
+package com.three.zhongdian.book.po;
 
 public class Tag {
     private Integer id;
