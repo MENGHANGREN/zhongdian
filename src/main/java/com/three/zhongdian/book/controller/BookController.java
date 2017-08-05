@@ -1,13 +1,12 @@
-package com.three.zhongdian.controller;
+package com.three.zhongdian.book.controller;
 
 import com.github.pagehelper.PageHelper;
-import com.three.zhongdian.po.BigType;
-import com.three.zhongdian.po.Book;
-import com.three.zhongdian.po.Tag;
-import com.three.zhongdian.service.BookService;
+import com.three.zhongdian.book.po.BigType;
+import com.three.zhongdian.book.po.Book;
+import com.three.zhongdian.book.po.Tag;
+import com.three.zhongdian.book.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
