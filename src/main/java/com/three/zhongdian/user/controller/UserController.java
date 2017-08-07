@@ -17,7 +17,7 @@ import javax.servlet.http.HttpSession;
 public class UserController {
     @Autowired
     private UserService userService;
-    @RequestMapping("login")
+    @RequestMapping("tologin")
     @ResponseBody
     public String login(HttpSession session,User user){
         User loginUser = userService.login(user);
@@ -27,6 +27,14 @@ public class UserController {
         }
         return "0";
     }
-
+    /*
+        清除session的方法
+         */
+    @RequestMapping("clearSession")
+    public String clear(HttpSession session){
+        System.out.println("开始登录"+"=============================");
+        session.removeAttribute("loginUser");
+        return "index";
+    }
 
 }
