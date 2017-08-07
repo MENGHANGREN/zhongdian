@@ -7,6 +7,7 @@ import com.three.zhongdian.book.po.Tag;
 import com.three.zhongdian.book.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -62,8 +63,10 @@ public class BookController {
         mv.addObject("tags",tags);
         return mv;
     }*/
-    /* @RequestMapping("/{url}")
-     public String url(@PathVariable("url") String url){return url;}*/
+     @RequestMapping("/{url}")
+     public String url(@PathVariable("url") String url){return url;}
+
+
     @RequestMapping("/deleteTags")
     public ModelAndView deleteTags(String type,HttpSession session){
         System.out.println(type);
