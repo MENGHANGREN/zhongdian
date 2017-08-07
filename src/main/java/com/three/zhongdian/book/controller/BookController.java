@@ -7,10 +7,16 @@ import com.three.zhongdian.book.po.Tag;
 import com.three.zhongdian.book.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -187,42 +193,59 @@ public class BookController {
         mv.addObject("tags",tags);
         return mv;
     }
-
-   /* @RequestMapping("/findBookByWords")
-    public ModelAndView findBookByWords(String words,HttpSession session){
-        String[] str = words.split(",");
+    @RequestMapping("/searchBook")
+    public ModelAndView searchBook(HttpSession session,String name){
         Map<String,Object> tags = (Map)session.getAttribute("tags");
-        Tag tag = new Tag();
-        if(Integer.parseInt(str[0])==300000){
-            tag.setName("30万-50万");
-        }
-        else if(Integer.parseInt(str[0])==0){
-            tag.setName("30万以下");
-        }
-        else if(Integer.parseInt(str[0])==500000){
-            tag.setName("50万-100万");
-        }
-        else if(Integer.parseInt(str[0])==1000000){
-            tag.setName("100万-200万");
-        }
-        else if(Integer.parseInt(str[0])==2000000){
-            tag.setName("200万以上");
-        }
+        tags.clear();
+        session.setAttribute("tags",tags);
+       List<Book> books =  bookService.findBookByName(name);
 
-        tag.setMin(Integer.parseInt(str[0]));
-        tag.setMax(Integer.parseInt(str[1]));
-        tags.put("words",tag);
-        List<Book> books = bookService.findBookByMap(tags);
         List<BigType> bigTypes = bookService.findBigType();
-
         ModelAndView mv = new ModelAndView();
         mv.setViewName("list");
         mv.addObject("books",books);
         mv.addObject("bigTypes",bigTypes);
         mv.addObject("tags",tags);
-
         return mv;
-    }*/
-
+    }
+    @RequestMapping("/findBookById")
+    public ModelAndView findBookById(int id){
+        Book book = bookService.findBookById(id);
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("book");
+        mv.addObject("book",book);
+        return mv;
+    }
+    @RequestMapping(value = "/testDownload", method = RequestMethod.GET)
+    public void testDownload(HttpServletResponse res,String filepath) {
+        res.setHeader("content-type", "application/octet-stream");
+        res.setContentType("application/octet-stream");
+        res.setHeader("Content-Disposition", "attachment;filename=" + filepath);
+        byte[] buff = new byte[1024];
+        BufferedInputStream bis = null;
+        OutputStream os = null;
+        try {
+            os = res.getOutputStream();
+            bis = new BufferedInputStream(new FileInputStream(new File("d://book//"
+                    + filepath)));
+            int i = bis.read(buff);
+            while (i != -1) {
+                os.write(buff, 0, buff.length);
+                os.flush();
+                i = bis.read(buff);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (bis != null) {
+                try {
+                    bis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        System.out.println("success");
+    }
 
 }

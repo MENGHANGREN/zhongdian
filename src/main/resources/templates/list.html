@@ -188,8 +188,8 @@
                 <a href="//www.qidian.com" data-eid="qd_A11"></a>
             </div>
             <div class="search-wrap fl">
-                <form id="formUrl" action="//se.qidian.com" method="get" target="_blank">
-                    <p><input class="search-box" id="s-box" name="kw" type="text" placeholder="超神机械师" autocomplete="off"></p>
+                <form id="formUrl" action="#" th:action="@{/searchBook}" method="post">
+                    <p><input class="search-box" id="s-box" name="name" type="text" autocomplete="off"></p>
                     <input class="submit-input" type="submit" id="searchSubmit" data-eid="qd_A13">
                     <label id="search-btn" class="search-btn" for="searchSubmit"><em class="iconfont" data-eid="qd_A13">
                         </em></label>
@@ -508,7 +508,7 @@
             </div>
             <div class="selected" data-l2="2">
                 <p><span>已选</span>
-                    <a class="all" href="javascript:" type="all" th:if="tags==null">全部</a>
+                   <!-- <a class="all" href="javascript:" type="all" th:if="tags==null">全部</a>-->
                     <!--th:href="@{/deleteTags(id=${tag.value.typeid})}"-->
                     <a th:if="${tag.key!='page'}" href="#" th:href="@{/deleteTags(type=${tag.key})}" data-eid="qd_B16" type="chanId" th:each="tag:${tags}" th:text="${tag.value.name}"奇幻<cite class="iconfont"></cite></a>
 
@@ -520,7 +520,7 @@
                     <h3>分类</h3>
                     <ul class="row-1" type="category">
 
-                        <li data-id="-1" class="act arrow"><a href="#" th:href="@{/findBook(id=0)}" data-eid="qd_B17">全部</a></li>
+                       <!-- <li data-id="-1" class="act arrow"><a href="#" th:href="@{/findBook(id=0)}" data-eid="qd_B17">全部</a></li>-->
                       <!--  th:href="@{/findBook(id=${bigtype.id})}"-->
                         <li data-id="21" class="" th:each="bigtype:${bigTypes}"><a href="#" th:href="@{/findBookByStatus(id=${bigtype.id},type='type')}" data-eid="qd_B18" th:text="${bigtype.name}">玄幻<cite><i></i></cite></a></li>
                       <!--  @{/hello(id=${id},name=${name})}-->
@@ -535,7 +535,7 @@
                     <h3>状态</h3>
                     <ul type="action">
 
-                        <li data-id="-1" class="act"><a href="#" data-eid="qd_B31">全部</a></li>
+                     <!--   <li data-id="-1" class="act"><a href="#" data-eid="qd_B31">全部</a></li>-->
 
                         <li data-id="0" class=""><a href="#" th:href="@{/findBookByStatus(status='连载中',type='status')}" data-eid="qd_B32">连载</a></li>
 
@@ -611,7 +611,7 @@
 
                     <ul type="tag">
 
-                        <li data-eid="qd_B46" class="act"><a href="//a.qidian.com?orderId=&page=1&style=1&pageSize=20&siteid=1&hiddenField=0">全部</a></li>
+                        <li data-eid="qd_B46" class="act"><a  href="//a.qidian.com?orderId=&page=1&style=1&pageSize=20&siteid=1&hiddenField=0">全部</a></li>
 
                         <li data-eid="qd_B47" data-tid="豪门"><a href="//a.qidian.com?tag=豪门&orderId=&page=1&style=1&pageSize=20&siteid=1&hiddenField=0">豪门</a></li>
 
@@ -807,10 +807,10 @@
 
                         <li data-rid="1" th:each="book: ${books}">
                             <div class="book-img-box">
-                                <a href="//book.qidian.com/info/3513193" data-bid="3513193" data-eid="qd_B57" target="_blank"><img th:attr="src=${book.picpath}"  src=""></a>
+                                <a href="#" th:href="@{/findBookById(id=${book.id})}" data-bid="3513193" data-eid="qd_B57" target="_blank"><img th:attr="src=${book.picpath}"  src=""></a>
                             </div>
                             <div class="book-mid-info">
-                                <h4><a href="//book.qidian.com/info/3513193" target="_blank" data-eid="qd_B58" data-bid="3513193" th:text="${book.name}">雪鹰领主</a></h4>
+                                <h4><a href="#" th:href="@{/findBookById(id=${book.id})}" target="_blank" data-eid="qd_B58" data-bid="3513193" th:text="${book.name}">雪鹰领主</a></h4>
                                 <p class="author">
                                     <img src="//qidian.gtimg.com/qd/images/ico/user.0.1.png"><a class="name" href="http://me.qidian.com/authorIndex.aspx?id=4362096" data-eid="qd_B59" target="_blank" th:text="${book.author}">我吃西红柿</a><em>|</em><a href="//xuanhuan.qidian.com" target="_blank" data-eid="qd_B60" th:text="${book.bigType.name}">玄幻</a><!--<i>·</i><a class="go-sub-type" data-typeid="21" data-subtypeid="73" href="javascript:" data-eid="qd_B61" th:text="${book.smallType.name}">异世大陆</a>--><em>|</em><span th:text="${book.status}">连载中</span>
                                 </p>
