@@ -1,9 +1,8 @@
-package com.three.zhongdian.service;
+package com.three.zhongdian.book.service;
 
-import com.github.pagehelper.PageHelper;
-import com.three.zhongdian.mapper.BookMapper;
-import com.three.zhongdian.po.BigType;
-import com.three.zhongdian.po.Book;
+import com.three.zhongdian.book.mapper.BookMapper;
+import com.three.zhongdian.book.po.BigType;
+import com.three.zhongdian.book.po.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
