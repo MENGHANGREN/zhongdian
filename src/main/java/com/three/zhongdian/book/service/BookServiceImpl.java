@@ -44,4 +44,14 @@ public class BookServiceImpl implements BookService {
     public List<Book> findBookByMap(Map<String, Object> map) {
         return bookMapper.findBookByMap(map);
     }
+
+    @Override
+    public Book findBookById(int id) {
+        return bookMapper.findBookById(id);
+    }
+
+    @Override
+    public List<Book> findBookByName(String name) {
+        return bookMapper.findBookByName(name);
+    }
 }

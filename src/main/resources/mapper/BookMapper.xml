@@ -102,6 +102,27 @@
         </if>
 
     </select>
+    <select id="findBookById" parameterType="int" resultMap="findAll">
+        SELECT * FROM book WHERE id = #{id}
+    </select>
 
+    <select id="findBookByName" parameterType="java.lang.String" resultMap="findAll">
+          select
+            book.id,
+            book.name,
+            book.words,
+            book.author,
+            book.section,
+            book.click,
+            book.picpath,
+            book.filepath,
+            book.info,
+            book.status,
+            book.bid,
+            b.id bigtypeid,
+            b.name bigtypename
+
+          from  book book ,bigtype b where book.bid = b.id and  book.name LIKE '%${value}%'
+    </select>
 
 </mapper>
