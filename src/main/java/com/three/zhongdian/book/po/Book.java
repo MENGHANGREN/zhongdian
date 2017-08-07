@@ -1,5 +1,7 @@
 package com.three.zhongdian.book.po;
-
+/*
+图书类
+ */
 public class Book implements java.io.Serializable {
 
     private Integer id;

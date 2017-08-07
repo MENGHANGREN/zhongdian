@@ -27,7 +27,11 @@
         var username = $("#username").val();
         var password = $("#password").val();
         $.post("user/login",{username:username,password:password},function(data){
+          if(data=="1"){
 
+          }else {
+
+          }
         })
         
     }
@@ -54,6 +58,7 @@
                     <!-- start 两种输入模式容器 -->
                     <div class="login-input-mode" id="j-loginInputMode">
                         <!-- start 输入登录模式 -->
+
                         <div class="login-mode input-mode show" id="j-inputMode">
                             <div class="error-tip hidden"></div>
                             <dl>

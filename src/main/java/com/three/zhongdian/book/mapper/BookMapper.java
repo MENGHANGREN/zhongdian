@@ -2,6 +2,7 @@ package com.three.zhongdian.book.mapper;
 
 import com.three.zhongdian.book.po.BigType;
 import com.three.zhongdian.book.po.Book;
+import com.three.zhongdian.user.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
