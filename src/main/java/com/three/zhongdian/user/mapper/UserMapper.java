@@ -16,7 +16,7 @@ public interface UserMapper {
     /*
     登陆的方法
      */
-    @Select("select * from user where username=#{username},password=#{password}")
+    @Select("select * from user where (username=#{username} or mail=#{username} or phone=#{username}) and password=#{password}")
     List<User> login(User user);
 
 }
