@@ -30,11 +30,13 @@ public class UserController {
     /*
         清除session的方法
          */
+    @RequestMapping("index")
+    public String index(){return "index";}
     @RequestMapping("clearSession")
     public String clear(HttpSession session){
         System.out.println("开始登录"+"=============================");
         session.removeAttribute("loginUser");
-        return "index";
+        return "redirect:index";
     }
 
 }
