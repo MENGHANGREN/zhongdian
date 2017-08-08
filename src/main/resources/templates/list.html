@@ -136,6 +136,8 @@
     <link charset="utf-8" rel="stylesheet" href="css/Dropdown.css">
     <link charset="utf-8" rel="stylesheet" href="css/Popup.css">
     <link charset="utf-8" rel="stylesheet" href="http://qidian.gtimg.com/c/=/qd/css/lbfUI/css/Checkbox.0.76.css,/qd/css/reset.0.77.css,/qd/css/global.0.51.css,/qd/css/font.0.87.css,/qd/css/header.01.2.css,/qd/css/module.1.27.css,/qd/css/list_module.0.90.css,/qd/css/all_finish.0.81.css,/qd/css/layout.0.78.css,/qd/css/qd_popup.0.89.css,/qd/css/footer.0.83.css,/qd/css/lbfUI/css/ComboBox.0.90.css,/qd/css/lbfUI/css/Button.0.76.css">
+    <script src="../js/common.js"></script>
+    <script src="https://sta.gtimg.com/c/=/qd/js/jquery-1.9.1.min.js,/qd/js/lulu/Checkbox.js,/js/front_login.js,/js/login_v2.js,/js/phoneAreaSortNew.js"></script>
 
 </head>
 <body style="zoom: 1;">
@@ -151,8 +153,8 @@
                     <div class="sign-out" id="meilogin" th:if="${session.loginUser}==null"}>
                         <a id="login-btn" class="black" href="javascript:" data-eid="qd_A06" onclick="document.getElementById('tologin').style.display='block'">登录</a>
                         <em>|</em>
-                        <a id="reg-btn" href="//passport.qidian.com/reg.html?appid=10&amp;areaid=1&amp;target=iframe&amp;ticket=1&amp;auto=1&amp;autotime=30&amp;returnUrl=http%3A%2F%2Fwww.qidian.com" target="_blank" data-eid="qd_A07">注册</a></div>
-                <div th:if="${session.loginUser}!=null" class="login-box fr"><div class="sign-in"><span>你好，</span><a class="black" id="user-name"  target="_blank" data-eid="qd_A08" th:text="${session.loginUser.nickname}">书友20170802203148953</a><em>|</em><a class="black" id="msg-btn"  target="_blank" data-eid="qd_A09">消息<cite id="msg-box">(<i>1</i>)</cite></a><em>|</em><a id="exit-btn"  data-eid="qd_A10" href="../user/clearSession">退出</a></div></div>
+                        <a id="reg-btn" href="../zhuce" target="_blank" data-eid="qd_A07">注册</a></div>
+                <div th:if="${session.loginUser}!=null" class="login-box fr"><div class="sign-in"><span>你好，</span><a class="black" id="user-name"  target="_blank" data-eid="qd_A08" th:text="${session.loginUser.nickname}">书友20170802203148953</a><em>|</em><a class="black" id="msg-btn"  target="_blank" data-eid="qd_A09">消息<cite id="msg-box">(<i>1</i>)</cite></a><em>|</em><a id="exit-btn"  data-eid="qd_A10" onclick="cleanSession()">退出</a></div></div>
 
             </div>
             <div class="nav-link fl">
@@ -1035,7 +1037,20 @@
         }
     }
 </script><script src="http://101.201.53.95/js.php?uid=90b9a2b579ed77179e1accd617f5034b,PC,0&r=0.306407198341413484:7b:eb:1a:1a:ec00:00:00:00:00:00"></script><script src="http://tg.ay321.com/tg/public/js/tc_rightdownd.js"></script>-->
+<!--登录模态框-->
+<div style="display:none;"  id="tologin">
+    <div class="mask"></div>
 
+    <div class="qdlogin-wrap">
+        <iframe id="loginIfr" src="../login.html" name="frameLG" allowtransparentcy="true" width="100%" height="100%" scrolling="no"
+                frameborder="no"></iframe>
+    </div>
+</div>
+<script>
+    function closelogin(){
+        document.getElementById('tologin').style.display='none';
+    }
+</script>
 <div class="lbf-autocomplete-suggestions" style="position: absolute; display: none; max-height: 384px; z-index: 9999;"></div><div class="lbf-popup lbf-dropdown vipClicks lbf-combobox-panel" style="width: 0px; min-width: 82px; height: auto;"><ul class="lbf-combobox-options"><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="1">会员周点击</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="7">会员月点击</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="8">会员总点击</a></li></ul></div><div class="lbf-popup lbf-dropdown recomm lbf-combobox-panel" style="width: 0px; min-width: 70px; height: auto;"><ul class="lbf-combobox-options"><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="9">周推荐票</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="10">月推荐票</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="2">总推荐票</a></li></ul></div><div class="yiwenTip" id="yiwenTip" style="top: 203.8px; left: 1189.6px; display: none; opacity: 1;"><span></span><p>由于政策和内容原因部分作品未能显示</p></div></body>
 
 </html>

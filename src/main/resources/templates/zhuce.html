@@ -1,0 +1,159 @@
+<html><head>
+    <meta charset="UTF-8">
+<meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费">
+<meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
+<meta name="robots" content="all">
+<meta name="googlebot" content="all">
+<meta name="baiduspider" content="all">
+<meta http-equiv="mobile-agent" content="format=wml; url=http://m.qidian.com">
+<meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.qidian.com">
+<meta http-equiv="mobile-agent" content="format=html5; url=http://h5.qidian.com/bookstore.html">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="renderer" content="webkit">
+<title>账号注册_起点中文网_阅文集团旗下网站</title>
+<link rel="stylesheet" type="text/css" href="https://sta.gtimg.com/c/=/qd2/css/cssreset.css,/qd2/css/header.css,/qd2/css/login.css,/qd2/css/layout.css,/qd2/css/sprites.css,/qd2/css/ui.css,/qd2/css/footer.css,/qd2/css/font.css,/qd2/css/reg.css,/qd2/css/pact.css">
+<link rel="shortcut icon" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.2.ico">
+<link rel="Bookmark" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.2.ico">
+
+    <script src="https://sta.gtimg.com/c/=/qd/js/jquery-1.9.1.min.js,/qd/js/lulu/Checkbox.js,/js/front_login.js,/js/login_v2.js,/js/phoneAreaSortNew.js"></script>
+    <script type="text/javascript">
+        // 刷新图片
+        function changeImg() {
+            var imgSrc = $("#imgphonernd");
+            var src = imgSrc.attr("src");
+            imgSrc.attr("src", src);
+        }
+        //为了使每次生成图片不一致，即不让浏览器读缓存，所以需要加上时间戳
+       /function changeUrl(url) {
+            var timestamp = (new Date()).valueOf();
+            var index = url.indexOf("?",url);
+            if (index > 0) {
+                url = url.substring(0, url.indexOf(url, "?"));
+            }
+            if ((url.indexOf("&") >= 0)) {
+                url = url + "×tamp=" + timestamp;
+            } else {
+                url = url + "?timestamp=" + timestamp;
+            }
+            return url;
+        }
+    </script>
+
+    <!--<script>
+    $(document).ready(function(){
+        $.post("../user/toValidateCode",function(data){
+            alert(data)
+            $("#imgphonernd").attr("src",data);
+        })
+
+    })
+
+</script>-->
+</head>
+<body>
+<div class="wrap">
+    <!-- start 头部 -->
+    <div class="header reg-header qidian">
+        <div class="box-center">
+            <div class="logo cf"><a href="http://www.qidian.com"></a><em></em><span class="lang">用户注册</span></div>
+        </div>
+    </div>
+    <!-- end 头部 -->
+    <!-- start 整体居中 -->
+    <div class="box-center">
+        <!-- start 注册模块 -->
+        <div class="reg-wrap">
+            <!-- start 注册进度 -->
+            <div class="reg-step">
+                <!-- 步进到哪一步，就给当前span上class：act -->
+                <span class="lang act"><i>1</i>填写注册信息</span>
+                <span class="lang"><em class="iconfont"></em>注册成功</span>
+            </div>
+            <div class="reg-form-wrap">
+                <form action="">
+                    <div class="reg-form-list form-list">
+                        <dl>
+                            <dd class="top" id="phone"><em>手机号</em>
+                                <input class="mid" type="text" placeholder="输入手机号码" id="txtphonenumber">
+                            </dd>
+                            <dd id="imgphonernd_code"><em>验证码</em><input class="mid" type="text" id="txtphoneimgcode" placeholder="验证码"><img class="code-img" id="imgphonernd" onclick="changeImg()" src="user/toValidateCode" alt="这里是验证码"><a href="" onclick="changeImg()" id="refresh_code" class="stat" data-stat="qd_L08|手机-验证码换一张|3">换一张</a></dd>
+                           <!-- <a class="error-tip">验证码错误</a>-->
+                            <dd id="phonecode"><em>短信验证</em>
+                            <input type="text" class="mid" placeholder="输入验证码" id="txtphonecode">
+                                <a class="get-code stat" href="javascript:" id="get_code" data-stat="qd_L09|获取验证码|3">获取验证码</a> 
+                            </dd><dd id="phonepwd"><em>密码</em><input type="password" id="txtphonepwd" placeholder="6-18位大小写字母、符号或数字">
+                            <div class="password-tip" style="display:none">
+                                <span><cite></cite></span>
+                                <p id="pwdrule1">长度为6-18个字符</p>
+                                <p id="pwdrule2">不能是9位以下的纯数字</p>                                                   
+                                <p id="pwdrule3">不能包含空格</p>
+                            </div>
+                            <div class="password-strong" style="display:none">
+                                    <!-- 以下3个 不会重复出现，目前3个一起出现造成的换行问题请无视 -->
+                                    <p style="display:none"><span class="level-1"><b></b></span>弱</p>
+                                    <p style="display:none"><span class="level-2"><b></b></span>中</p>
+                                    <p style="display:none"><span class="level-3"><b></b></span>强</p>
+                            </div>
+                            </dd>
+                            <dd id="password2"><em>确认密码</em><input type="password" id="txtphonepwd2" placeholder="再次输入密码"></dd>
+                        </dl>
+                        <div class="deal">
+                            <input type="checkbox" id="deal" name="checkbox" checked="">
+                            <label for="deal" class="ui-checkbox"></label><label for="deal">我已阅读并同意</label><a href="https://passport.yuewen.com/pact.html?mobile=0" target="_blank">《用户服务协议》</a>
+                        </div>
+                        <a class="red-btn go-reg" href="javascript:" id="btnPhoneRegister">立即注册</a>
+                        <a class="blue switch-reg stat" data-stat="qd_L10|切换成邮箱注册|3" href="reg.html?appid=10&amp;areaid=1&amp;target=iframe&amp;ticket=1&amp;auto=1&amp;autotime=30&amp;returnUrl=http%3A%2F%2Fwww.qidian.com&amp;type=2">切换成邮箱注册</a>
+                    </div>
+                </form>
+            </div>
+            <!-- end 注册进度 -->
+        </div>
+        <!-- end 注册模块 -->
+    </div>
+    <!-- end 整体居中 -->
+    <!--<script src="https://sta.gtimg.com/qd/js/jquery-1.9.1.min.js"></script>
+    <script src="https://sta.gtimg.com/qd/js/lulu/Checkbox.js"></script>-->
+    <script src="https://sta.gtimg.com/js/jquery.cookie.js"></script>
+    <script src="https://sta.gtimg.com/js/yuewenauth.js"></script>
+    <!-- <script src="https://sta.gtimg.com/js/phoneAreaSortNew.js"></script>-->
+   <script src="https://sta.gtimg.com/js/register_v1.js"></script>
+    <!-- <script src="https://sta.gtimg.com/qd/js/lulu/Select.js"></script>-->
+    <script>
+    var QRegister = new QRegister({"appId":10,"areaId":1,"auto":1,"autoTime":30,"source":"","version":"1","format":"jsonp","method":"","ticket":"1","target":"iframe","backUrl":"http:\/\/www.qidian.com","tab":"","apiUrl":"https:\/\/ptlogin.qidian.com","queryString":"appid=10&areaid=1&target=iframe&ticket=1&auto=1&autotime=30&returnUrl=http%3A%2F%2Fwww.qidian.com","type":1,"from":"qidian","isNeedShowYanbaPop":false,"ajaxdm":"","loginUrl":"login.html?appid=10&areaid=1&target=iframe&ticket=1&auto=1&autotime=30&returnUrl=http%3A%2F%2Fwww.qidian.com"});
+    QRegister.force = 1;
+    QRegister.showCaptcha();
+    
+    </script>
+    
+    <div class="footer">
+    <div class="link">
+        <a href="//www.qidian.com/about/intro" target="_blank">关于起点</a>
+        <a href="//www.qidian.com/about/contact" target="_blank">联系我们</a>
+        <a href="http://join.book.qq.com/index.html" target="_blank">加入我们</a>
+        <a href="http://kf.qidian.com/Default.aspx" target="_blank">客服中心</a>
+        <a href="http://bbs.qidian.com/list/53" target="_blank">提交建议</a>
+        <a href="http://wwwploy.qidian.com/help/about_link.aspx" target="_blank">合作伙伴</a>
+        <a href="http://www.qidian.com/helpcenter/default.aspx" target="_blank">使用指南</a>
+        <a href="http://bbs.qidian.com" target="_blank">起点论坛</a>
+        <a href="http://shop.qidian.com/Index.aspx" target="_blank">起点商城</a>
+    </div>
+    <p>Copyright (C) 2002-2016 www.qidian.com All Right Reserved版权所有 上海玄霆娱乐信息科技有限公司</p>
+    <p>上海玄霆娱乐信息科技有限公司 增值电信业务经营许可证沪B2-20080046 沪网文[2012]0068-008 新出网证（沪）字010 沪ICP备08017520号-1</p>
+    <p>请所有作者发布作品时务必遵守国家互联网信息管理办法规定，我们拒绝任何色情小说，一经发现，即作删除！客服电话：010-59357051</p>
+    <p>本站所收录作品、社区话题、书库评论及本站所做之广告均属个人行为，与本站立场无关</p>
+    <div class="safety-box">
+        <div class="safety-img dib-wrap">
+            <a class="site1" href="http://www.pdxa.cn/Welcome.Asp?Id=3101151112" target="_blank"></a><a class="site2" href="http://www.sgs.gov.cn/lz/licenseLink.do?method=licenceView&amp;entyId=20111011181417625" target="_blank"></a><a class="site3" href="http://www.cyberpolice.cn/wfjb" target="_blank"></a><a class="site4" href="https://ss.knet.cn/verifyseal.dll?sn=e12120411010037414000000&amp;pa=090993" target="_blank"></a><a class="site5" href="http://www.shjbzx.cn" target="_blank"></a><a class="site6" href="http://www.12377.cn/node_548446.htm" target="_blank"></a><a class="site7" href="http://www.12377.cn/" target="_blank"></a>
+        </div>
+        <p>起点正积极配合国家最新发布的《关于办理侵犯知识产权刑事案件适用法律若干问题的意见》，</p>
+        <p>采用刑事手段进行严厉打击盗版，目前相关公安机关已经抓获犯罪嫌疑人15名！正告盗版网站立即停止侵权行为！</p>
+    </div>
+</div></div>
+<script src="https://qidian.gtimg.com/lbf/2.0.0/qidian/report.js"></script>
+<script src="https://sta.gtimg.com/js/stat.js"></script>
+<script>
+    $(function () {
+        Stat.init();
+    });
+</script>
+</body></html>

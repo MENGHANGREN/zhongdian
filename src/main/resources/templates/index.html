@@ -43,7 +43,11 @@
     <link charset="utf-8" rel="stylesheet" href="css/Dropdown.css">
     
     <link charset="utf-8" rel="stylesheet" href="css/Autocomplete.css">
-    <link charset="utf-8" rel="stylesheet" href="css/Popup.css"></head>
+    <link charset="utf-8" rel="stylesheet" href="css/Popup.css">
+    <script src="../js/common.js"></script>
+    <script src="https://sta.gtimg.com/c/=/qd/js/jquery-1.9.1.min.js,/qd/js/lulu/Checkbox.js,/js/front_login.js,/js/login_v2.js,/js/phoneAreaSortNew.js"></script>
+
+  </head>
   <body class="index" data-dynamic="false" style="background-image: url(&quot;&quot;); zoom: 1;">
     <div class="share-img">
       <img src="//qidian.gtimg.com/qd/images/common/share.0.1.png" width="300" height="300"></div>
@@ -51,12 +55,12 @@
         <div class="box-center cf">
           <div class="login-box fr">
 
-            <div class="sign-out" id="meilogin" th:if="${session.loginUser}==null"}>
+            <div class="sign-out" id="meilogin" th:if="${session.loginUser}==null">
               <a id="login-btn" class="black" href="javascript:" data-eid="qd_A06" onclick="document.getElementById('tologin').style.display='block'">登录</a>
               <em>|</em>
-              <a id="reg-btn" href="//passport.qidian.com/reg.html?appid=10&amp;areaid=1&amp;target=iframe&amp;ticket=1&amp;auto=1&amp;autotime=30&amp;returnUrl=http%3A%2F%2Fwww.qidian.com" target="_blank" data-eid="qd_A07">注册</a></div>
+              <a id="reg-btn" href="../zhuce" target="_blank" data-eid="qd_A07">注册</a></div>
           </div>
-          <div th:if="${session.loginUser}!=null" class="login-box fr"><div class="sign-in"><span>你好，</span><a class="black" id="user-name"  target="_blank" data-eid="qd_A08" th:text="${session.loginUser.nickname}">书友20170802203148953</a><em>|</em><a class="black" id="msg-btn"  target="_blank" data-eid="qd_A09">消息<cite id="msg-box">(<i>1</i>)</cite></a><em>|</em><a id="exit-btn"  data-eid="qd_A10" href="../user/clearSession">退出</a></div></div>
+          <div th:if="${session.loginUser}!=null" class="login-box fr"><div class="sign-in"><span>你好，</span><a class="black" id="user-name"  target="_blank" data-eid="qd_A08" th:text="${session.loginUser.nickname}">书友20170802203148953</a><em>|</em><a class="black" id="msg-btn"  target="_blank" data-eid="qd_A09">消息<cite id="msg-box">(<i>1</i>)</cite></a><em>|</em><a id="exit-btn"  data-eid="qd_A10" onclick="cleanSession()">退出</a></div></div>
           <div class="nav-link fl">
             <a class="act" href="//www.qidian.com" data-eid="qd_A01">起点中文网</a>
             <a href="//www.qdmm.com" target="_blank" data-eid="qd_A02">起点女生网</a>
@@ -636,6 +640,5 @@
         document.getElementById('tologin').style.display='none';
     }
   </script>
-  <a href="login.html">sssss</a>
 	</body>
 </html>
