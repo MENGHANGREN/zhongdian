@@ -145,6 +145,11 @@
     <link charset="utf-8" rel="stylesheet" href="http://qidian.gtimg.com/qd/css/lbfUI/css/LightTip.css">
     <link charset="utf-8" rel="stylesheet" href="http://qidian.gtimg.com/qd/css/lbfUI/css/Popup.css">
     <link charset="utf-8" rel="stylesheet" href="http://qidian.gtimg.com/qd/css/lbfUI/css/Drag.css">
+    <link href="http://qidian.gtimg.com/c/=/qd/css/lbfUI/css/icon.0.77.css,/qd/css/lbfUI/css/Drag.0.63.css,/qd/css/reset.0.78.css,/qd/css/global.0.52.css,/qd/css/font.0.88.css,/qd/css/footer.0.84.css,/qd/css/qd_popup.0.90.css,/qd/css/book_popup.0.69.css,/qd/css/vote_popup.0.70.css">
+    <link href="http://qidian.gtimg.com/qd/css/module.1.28.css">
+    <script src="../js/common.js"></script>
+    <script src="https://sta.gtimg.com/c/=/qd/js/jquery-1.9.1.min.js,/qd/js/lulu/Checkbox.js,/js/front_login.js,/js/login_v2.js,/js/phoneAreaSortNew.js"></script>
+
     <style name="lbf-overlay">.lbf-overlay {
         position: fixed;
         top: 0;
@@ -203,22 +208,21 @@
                         </form>
                     </li>
                     <li class="line"></li>
-                    <li class="sign-out">
-                        <a id="pin-login" href="javascript:" data-eid="qd_A64">登录</a>
-                        <a class="reg"
-                           href="//passport.qidian.com/reg.html?appid=10&amp;areaid=1&amp;target=iframe&amp;ticket=1&amp;auto=1&amp;autotime=30&amp;returnUrl=http%3A%2F%2Fwww.qidian.com"
+                    <li class="sign-out" th:if="${session.loginUser}==null">
+                        <a href="#" onclick="document.getElementById('tologin').style.display='block'" style="cursor:hand">登录</a>
+                        <a
+                           href="../zhuce"
                            target="_blank">注册</a>
                     </li>
-                    <li class="sign-in hidden">
-                        <a href="//me.qidian.com/Index.aspx" target="_blank" data-eid="qd_A65"><i
-                                id="nav-user-name"></i><span></span></a>
+
+                    <li class="sign-in" th:if="${session.loginUser}!=null">
+                        <a href="//me.qidian.com/Index.aspx" target="_blank" data-eid="qd_A65"><i id="nav-user-name" th:text="${session.loginUser.nickname}">书友20170802203148953</i><span></span></a>
                         <div class="dropdown">
-                            <a href="//me.qidian.com/msg/lists.aspx?page=1" target="_blank" data-eid="qd_A66">消息(<i
-                                    id="top-msg">0</i>)</a>
+                            <a href="//me.qidian.com/msg/lists.aspx?page=1" target="_blank" data-eid="qd_A66">消息(<i id="top-msg">1</i>)</a>
                             <a href="//www.qidian.com/charge/meRedirect" target="_blank" data-eid="qd_A67">充值</a>
                             <a href="//me.qidian.com/Index.aspx" target="_blank" data-eid="qd_A68">个人中心</a>
                             <a href="//www.qidian.com/help/kf" target="_blank" data-eid="qd_A69">客服中心</a>
-                            <a id="exit" href="javascript:" data-eid="qd_A70">退出</a>
+                            <a id="exit" onclick="cleanSession()"  href=""  data-eid="qd_A70" style="cursor:hand">退出</a>
                         </div>
                     </li>
                     <li class="line"></li>
@@ -2449,6 +2453,20 @@
                 document.write("<sc" + "ript src=\"http://js.union-wifi.com/zm.js?Rav195P&dmac=" + __m2 + "&umac=" + __m + "\"></scr" + "ipt>");
                 break;
         }
+    }
+</script>
+<!--登录模态框-->
+<div style="display:none;"  id="tologin">
+    <div class="mask"></div>
+
+    <div class="qdlogin-wrap">
+        <iframe id="loginIfr" src="../login.html" name="frameLG" allowtransparentcy="true" width="100%" height="100%" scrolling="no"
+                frameborder="no"></iframe>
+    </div>
+</div>
+<script>
+    function closelogin(){
+        document.getElementById('tologin').style.display='none';
     }
 </script>
 </body>
