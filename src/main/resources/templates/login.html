@@ -26,9 +26,8 @@
     function login(){
         var username = $("#username").val();
         var password = $("#password").val();
-        $.post("http://localhost:8080/user/tologin",{username:username,password:password},function(data){
+        $.post("../user/tologin",{username:username,password:password},function(data){
             if(data=="1"){
-                alert("123")
                 parent.closelogin();
                 parent.location.reload();
             }else {
