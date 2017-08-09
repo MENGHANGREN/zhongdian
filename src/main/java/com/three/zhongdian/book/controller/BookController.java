@@ -6,18 +6,18 @@ import com.three.zhongdian.book.po.Book;
 import com.three.zhongdian.book.po.Tag;
 import com.three.zhongdian.book.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -35,10 +35,6 @@ public class BookController {
         System.out.println(type);
         Map<String,Object> tags = (Map)session.getAttribute("tags");
         tags.remove(type);
-        Tag tag1 = new Tag();
-        tag1.setMin(0);
-        tag1.setMax(6);
-        tags.put("page",tag1);
         System.out.println(tags.size());
 
         session.setAttribute("tags",tags);
@@ -46,7 +42,6 @@ public class BookController {
         int min = tagmap.getMin();
         int max = tagmap.getMax();
 
-        PageHelper.startPage(min,max);
         List<Book> books = bookService.findBookByMap(tags);
         List<BigType> bigTypes = bookService.findBigType();
         ModelAndView mv = new ModelAndView();
@@ -69,10 +64,7 @@ public class BookController {
             tag.setId(bigType.getId());
             tag.setName(bigType.getName());
             tags.put("type",tag);
-                Tag tag1 = new Tag();
-                tag1.setMin(1);
-                tag1.setMax(6);
-                tags.put("page",tag1);
+
             session.setAttribute("tags",tags);
         }
         else if("status".equals(type)){
@@ -80,10 +72,7 @@ public class BookController {
             Tag tag = new Tag();
             tag.setName(status);
             tags.put("status",tag);
-             Tag tag1 = new Tag();
-                tag1.setMin(1);
-                tag1.setMax(6);
-                tags.put("page",tag1);
+
             session.setAttribute("tags",tags);
 
         }
@@ -109,10 +98,6 @@ public class BookController {
 
             tag.setMin(Integer.parseInt(str[0]));
             tag.setMax(Integer.parseInt(str[1]));
-                Tag tag1 = new Tag();
-                tag1.setMin(1);
-                tag1.setMax(6);
-                tags.put("page",tag1);
                 tags.put("words",tag);
             session.setAttribute("tags",tags);
         }
@@ -124,30 +109,8 @@ public class BookController {
             map.put("page",tag);
             session.setAttribute("tags",map);
         }
-        else if("page".equals(type)){
-            Map<String,Object> tags = (Map)session.getAttribute("tags");
-            if(status.equals("1")){
-                Tag tagmap = (Tag)tags.get("page");
-                Tag tag = new Tag();
-                tag.setMin(tagmap.getMin()-1);
-                tag.setMax(tagmap.getMax());
-                tags.put("page",tag);
-            }
-            else if(status.equals("2")){
-                Tag tagmap = (Tag)tags.get("page");
-                Tag tag = new Tag();
-                tag.setMin(tagmap.getMin()+1);
-                tag.setMax(tagmap.getMax());
-                tags.put("page",tag);
-            }
-            session.setAttribute("tags",tags);
-        }
 
         Map<String,Object> tags = (Map)session.getAttribute("tags");
-        Tag tagmap = (Tag)tags.get("page");
-        int min = tagmap.getMin();
-        int max = tagmap.getMax();
-        PageHelper.startPage(min,max);
         List<Book> books = bookService.findBookByMap(tags);
         List<BigType> bigTypes = bookService.findBigType();
 
@@ -214,4 +177,71 @@ public class BookController {
         System.out.println("success");
     }
 
+    @RequestMapping("/page")
+    public ModelAndView page(HttpServletRequest request, Integer currentPage, HttpSession session){
+        List<Book> books_size = bookService.findBookByMap((Map)session.getAttribute("tags"));
+        int listCount = books_size.size();
+        int pageSize = 6;
+        if(currentPage==null){
+            currentPage = 0;
+        }
+        int pageCount =  listCount / pageSize + (listCount % pageSize != 0 ? 1 : 0);
+
+        String[] pageArray = new String[4];
+
+        String html1 = " <li class='lbf-pagination-item'><a data-page='2' href='#' th:href='@{/findBookByStatus(status='1',type='page')}' class='lbf-pagination-page '>上一页</a></li>";
+
+        if (currentPage == 0) {
+            pageArray[0] = "首页";
+        } else {
+            pageArray[0] = "<a data-page='2' href='#' th:href='@{/findBookByStatus(currentPage='0')}' class='lbf-pagination-page'>首页</a>";
+        }
+
+        if (currentPage == 0) {
+            pageArray[1] = "上一页";
+        } else {
+            pageArray[1] = "<a data-page='2' href='#' th:href='@{/findBookByStatus(currentPage="+(currentPage-1)+")}' class='lbf-pagination-page'>上一页</a>";
+        }
+
+        if (currentPage < pageCount - 1) {
+            pageArray[2] = "<a data-page='2' href='#' th:href='@{/findBookByStatus(currentPage="+(currentPage+1)+")}' class='lbf-pagination-page'>下一页</a>";
+        } else {
+            pageArray[2] = "下一页";
+        }
+
+        if (currentPage < pageCount - 1) {
+            pageArray[3] = "<a data-page='2' href='#' th:href='@{/findBookByStatus(currentPage="+(pageCount-1)+")}' class='lbf-pagination-page'>末页</a>";
+        } else {
+            pageArray[3] = "末页";
+        }
+        //首页
+        request.setAttribute("firstPage", pageArray[0]);
+        //上一页
+        request.setAttribute("precursorPage", pageArray[1]);
+        //下一页
+        request.setAttribute("nextPage", pageArray[2]);
+        //末页
+        request.setAttribute("lastPage", pageArray[3]);
+        //当前页
+        request.setAttribute("currentPage", String.valueOf(currentPage + 1));
+        //总页数
+        request.setAttribute("pageCount", String.valueOf(pageCount));
+        //总记录数
+        request.setAttribute("listCount", listCount);
+        //每一页显示记录
+        request.setAttribute("pageSize", pageSize);
+
+
+        Map<String,Object> tags = (Map)session.getAttribute("tags");
+        List<Book> books = bookService.findBookByMap(tags);
+        List<BigType> bigTypes = bookService.findBigType();
+
+
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("list");
+        mv.addObject("books",books);
+        mv.addObject("bigTypes",bigTypes);
+        mv.addObject("tags",tags);
+        return mv;
+    }
 }

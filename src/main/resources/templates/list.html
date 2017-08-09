@@ -779,10 +779,10 @@
                 </div>
                 <div class="select-wrap">
 
-                    <a data-id="" class="act" href="//a.qidian.com?page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B62">人气排序<cite class="iconfont"></cite></a>
-                    <a data-id="5" href="//a.qidian.com?orderId=5&page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B49">更新时间</a>
-                   <a data-id="11" href="//a.qidian.com?orderId=11&page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B80">总收藏</a>
-                    <a data-id="3" href="//a.qidian.com?orderId=3&page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B52">总字数</a>
+                    <a data-id="" class="act" href="#" th:href="@{/findBookByStatus(status='click',type='order')}" data-eid="qd_B62">人气排序<cite class="iconfont"></cite></a>
+                    <a data-id="5" href="#" th:href="@{/findBookByStatus(status='updatetime',type='order')}" data-eid="qd_B49">更新时间</a>
+                   <a data-id="11" href="#" th:href="@{/findBookByStatus(status='collect',type='order')}" data-eid="qd_B80">总收藏</a>
+                    <a data-id="3" href="#" th:href="@{/findBookByStatus(status='words',type='order')}" data-eid="qd_B52">总字数</a>
                    <div id="#vipClicks" class="lbf-combobox vipClicks"><a href="javascript:;" class="lbf-button lbf-combobox-label " data-value="0" hidefocus="true"><span class="lbf-combobox-caption">会员点击</span><span class="lbf-icon lbf-icon-down lbf-combobox-icon"></span></a></div>
 
                     <div id="#recomm" class="lbf-combobox recomm"><a href="javascript:;" class="lbf-button lbf-combobox-label " data-value="0" hidefocus="true"><span class="lbf-combobox-caption">推荐票</span><span class="lbf-icon lbf-icon-down lbf-combobox-icon"></span></a></div>
@@ -842,15 +842,15 @@
 
                             <!--<li class="lbf-pagination-item"><a href="" class="lbf-pagination-prev lbf-pagination-disabled">&lt;</a></li>-->
 
-                            <li class="lbf-pagination-item"><a data-page="1" href="" class="lbf-pagination-page  lbf-pagination-current">首页</a></li>
+                            <li class="lbf-pagination-item" th:text="${#request.getAttribute('firstPage')}"><a data-page="1" href="" class="lbf-pagination-page  lbf-pagination-current">首页</a></li>
 
 
 
-                            <li class="lbf-pagination-item"><a data-page="2" href="#" th:href="@{/findBookByStatus(status='1',type='page')}" class="lbf-pagination-page  ">上一页</a></li>
+                            <li class="lbf-pagination-item" th:text="${#request.getAttribute('precursorPage')}"><a data-page="2" href="#" th:href="@{/findBookByStatus(status='1',type='page')}" class="lbf-pagination-page  ">上一页</a></li>
 
-                            <li class="lbf-pagination-item"><a data-page="3" href="#" th:href="@{/findBookByStatus(status='2',type='page')}" class="lbf-pagination-page  ">下一页</a></li>
+                            <li class="lbf-pagination-item" th:text="${#request.getAttribute('nextPage')}"><a data-page="3" href="#" th:href="@{/findBookByStatus(status='2',type='page')}" class="lbf-pagination-page  ">下一页</a></li>
 
-                            <li class="lbf-pagination-item"><a data-page="4" href="#" class="lbf-pagination-page  ">末页</a></li>
+                            <li class="lbf-pagination-item" th:text="${#request.getAttribute('lastPage')}"><a data-page="4" href="#" th:href='@{/findBookByStatus(currentPage=(currentPage+1))}' class="lbf-pagination-page  ">末页</a></li>
 
                           <!--  <li class="lbf-pagination-item"><a data-page="5" href="" th:href="@{/page(pageSize=)}" class="lbf-pagination-page  ">5</a></li>
 

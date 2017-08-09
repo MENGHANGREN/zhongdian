@@ -24,7 +24,7 @@
             imgSrc.attr("src", src);
         }
         //为了使每次生成图片不一致，即不让浏览器读缓存，所以需要加上时间戳
-       /function changeUrl(url) {
+       function changeUrl(url) {
             var timestamp = (new Date()).valueOf();
             var index = url.indexOf("?",url);
             if (index > 0) {
