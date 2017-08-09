@@ -14,14 +14,120 @@
 <link rel="stylesheet" type="text/css" href="https://sta.gtimg.com/c/=/qd2/css/cssreset.css,/qd2/css/header.css,/qd2/css/login.css,/qd2/css/layout.css,/qd2/css/sprites.css,/qd2/css/ui.css,/qd2/css/footer.css,/qd2/css/font.css,/qd2/css/reg.css,/qd2/css/pact.css">
 <link rel="shortcut icon" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.2.ico">
 <link rel="Bookmark" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.2.ico">
+    <script type="text/javascript">
+        var countdown=60;
+        function settime(val) {
 
+            if (countdown == 0) {
+                $(val).removeAttr("disabled");
+                $(val).html("获取验证码");
+                countdown = 60;
+
+            } else {
+                $(val).attr("disabled", "disabled");
+                $(val).html("重新发送(" + countdown + ")");
+                countdown--;
+                setTimeout(function() {
+                    settime(val)
+                },1000);
+            }
+
+        }
+
+        /*向该手机号码发送短信*/
+        function toPhone(){
+           var phone = $("#txtphonenumberl").val();
+            if((/^1[3|4|5|8][0-9]\d{4,8}$/.test(phone))) {
+               alert("456")
+               $.post("../user/toPhone", {phone: phone}, function (data) {
+
+                })
+            }
+        }
+        /*手机号、验证码、手机验证码、密码、重复密码*/
+        var tal=0;var code=0;var phoneCode=0;var password=0;var password1=0;
+        /*
+        验证所有条件是否全部输入正确
+         */
+        function yzAll(){
+            if(tal==1&&code==1&&phoneCode==1&&password==1&&password1==1){
+                  alert("成功")
+                $("#btnPhoneRegister").removeAttr("disabled");
+                $("#btnPhoneRegister").attr("style","background-color: red")
+               return true;
+            }else {
+                return false;
+            }
+        }
+            /*手机号码验证*/
+            function yzphone(){
+                var phone = $("#txtphonenumberl").val();
+                if((/^1[3|4|5|8][0-9]\d{4,8}$/.test(phone))){
+                   // alert("phone true")
+                    tal=1
+                }else {
+                    tal=0;
+                }
+                yzAll()
+            }
+            /*验证码验证*/
+            function yzcode(){
+                var val = $("#txtphoneimgcode").val();
+             $.post("../user/yzCode",{code:val},function(data){
+                 if(data=="1"){
+                    // alert("code true")
+                     code=1;
+                 }else {
+                     code=0;
+                 }
+                })
+                yzAll()
+            }
+            /*验证手机验码的方法*/
+            function yzPhoneCode(){
+                var phones = $("#phones").val();
+                $.post("../user/yzPhoneCode",{phoneCode:phones},function(data){
+                    if(data=="1"){
+                        //alert("phoneCode true")
+                        phoneCode=1;
+                    }else {
+                        phoneCode=0;
+                    }
+                })
+                yzAll()
+            }
+            /*验证密码不为空*/
+            function yzPassword(){
+                var yzpassword = $("#txtphonepwd").val();
+                if(yzpassword.trim()!=""){
+                   // alert("password true")
+                    password=1;
+                }else {
+                    password=0;
+                }
+                yzAll();
+            }
+            /*验证两次输入密码一致*/
+            function yzPassword2(){
+                var yzpassword = $("#txtphonepwd2").val();
+                if(yzpassword.trim()!=""){
+                    //alert("password2 true")
+                    password1=1;
+                }else {
+                    password1=0;
+                }
+                yzAll();
+            }
+
+    </script>
     <script src="https://sta.gtimg.com/c/=/qd/js/jquery-1.9.1.min.js,/qd/js/lulu/Checkbox.js,/js/front_login.js,/js/login_v2.js,/js/phoneAreaSortNew.js"></script>
     <script type="text/javascript">
         // 刷新图片
         function changeImg() {
             var imgSrc = $("#imgphonernd");
             var src = imgSrc.attr("src");
-            imgSrc.attr("src", src);
+           var vartime=new Date().getTime();
+            imgSrc.attr("src", src+"?vartime="+vartime);
         }
         //为了使每次生成图片不一致，即不让浏览器读缓存，所以需要加上时间戳
        function changeUrl(url) {
@@ -70,18 +176,18 @@
                 <span class="lang"><em class="iconfont"></em>注册成功</span>
             </div>
             <div class="reg-form-wrap">
-                <form action="">
+                <form action="../user/saveUser">
                     <div class="reg-form-list form-list">
                         <dl>
                             <dd class="top" id="phone"><em>手机号</em>
-                                <input class="mid" type="text" placeholder="输入手机号码" id="txtphonenumber">
+                                <input class="mid" name="phone" type="text" placeholder="输入手机号码" id="txtphonenumberl" onblur="yzphone()">
                             </dd>
-                            <dd id="imgphonernd_code"><em>验证码</em><input class="mid" type="text" id="txtphoneimgcode" placeholder="验证码"><img class="code-img" id="imgphonernd" onclick="changeImg()" src="user/toValidateCode" alt="这里是验证码"><a href="" onclick="changeImg()" id="refresh_code" class="stat" data-stat="qd_L08|手机-验证码换一张|3">换一张</a></dd>
+                            <dd id="imgphonernd_code"><em>验证码</em><input class="mid" type="text" id="txtphoneimgcode" placeholder="验证码" onblur="yzcode()"><img class="code-img" id="imgphonernd"  src="user/toValidateCode" alt="这里是验证码"><a  onclick="changeImg()" id="refresh_code" class="stat" data-stat="qd_L08|手机-验证码换一张|3" style="cursor:hand">换一张</a></dd>
                            <!-- <a class="error-tip">验证码错误</a>-->
                             <dd id="phonecode"><em>短信验证</em>
-                            <input type="text" class="mid" placeholder="输入验证码" id="txtphonecode">
-                                <a class="get-code stat" href="javascript:" id="get_code" data-stat="qd_L09|获取验证码|3">获取验证码</a> 
-                            </dd><dd id="phonepwd"><em>密码</em><input type="password" id="txtphonepwd" placeholder="6-18位大小写字母、符号或数字">
+                            <input type="text" id="phones" class="mid" placeholder="输入验证码" onblur="yzPhoneCode()" >
+                                <a class="get-code stat" onclick="toPhone(),settime(this)" id="get_code"  data-stat="qd_L09|获取验证码|3" style="cursor:hand">获取验证码</a>
+                            </dd><dd id="phonepwd"><em>密码</em><input type="password" name="password" onblur="yzPassword()" id="txtphonepwd" placeholder="6-18位大小写字母、符号或数字">
                             <div class="password-tip" style="display:none">
                                 <span><cite></cite></span>
                                 <p id="pwdrule1">长度为6-18个字符</p>
@@ -95,13 +201,13 @@
                                     <p style="display:none"><span class="level-3"><b></b></span>强</p>
                             </div>
                             </dd>
-                            <dd id="password2"><em>确认密码</em><input type="password" id="txtphonepwd2" placeholder="再次输入密码"></dd>
+                            <dd id="password2"><em>确认密码</em><input onblur="yzPassword2()" type="password" id="txtphonepwd2" placeholder="再次输入密码"></dd>
                         </dl>
                         <div class="deal">
                             <input type="checkbox" id="deal" name="checkbox" checked="">
                             <label for="deal" class="ui-checkbox"></label><label for="deal">我已阅读并同意</label><a href="https://passport.yuewen.com/pact.html?mobile=0" target="_blank">《用户服务协议》</a>
                         </div>
-                        <a class="red-btn go-reg" href="javascript:" id="btnPhoneRegister">立即注册</a>
+                        <button class="red-btn go-reg" type="submit" id="btnPhoneRegister" disabled="disabled" style="background-color: #7f7f7f">立即注册</button>
                         <a class="blue switch-reg stat" data-stat="qd_L10|切换成邮箱注册|3" href="reg.html?appid=10&amp;areaid=1&amp;target=iframe&amp;ticket=1&amp;auto=1&amp;autotime=30&amp;returnUrl=http%3A%2F%2Fwww.qidian.com&amp;type=2">切换成邮箱注册</a>
                     </div>
                 </form>

@@ -13,4 +13,8 @@ public interface UserService {
     登陆的方法
      */
     User login(User user);
+    /*
+    用户注册的方法
+     */
+    void saveUser(User user);
 }

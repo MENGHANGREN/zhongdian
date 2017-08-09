@@ -16,7 +16,7 @@ import java.io.IOException;
  */
 public class PhoneUtil {
     private static String Url = "http://106.ihuyi.cn/webservice/sms.php?method=Submit";
-    public static Integer getSecurity(){
+    public static Integer getSecurity(String phone){
         HttpClient client = new HttpClient();
         PostMethod method = new PostMethod(Url);
 
@@ -31,7 +31,7 @@ public class PhoneUtil {
                 new NameValuePair("account", "C10523636"),
                 new NameValuePair("password", "3386e2bfc8a698216351fec06ca2ede6"), //查看密码请登录用户中心->验证码、通知短信->帐户及签名设置->APIKEY
                 //new NameValuePair("password", util.StringUtil.MD5Encode("密码")),
-                new NameValuePair("mobile", "15201317689"),
+                new NameValuePair("mobile", phone),
                 new NameValuePair("content", content),
         };
         method.setRequestBody(data);
