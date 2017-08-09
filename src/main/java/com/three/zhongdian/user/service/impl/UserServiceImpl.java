@@ -24,4 +24,10 @@ public class UserServiceImpl implements UserService{
         }
         return null;
     }
+
+    @Override
+    public void saveUser(User user) {
+        user.setNickname("书友"+user.getPhone());
+        userMapper.saveUser(user);
+    }
 }

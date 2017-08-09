@@ -2,6 +2,7 @@ package com.three.zhongdian.user.controller;
 
 import com.three.zhongdian.user.entity.User;
 import com.three.zhongdian.user.service.UserService;
+import com.three.zhongdian.util.PhoneUtil;
 import com.three.zhongdian.util.ValidateCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -57,6 +58,51 @@ public class UserController {
         System.out.println(vCode.getCode().toString());
         session.setAttribute("code",vCode.getCode().toString());
         return null;
+    }
+    /*
+    发送手机验证码的方法
+     */
+    @RequestMapping("toPhone")
+    @ResponseBody
+    public String toPhone(HttpSession session,String phone){
+        System.out.println("开始发送短信"+phone);
+        Integer phoneCode = PhoneUtil.getSecurity(phone);
+        System.out.println(phoneCode);
+        session.setAttribute("phoneCode",phoneCode+"");
+        return null;
+    }
+    /*
+    ajax验证验证码是否输入正确
+     */
+    @RequestMapping("yzCode")
+    @ResponseBody
+    public String yzCode(String code,HttpSession session){
+        String codel = (String)session.getAttribute("code");
+        if(code.equalsIgnoreCase(codel)){
+            System.out.println("验证成功");
+            return "1";
+        }
+        System.out.println("验证失败");
+        return "0";
+    }
+    /*ajax验证手机验证码是否输入正确*/
+    @RequestMapping("yzPhoneCode")
+    @ResponseBody
+    public String yzPhoneCode(HttpSession session,String phoneCode){
+        String yzphoneCode = (String)session.getAttribute("phoneCode");
+        if(yzphoneCode.equals(phoneCode)){
+            System.out.println("手机号验证成功");
+            return "1";
+        }
+        System.out.println("手机号验证失败");
+        return "0";
+    }
+    /*用户注册的方法*/
+    @RequestMapping("saveUser")
+    public String saveUser(User user){
+     userService.saveUser(user);
+        System.out.println("添加成功");
+     return "index";
     }
 
 

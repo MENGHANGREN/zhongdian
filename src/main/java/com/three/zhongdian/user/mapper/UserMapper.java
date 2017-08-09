@@ -1,6 +1,7 @@
 package com.three.zhongdian.user.mapper;
 
 import com.three.zhongdian.user.entity.User;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -18,5 +19,10 @@ public interface UserMapper {
      */
     @Select("select * from user where (username=#{username} or mail=#{username} or phone=#{username}) and password=#{password}")
     List<User> login(User user);
+    /*
+    用户注册的方法
+     */
+    @Insert("insert into user(nickname,phone,password) values (#{nickname},#{phone},#{password})")
+    void saveUser(User user);
 
 }
