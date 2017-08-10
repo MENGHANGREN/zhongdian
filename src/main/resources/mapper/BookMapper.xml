@@ -76,21 +76,21 @@
 
     <select id="findBookByMap" parameterType="java.util.Map" resultMap="findAll">
          select
-            book.id,
-            book.name,
-            book.words,
-            book.author,
-            book.section,
-            book.click,
-            book.picpath,
-            book.filepath,
-            book.info,
-            book.status,
-            book.bid,
-            b.id bigtypeid,
-            b.name bigtypename
+        book.id,
+        book.name,
+        book.words,
+        book.author,
+        book.section,
+        book.click,
+        book.picpath,
+        book.filepath,
+        book.info,
+        book.status,
+        book.bid,
+        b.id bigtypeid,
+        b.name bigtypename
 
-          from  book book ,bigtype b where book.bid = b.id
+        from  book book ,bigtype b where book.bid = b.id
           <if test="type!=null">
                and b.id = #{type.id}
           </if>
@@ -100,8 +100,8 @@
         <if test="words!=null">
             and book.words >#{words.min} and   #{words.max} > book.words
         </if>
-        <if test="order!=null">
-            order by #{order.name} desc
+        <if test="page!=null">
+            limit #{page.min},#{page.max}
         </if>
 
     </select>

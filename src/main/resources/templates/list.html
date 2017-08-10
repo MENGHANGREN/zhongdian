@@ -792,7 +792,7 @@
                                 <ins class="lbf-checkbox-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></span>
                     <label for="only" data-eid="qd_B53" class="">只看3个月内新书</label>
                     <div class="sort-count count-info" id="sort-count">
-                        <div class="count-text">共<span th:text="${books.size()}">668117</span>本相关作品
+                        <div class="count-text">共<span th:text="${#request.getAttribute('listCount')}">668117</span>本相关作品
                         </div>
                         <div class="yiwen" id="yiwen">
                             <div class="iconfont"></div>
@@ -838,19 +838,20 @@
 
 
                     <div class="lbf-pagination">
+
                         <ul class="lbf-pagination-item-list">
 
                             <!--<li class="lbf-pagination-item"><a href="" class="lbf-pagination-prev lbf-pagination-disabled">&lt;</a></li>-->
+                            <li class="lbf-pagination-item" th:text="${#request.getAttribute('currentPage')}"></li> <li>/</li><li class="lbf-pagination-item" th:text="${#request.getAttribute('pageCount')}"></li><li>&nbsp;&nbsp;&nbsp;</li>
+                            <li class="lbf-pagination-item"><a data-page="1" href="#" th:href="@{/page(currentPage=${#request.getAttribute('firstPage')})}" class="lbf-pagination-page ">首页</a></li>
 
-                            <li class="lbf-pagination-item" th:text="${#request.getAttribute('firstPage')}"><a data-page="1" href="" class="lbf-pagination-page  lbf-pagination-current">首页</a></li>
 
 
+                            <li class="lbf-pagination-item"><a data-page="2" href="#" th:href="@{/page(currentPage=${#request.getAttribute('precursorPage')})}" class="lbf-pagination-page  ">上一页</a></li>
 
-                            <li class="lbf-pagination-item" th:text="${#request.getAttribute('precursorPage')}"><a data-page="2" href="#" th:href="@{/findBookByStatus(status='1',type='page')}" class="lbf-pagination-page  ">上一页</a></li>
+                            <li class="lbf-pagination-item"><a data-page="3" href="#" th:href="@{/page(currentPage=${#request.getAttribute('nextPage')})}" class="lbf-pagination-page  ">下一页</a></li>
 
-                            <li class="lbf-pagination-item" th:text="${#request.getAttribute('nextPage')}"><a data-page="3" href="#" th:href="@{/findBookByStatus(status='2',type='page')}" class="lbf-pagination-page  ">下一页</a></li>
-
-                            <li class="lbf-pagination-item" th:text="${#request.getAttribute('lastPage')}"><a data-page="4" href="#" th:href='@{/findBookByStatus(currentPage=(currentPage+1))}' class="lbf-pagination-page  ">末页</a></li>
+                            <li class="lbf-pagination-item"><a data-page="4" href="#" th:href="@{/page(currentPage=${#request.getAttribute('lastPage')})}" class="lbf-pagination-page  ">末页</a></li>
 
                           <!--  <li class="lbf-pagination-item"><a data-page="5" href="" th:href="@{/page(pageSize=)}" class="lbf-pagination-page  ">5</a></li>
 

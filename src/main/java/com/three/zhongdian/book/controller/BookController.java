@@ -28,33 +28,32 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
+
+
      @RequestMapping("/{url}")
      public String url(@PathVariable("url") String url){return url;}
     @RequestMapping("/deleteTags")
-    public ModelAndView deleteTags(String type,HttpSession session){
+    public ModelAndView deleteTags(HttpServletRequest request,String type,HttpSession session){
         System.out.println(type);
         Map<String,Object> tags = (Map)session.getAttribute("tags");
         tags.remove(type);
         System.out.println(tags.size());
 
         session.setAttribute("tags",tags);
-        Tag tagmap = (Tag)tags.get("page");
-        int min = tagmap.getMin();
-        int max = tagmap.getMax();
-
-        List<Book> books = bookService.findBookByMap(tags);
+        return page(request,null,session);
+        /*List<Book> books = bookService.findBookByMap(tags);
         List<BigType> bigTypes = bookService.findBigType();
         ModelAndView mv = new ModelAndView();
         mv.setViewName("list");
         mv.addObject("books",books);
         mv.addObject("bigTypes",bigTypes);
         mv.addObject("tags",tags);
-        return mv;
+        return mv;*/
     }
 
 
     @RequestMapping("/findBookByStatus")
-    public ModelAndView findBookByStatus(String words,Integer id,String type,String status,HttpSession session){
+    public ModelAndView findBookByStatus(Integer currentPage,HttpServletRequest request,String words,Integer id,String type,String status,HttpSession session){
 
 
         if("type".equals(type)){
@@ -64,8 +63,8 @@ public class BookController {
             tag.setId(bigType.getId());
             tag.setName(bigType.getName());
             tags.put("type",tag);
-
             session.setAttribute("tags",tags);
+
         }
         else if("status".equals(type)){
             Map<String,Object> tags = (Map)session.getAttribute("tags");
@@ -100,17 +99,15 @@ public class BookController {
             tag.setMax(Integer.parseInt(str[1]));
                 tags.put("words",tag);
             session.setAttribute("tags",tags);
+
         }
         else if("first".equals(type)){
             Map map = new HashMap<String,Object>();
-            Tag tag = new Tag();
-            tag.setMin(1);
-            tag.setMax(6);
-            map.put("page",tag);
             session.setAttribute("tags",map);
+
         }
 
-        Map<String,Object> tags = (Map)session.getAttribute("tags");
+     /*   Map<String,Object> tags = (Map)session.getAttribute("tags");
         List<Book> books = bookService.findBookByMap(tags);
         List<BigType> bigTypes = bookService.findBigType();
 
@@ -120,7 +117,8 @@ public class BookController {
         mv.addObject("books",books);
         mv.addObject("bigTypes",bigTypes);
         mv.addObject("tags",tags);
-        return mv;
+        return mv;*/
+        return  page(request,currentPage,session);
     }
     @RequestMapping("/searchBook")
     public ModelAndView searchBook(HttpSession session,String name){
@@ -179,7 +177,8 @@ public class BookController {
 
     @RequestMapping("/page")
     public ModelAndView page(HttpServletRequest request, Integer currentPage, HttpSession session){
-        List<Book> books_size = bookService.findBookByMap((Map)session.getAttribute("tags"));
+        Map<String,Object>tags = (Map)session.getAttribute("tags");
+        List<Book> books_size = bookService.findBookByMap(tags);
         int listCount = books_size.size();
         int pageSize = 6;
         if(currentPage==null){
@@ -189,30 +188,28 @@ public class BookController {
 
         String[] pageArray = new String[4];
 
-        String html1 = " <li class='lbf-pagination-item'><a data-page='2' href='#' th:href='@{/findBookByStatus(status='1',type='page')}' class='lbf-pagination-page '>上一页</a></li>";
-
         if (currentPage == 0) {
-            pageArray[0] = "首页";
+            pageArray[0] = "0";
         } else {
-            pageArray[0] = "<a data-page='2' href='#' th:href='@{/findBookByStatus(currentPage='0')}' class='lbf-pagination-page'>首页</a>";
+            pageArray[0] = "0";
         }
 
         if (currentPage == 0) {
-            pageArray[1] = "上一页";
+            pageArray[1] = "0";
         } else {
-            pageArray[1] = "<a data-page='2' href='#' th:href='@{/findBookByStatus(currentPage="+(currentPage-1)+")}' class='lbf-pagination-page'>上一页</a>";
+            pageArray[1] = (currentPage-1)+"";
         }
 
         if (currentPage < pageCount - 1) {
-            pageArray[2] = "<a data-page='2' href='#' th:href='@{/findBookByStatus(currentPage="+(currentPage+1)+")}' class='lbf-pagination-page'>下一页</a>";
+            pageArray[2] = (currentPage+1)+"";
         } else {
-            pageArray[2] = "下一页";
+            pageArray[2] = (pageCount-1)+"";
         }
 
         if (currentPage < pageCount - 1) {
-            pageArray[3] = "<a data-page='2' href='#' th:href='@{/findBookByStatus(currentPage="+(pageCount-1)+")}' class='lbf-pagination-page'>末页</a>";
+            pageArray[3] = (pageCount-1)+"";
         } else {
-            pageArray[3] = "末页";
+            pageArray[3] = (pageCount-1)+"";
         }
         //首页
         request.setAttribute("firstPage", pageArray[0]);
@@ -232,11 +229,15 @@ public class BookController {
         request.setAttribute("pageSize", pageSize);
 
 
-        Map<String,Object> tags = (Map)session.getAttribute("tags");
+        Tag tag = new Tag();
+        tag.setMin(currentPage*pageSize);
+        tag.setMax(pageSize);
+        tags.put("page",tag);
         List<Book> books = bookService.findBookByMap(tags);
+        tags.remove("page");
         List<BigType> bigTypes = bookService.findBigType();
 
-
+        session.setAttribute("tags",tags);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("list");
         mv.addObject("books",books);
