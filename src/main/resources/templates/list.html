@@ -154,7 +154,7 @@
                         <a id="login-btn" class="black" href="javascript:" data-eid="qd_A06" onclick="document.getElementById('tologin').style.display='block'">登录</a>
                         <em>|</em>
                         <a id="reg-btn" href="../zhuce" target="_blank" data-eid="qd_A07">注册</a></div>
-                <div th:if="${session.loginUser}!=null" class="login-box fr"><div class="sign-in"><span>你好，</span><a class="black" id="user-name"  target="_blank" data-eid="qd_A08" th:text="${session.loginUser.nickname}">书友20170802203148953</a><em>|</em><a class="black" id="msg-btn"  target="_blank" data-eid="qd_A09">消息<cite id="msg-box">(<i>1</i>)</cite></a><em>|</em><a id="exit-btn"  data-eid="qd_A10" onclick="cleanSession()" style="cursor:hand">退出</a></div></div>
+                <div th:if="${session.loginUser}!=null" class="login-box fr"><div class="sign-in"><span>你好，</span><a class="black" href="" id="user-name"  target="_blank" data-eid="qd_A08" th:text="${session.loginUser.nickname}">书友20170802203148953</a><em>|</em><a class="black" id="msg-btn"  target="_blank" href="" data-eid="qd_A09">消息<cite id="msg-box">(<i>1</i>)</cite></a><em>|</em><a id="exit-btn"  data-eid="qd_A10" onclick="cleanSession()" href="" style="cursor:hand">退出</a></div></div>
 
             </div>
             <div class="nav-link fl">
