@@ -1,5 +1,7 @@
 package com.three.zhongdian.book.po;
-
+/*
+标签类
+ */
 public class Tag {
     private Integer id;
     private String type;

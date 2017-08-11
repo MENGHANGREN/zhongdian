@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
   
   <head>
     <meta charset="UTF-8">
@@ -30,129 +31,36 @@
     <script type="text/javascript" async="" src="http://cpro.baidustatic.com/cpro/ui/pr.js"></script>
     <script type="text/javascript" async="" src="http://1.yhzm.cc/aeycbycerddwruuycx.js"></script>
     <script src="//pingjs.qq.com/h5/stats.js?v2.0.2" name="MTAH5" sid="500451537"></script>
-    <script>document.domain = 'qidian.com';</script>
+    <!--<script>document.domain = 'qidian.com';</script>-->
     <script type="text/javascript" src="//dup.baidustatic.com/js/ds.js"></script>
     <script type="text/javascript" src="//cpro.baidustatic.com/cpro/ui/i.js"></script>
     <script type="text/javascript" src="http://1.yhzm.cc/gx3a1ece96ffc3fe30db4c3e92a9e43aa156e1.js"></script>
 
-    <!-- <script src="//pingjs.qq.com/h5/stats.js?v2.0.2" name="MTAH5" sid="500451537"></script>
-    <script>document.domain = 'qidian.com';</script>
-    <script>function getCookie(name) {
-        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-        if (arr = document.cookie.match(reg)) {
-          return (arr[2]);
-        } else {
-          return null;
-        }
-      }
-      //遇到cookie ns == 1 跳转到老版 加各域名
-      if (getCookie('ns') == 1) {
-        location.href = '//www.qidian.com/2009';
-      }</script>
-    <script>var speedTimer = [],
-      speedZero = new Date().getTime();</script>
-    <script>//遇到cookie tf=1的话留在本站，否则跳转移动站
-      if (getCookie('tf') != 1) {
-        //判断是以下设备后跳转到m站
-        if (navigator.userAgent.match(/(iPhone|iPod|Android)/i)) {
-          location.href = "//m.qidian.com"
-        }
-      } else {
-        // M站设置了一年，这里fixed
-        setCookie('tf', 1, 'qidian.com', '/', 0);
-      }
-      // start 防劫持
-      //设置cookie
-      function setCookie(name, value, domain, path, expires) {
-        if (expires) {
-          expires = new Date( + new Date() + expires);
-        }
-        var tempcookie = name + '=' + escape(value) + ((expires) ? '; expires=' + expires.toGMTString() : '') + ((path) ? '; path=' + path: '') + ((domain) ? '; domain=' + domain: '');
-        //Ensure the cookie's size is under the limitation
-        if (tempcookie.length < 4096) {
-          document.cookie = tempcookie;
-        }
-      }
-      //获取cookie
-      function getCookie(name) {
-        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-        if (arr = document.cookie.match(reg)) return (arr[2]);
-        else return null;
-      }
-      //创建并发送请求
-      function createSender(url) {
-        var img = new Image();
-        img.onload = img.onerror = function() {
-          img = null;
-        };
-        img.src = url;
-      }; (function() {
-        /*
-         *防劫持逻辑所需参数在此处设置参数即可
-         *cookieName:用于记录连续被劫持的次数，为防止死循环，cookie值为3以上则不进行url重置
-         *cookieDomain:cookie所在的域
-         *reportUrl:非连续性劫持时上报的接口地址【如无需上报，可不填】
-         *reportUrl2：连续性劫持时上报的接口地址【如无需上报，可不填】
-         */
-        var cookieName = 'hiijack';
-        var cookieDomain = '.qidian.com';
-        var reportUrl = '//book.qidian.com/ajax/safe/hiijackReport?times=1&_csrfToken=' + getCookie('_csrfToken') || '';
-        var reportUrl2 = '//book.qidian.com/ajax/safe/hiijackReport?times=3&_csrfToken=' + getCookie('_csrfToken') || '';
-        //判断是否被iframe
-        if (top.location.href !== self.location.href) {
-          //用于记录被劫持的次数
-          var countHijack;
-          //如果未设置cookie，则需要set一下cookie，否则获取此cookie的值
-          if (!getCookie(cookieName)) {
-            setCookie(cookieName, 0, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
-            countHijack = 0;
-          } else {
-            countHijack = parseInt(getCookie(cookieName));
-          }
-          //如果连续被劫持的次数大于等于3次，则发请求上报此情况,否则上报非连续性的情况,同时累加被劫持次数、重置当前url
-          if (countHijack >= 3) {
-            reportUrl2 && reportUrl2 != '' && createSender(reportUrl2);
-          } else {
-            reportUrl && reportUrl != '' && createSender(reportUrl);
-            countHijack++;
-            setCookie(cookieName, countHijack, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
-            top.location = self.location.href;
-          }
-        }
-        //每次成功进入页面则计数清0
-        setCookie(cookieName, 0, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
-      })();
-      //end 防劫持
-      </script>-->
+
     <link data-ignore="true" rel="shortcut icon" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.3.ico">
     <link data-ignore="true" rel="Bookmark" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.3.ico">
     <link rel="stylesheet" data-ignore="true" href="css/Autocomplete.0.75.css">
     <link charset="utf-8" rel="stylesheet" href="css/Dropdown.css">
     
     <link charset="utf-8" rel="stylesheet" href="css/Autocomplete.css">
-    <link charset="utf-8" rel="stylesheet" href="css/Popup.css"></head>
-  
+    <link charset="utf-8" rel="stylesheet" href="css/Popup.css">
+    <script src="../js/common.js"></script>
+    <script src="https://sta.gtimg.com/c/=/qd/js/jquery-1.9.1.min.js,/qd/js/lulu/Checkbox.js,/js/front_login.js,/js/login_v2.js,/js/phoneAreaSortNew.js"></script>
+
+  </head>
   <body class="index" data-dynamic="false" style="background-image: url(&quot;&quot;); zoom: 1;">
     <div class="share-img">
       <img src="//qidian.gtimg.com/qd/images/common/share.0.1.png" width="300" height="300"></div>
       <div class="top-nav" data-l1="1">
         <div class="box-center cf">
           <div class="login-box fr">
-            <div class="sign-in hidden">
-              <span>你好，</span>
-              <a class="black" id="user-name" href="//me.qidian.com" target="_blank" data-eid="qd_A08"></a>
+
+            <div class="sign-out" id="meilogin" th:if="${session.loginUser}==null">
+              <a id="login-btn" class="black" href="javascript:" data-eid="qd_A06" onclick="document.getElementById('tologin').style.display='block'">登录</a>
               <em>|</em>
-              <a class="black" id="msg-btn" href="//me.qidian.com/msg/systems.aspx?page=1" target="_blank" data-eid="qd_A09">消息
-                <cite id="msg-box">(
-                  <i></i>)</cite>
-              </a>
-              <em>|</em>
-              <a id="exit-btn" href="javascript:" data-eid="qd_A10">退出</a></div>
-            <div class="sign-out">
-              <a id="login-btn" class="black" href="javascript:" data-eid="qd_A06" >登录</a>
-              <em>|</em>
-              <a id="reg-btn" href="//passport.qidian.com/reg.html?appid=10&amp;areaid=1&amp;target=iframe&amp;ticket=1&amp;auto=1&amp;autotime=30&amp;returnUrl=http%3A%2F%2Fwww.qidian.com" target="_blank" data-eid="qd_A07">注册</a></div>
+              <a id="reg-btn" href="../zhuce" target="_blank" data-eid="qd_A07">注册</a></div>
           </div>
+          <div th:if="${session.loginUser}!=null" class="login-box fr"><div class="sign-in"><span>你好，</span><a class="black" id="user-name"  target="_blank" data-eid="qd_A08" th:text="${session.loginUser.nickname}">书友20170802203148953</a><em>|</em><a class="black" id="msg-btn"  target="_blank" data-eid="qd_A09">消息<cite id="msg-box">(<i>1</i>)</cite></a><em>|</em><a id="exit-btn"  data-eid="qd_A10" onclick="cleanSession()" style="cursor:hand">退出</a></div></div>
           <div class="nav-link fl">
             <a class="act" href="//www.qidian.com" data-eid="qd_A01">起点中文网</a>
             <a href="//www.qdmm.com" target="_blank" data-eid="qd_A02">起点女生网</a>
@@ -172,7 +80,7 @@
           <div class="game-wrap">
             <a class="close" id="closeTopGame" href="javascript:" data-eid="qd_A184">
               <em class="iconfont"></em></a>
-            <a href="http://cpgame.qd.game.qidian.com/Home/Index/directLogin/name/mxsj/way/1?qd_game_key=mxsjcp1200x60&amp;qd_dd_p1=448" target="_blank" data-eid="qd_A183" data-qd_dd_p1="1">
+            <a target="_blank" data-eid="qd_A183" data-qd_dd_p1="1">
               <img src="//qidian.qpic.cn/qidian_common/349573/b294645003b4b3b053c5fc4a19ce695e/0">
               <span class="op-tag"></span>
             </a>
@@ -216,7 +124,7 @@
                 </em>作品分类</span>
             </li>
             <li class="nav-li">
-              <a href="//a.qidian.com" data-eid="qd_A15">全部作品</a></li>
+              <a href="../findBookByStatus?type=first" data-eid="qd_A15">全部作品</a></li>
             <li class="nav-li">
               <a href="//r.qidian.com" data-eid="qd_A16">排行</a></li>
             <li class="nav-li">
@@ -716,13 +624,21 @@
           </div>
         </div>
           </div>
+
+
+<!--登录模态框-->
     <div style="display:none;"  id="tologin">
       <div class="mask"></div>
 
-    <div class="qdlogin-wrap">
-    <iframe id="loginIfr" src="../static/login.html" name="frameLG" allowtransparentcy="true" width="100%" height="100%" scrolling="no"
-            frameborder="no"></iframe>
+      <div class="qdlogin-wrap">
+        <iframe id="loginIfr" src="../login.html" name="frameLG" allowtransparentcy="true" width="100%" height="100%" scrolling="no"
+                frameborder="no"></iframe>
+      </div>
     </div>
-    </div>
-  </body>
+  <script>
+    function closelogin(){
+        document.getElementById('tologin').style.display='none';
+    }
+  </script>
+	</body>
 </html>

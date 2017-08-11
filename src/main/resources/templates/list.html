@@ -135,6 +135,10 @@
     <link charset="utf-8" rel="stylesheet" href="css/Autocomplete.css">
     <link charset="utf-8" rel="stylesheet" href="css/Dropdown.css">
     <link charset="utf-8" rel="stylesheet" href="css/Popup.css">
+    <link charset="utf-8" rel="stylesheet" href="http://qidian.gtimg.com/c/=/qd/css/lbfUI/css/Checkbox.0.76.css,/qd/css/reset.0.77.css,/qd/css/global.0.51.css,/qd/css/font.0.87.css,/qd/css/header.01.2.css,/qd/css/module.1.27.css,/qd/css/list_module.0.90.css,/qd/css/all_finish.0.81.css,/qd/css/layout.0.78.css,/qd/css/qd_popup.0.89.css,/qd/css/footer.0.83.css,/qd/css/lbfUI/css/ComboBox.0.90.css,/qd/css/lbfUI/css/Button.0.76.css">
+    <script src="../js/common.js"></script>
+    <script src="https://sta.gtimg.com/c/=/qd/js/jquery-1.9.1.min.js,/qd/js/lulu/Checkbox.js,/js/front_login.js,/js/login_v2.js,/js/phoneAreaSortNew.js"></script>
+
 </head>
 <body style="zoom: 1;">
 <div class="share-img">
@@ -145,12 +149,13 @@
     <div class="top-nav" data-l1="1">
         <div class="box-center cf">
             <div class="login-box fr">
-                <div class="sign-in">
-                    <span>你好，</span><a class="black" id="user-name" href="//me.qidian.com" target="_blank" data-eid="qd_A08">书友151020102648110</a><em>|</em><a class="black" id="msg-btn" href="//me.qidian.com/msg/systems.aspx?page=1" target="_blank" data-eid="qd_A09">消息<cite id="msg-box">(<i class="black">0</i>)</cite></a><em>|</em><a id="exit-btn" href="javascript:" data-eid="qd_A10">退出</a>
-                </div>
-                <div class="sign-out hidden">
-                    <a id="login-btn" class="black" href="javascript:" data-eid="qd_A06">登录</a><em>|</em><a id="reg-btn" href="//passport.qidian.com/reg.html?appid=10&areaid=1&target=iframe&ticket=1&auto=1&autotime=30&returnUrl=http%3A%2F%2Fwww.qidian.com" target="_blank" data-eid="qd_A07">注册</a>
-                </div>
+
+                    <div class="sign-out" id="meilogin" th:if="${session.loginUser}==null"}>
+                        <a id="login-btn" class="black" href="javascript:" data-eid="qd_A06" onclick="document.getElementById('tologin').style.display='block'">登录</a>
+                        <em>|</em>
+                        <a id="reg-btn" href="../zhuce" target="_blank" data-eid="qd_A07">注册</a></div>
+                <div th:if="${session.loginUser}!=null" class="login-box fr"><div class="sign-in"><span>你好，</span><a class="black" id="user-name"  target="_blank" data-eid="qd_A08" th:text="${session.loginUser.nickname}">书友20170802203148953</a><em>|</em><a class="black" id="msg-btn"  target="_blank" data-eid="qd_A09">消息<cite id="msg-box">(<i>1</i>)</cite></a><em>|</em><a id="exit-btn"  data-eid="qd_A10" onclick="cleanSession()" style="cursor:hand">退出</a></div></div>
+
             </div>
             <div class="nav-link fl">
                 <a class="act" href="//www.qidian.com" data-eid="qd_A01">起点中文网</a>
@@ -183,11 +188,11 @@
                 </a>
             </div>
             <div class="logo fl">
-                <a href="//www.qidian.com" data-eid="qd_A11"></a>
+                <a href="#" data-eid="qd_A11"></a>
             </div>
             <div class="search-wrap fl">
-                <form id="formUrl" action="//se.qidian.com" method="get" target="_blank">
-                    <p><input class="search-box" id="s-box" name="kw" type="text" placeholder="超神机械师" autocomplete="off"></p>
+                <form id="formUrl" action="#" th:action="@{/searchBook}" method="post">
+                    <p><input class="search-box" id="s-box" name="name" type="text" autocomplete="off"></p>
                     <input class="submit-input" type="submit" id="searchSubmit" data-eid="qd_A13">
                     <label id="search-btn" class="search-btn" for="searchSubmit"><em class="iconfont" data-eid="qd_A13">
                         </em></label>
@@ -367,16 +372,16 @@
                 <i></i>
             </em>作品分类</span>
                 </li>
-                <li class="nav-li"><a href="//a.qidian.com" data-eid="qd_A15" class="act">全部作品</a></li>
-                <li class="nav-li"><a href="//r.qidian.com" data-eid="qd_A16">排行</a></li>
-                <li class="nav-li"><a href="//fin.qidian.com" data-eid="qd_A17">完本</a></li>
-                <li class="nav-li"><a href="//f.qidian.com" data-eid="qd_A18">免费</a></li>
-                <li class="nav-li"><a href="http://write.qq.com/public/login.html" target="_blank" data-eid="qd_A19">作家专区</a>
+                <li class="nav-li"><a href="#" data-eid="qd_A15" class="act">全部作品</a></li>
+                <li class="nav-li"><a href="#" data-eid="qd_A16">排行</a></li>
+                <li class="nav-li"><a href="#" data-eid="qd_A17">完本</a></li>
+                <li class="nav-li"><a href="#" data-eid="qd_A18">免费</a></li>
+                <li class="nav-li"><a href="#"  data-eid="qd_A19">作家专区</a>
                 </li>
-                <li class="nav-li"><a href="http://www.yuewen.com/app.html#appqd" target="_blank" data-eid="qd_A20"><b class="iconfont client"></b>客户端</a>
+                <li class="nav-li"><a href="#"  data-eid="qd_A20"><b class="iconfont client"></b>客户端</a>
                 </li>
                 <li class="game phone" id="game-phone">
-                    <a class="phone-game" href="http://sy.qidian.com" target="_blank" data-eid="qd_A22"><b class="iconfont webgame">
+                    <a class="phone-game" href="#" data-eid="qd_A22"><b class="iconfont webgame">
                         </b>手游</a>
                     <div class="game-dropdown hidden" id="phone-dropdown" style="display: none;">
                         <cite></cite>
@@ -413,7 +418,7 @@
                     </div>
                 </li>
                 <li class="game web" id="game-web">
-                    <a class="web-game" href="http://game.qidian.com/" target="_blank" data-eid="qd_A21"><b class="iconfont">
+                    <a class="web-game" href="#" data-eid="qd_A21"><b class="iconfont">
                         </b>页游</a>
                     <div class="game-dropdown hidden" id="web-dropdown">
                         <cite></cite>
@@ -502,13 +507,13 @@
     <div class="all-pro-wrap box-center cf">
         <div class="range-sidebar fl" data-l1="4">
             <div class="site" data-l2="1">
-                <a class="act" href="javascript:">男生</a><a href="//a.qidian.com/mm/" target="_blank" data-eid="qd_B15">女生</a>
+                <a class="act" href="javascript:">男生</a><!--<a href="//a.qidian.com/mm/" target="_blank" data-eid="qd_B15">女生</a>-->
             </div>
             <div class="selected" data-l2="2">
                 <p><span>已选</span>
-                    <a class="all" href="javascript:" type="all" th:if="tags==null">全部</a>
+                   <!-- <a class="all" href="javascript:" type="all" th:if="tags==null">全部</a>-->
                     <!--th:href="@{/deleteTags(id=${tag.value.typeid})}"-->
-                    <a th:if="${tag.key!='page'}" href="#" th:href="@{/deleteTags(type=${tag.key})}" data-eid="qd_B16" type="chanId" th:each="tag:${tags}" th:text="${tag.value.name}"奇幻<cite class="iconfont"></cite></a>
+                    <a th:if="${tag.key!='orders'}" href="#" th:href="@{/deleteTags(type=${tag.key})}" data-eid="qd_B16" type="chanId" th:each="tag:${tags}" th:text="${tag.value.name}"奇幻<cite class="iconfont"></cite></a>
 
 
                 </p></div>
@@ -518,7 +523,7 @@
                     <h3>分类</h3>
                     <ul class="row-1" type="category">
 
-                        <li data-id="-1" class="act arrow"><a href="#" th:href="@{/findBook(id=0)}" data-eid="qd_B17">全部</a></li>
+                       <!-- <li data-id="-1" class="act arrow"><a href="#" th:href="@{/findBook(id=0)}" data-eid="qd_B17">全部</a></li>-->
                       <!--  th:href="@{/findBook(id=${bigtype.id})}"-->
                         <li data-id="21" class="" th:each="bigtype:${bigTypes}"><a href="#" th:href="@{/findBookByStatus(id=${bigtype.id},type='type')}" data-eid="qd_B18" th:text="${bigtype.name}">玄幻<cite><i></i></cite></a></li>
                       <!--  @{/hello(id=${id},name=${name})}-->
@@ -533,7 +538,7 @@
                     <h3>状态</h3>
                     <ul type="action">
 
-                        <li data-id="-1" class="act"><a href="#" data-eid="qd_B31">全部</a></li>
+                     <!--   <li data-id="-1" class="act"><a href="#" data-eid="qd_B31">全部</a></li>-->
 
                         <li data-id="0" class=""><a href="#" th:href="@{/findBookByStatus(status='连载中',type='status')}" data-eid="qd_B32">连载</a></li>
 
@@ -604,12 +609,12 @@
 
                     </ul>
                 </div>-->
-               <div class="work-filter tag" data-l2="8">
+            <!--   <div class="work-filter tag" data-l2="8">
                     <h3>标签</h3>
 
                     <ul type="tag">
 
-                        <li data-eid="qd_B46" class="act"><a href="//a.qidian.com?orderId=&page=1&style=1&pageSize=20&siteid=1&hiddenField=0">全部</a></li>
+                        <li data-eid="qd_B46" class="act"><a  href="//a.qidian.com?orderId=&page=1&style=1&pageSize=20&siteid=1&hiddenField=0">全部</a></li>
 
                         <li data-eid="qd_B47" data-tid="豪门"><a href="//a.qidian.com?tag=豪门&orderId=&page=1&style=1&pageSize=20&siteid=1&hiddenField=0">豪门</a></li>
 
@@ -763,21 +768,21 @@
                         <li data-eid="qd_B47" data-tid="穿越" class="hidden"><a href="//a.qidian.com?tag=穿越&orderId=&page=1&style=1&pageSize=20&siteid=1&hiddenField=0">穿越</a></li>
 
                     </ul>
-                </div>
+                </div>-->
             </div>
         </div>
         <div class="main-content-wrap fl" data-l1="5">
 
             <div class="tool-bar cf">
                 <div class="view-mode" id="view-mode">
-                    <a id="img-text" class="iconfont act" href="//a.qidian.com?orderId=&page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B54"></a><em>|</em><a id="only-text" class="iconfont  " href="//a.qidian.com?orderId=&page=1&style=2&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B55"></a>
+                    <a id="img-text" class="iconfont act" href="#" data-eid="qd_B54"></a><em>|</em><a id="only-text" class="iconfont  " href="#" data-eid="qd_B55"></a>
                 </div>
                 <div class="select-wrap">
 
-                    <a data-id="" class="act" href="//a.qidian.com?page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B62">人气排序<cite class="iconfont"></cite></a>
-                    <a data-id="5" href="//a.qidian.com?orderId=5&page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B49">更新时间</a>
-                   <a data-id="11" href="//a.qidian.com?orderId=11&page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B80">总收藏</a>
-                    <a data-id="3" href="//a.qidian.com?orderId=3&page=1&style=1&pageSize=20&siteid=1&hiddenField=0" data-eid="qd_B52">总字数</a>
+                    <a data-id="" class="act" href="#" th:href="@{/findBookByStatus(status='click',type='orders')}" data-eid="qd_B62">人气排序</a>
+                    <a data-id="5" href="#" data-eid="qd_B49">更新时间</a>
+                   <a data-id="11" href="#" data-eid="qd_B80">总收藏</a>
+                    <a data-id="3" class="act" href="#" th:href="@{/findBookByStatus(status='words',type='orders')}" data-eid="qd_B52">总字数</a>
                    <div id="#vipClicks" class="lbf-combobox vipClicks"><a href="javascript:;" class="lbf-button lbf-combobox-label " data-value="0" hidefocus="true"><span class="lbf-combobox-caption">会员点击</span><span class="lbf-icon lbf-icon-down lbf-combobox-icon"></span></a></div>
 
                     <div id="#recomm" class="lbf-combobox recomm"><a href="javascript:;" class="lbf-button lbf-combobox-label " data-value="0" hidefocus="true"><span class="lbf-combobox-caption">推荐票</span><span class="lbf-icon lbf-icon-down lbf-combobox-icon"></span></a></div>
@@ -787,7 +792,7 @@
                                 <ins class="lbf-checkbox-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></span>
                     <label for="only" data-eid="qd_B53" class="">只看3个月内新书</label>
                     <div class="sort-count count-info" id="sort-count">
-                        <div class="count-text">共<span th:text="${books.size()}">668117</span>本相关作品
+                        <div class="count-text">共<span th:text="${#request.getAttribute('listCount')}">668117</span>本相关作品
                         </div>
                         <div class="yiwen" id="yiwen">
                             <div class="iconfont"></div>
@@ -805,12 +810,12 @@
 
                         <li data-rid="1" th:each="book: ${books}">
                             <div class="book-img-box">
-                                <a href="//book.qidian.com/info/3513193" data-bid="3513193" data-eid="qd_B57" target="_blank"><img th:attr="src=${book.picpath}"  src=""></a>
+                                <a href="#" th:href="@{/findBookById(id=${book.id})}" data-bid="3513193" data-eid="qd_B57" target="_blank"><img th:attr="src=${book.picpath}"  src=""></a>
                             </div>
                             <div class="book-mid-info">
-                                <h4><a href="//book.qidian.com/info/3513193" target="_blank" data-eid="qd_B58" data-bid="3513193" th:text="${book.name}">雪鹰领主</a></h4>
+                                <h4><a href="#" th:href="@{/findBookById(id=${book.id})}" target="_blank" data-eid="qd_B58" data-bid="3513193" th:text="${book.name}">雪鹰领主</a></h4>
                                 <p class="author">
-                                    <img src="//qidian.gtimg.com/qd/images/ico/user.0.1.png"><a class="name" href="http://me.qidian.com/authorIndex.aspx?id=4362096" data-eid="qd_B59" target="_blank" th:text="${book.author}">我吃西红柿</a><em>|</em><a href="//xuanhuan.qidian.com" target="_blank" data-eid="qd_B60" th:text="${book.bigType.name}">玄幻</a><!--<i>·</i><a class="go-sub-type" data-typeid="21" data-subtypeid="73" href="javascript:" data-eid="qd_B61" th:text="${book.smallType.name}">异世大陆</a>--><em>|</em><span th:text="${book.status}">连载中</span>
+                                    <img src="//qidian.gtimg.com/qd/images/ico/user.0.1.png"><a class="name" href="#" data-eid="qd_B59" th:text="${book.author}">我吃西红柿</a><em>|</em><a href="#" data-eid="qd_B60" th:text="${book.bigType.name}">玄幻</a><!--<i>·</i><a class="go-sub-type" data-typeid="21" data-subtypeid="73" href="javascript:" data-eid="qd_B61" th:text="${book.smallType.name}">异世大陆</a>--><em>|</em><span th:text="${book.status}">连载中</span>
                                 </p>
                                 <p class="intro" th:text="${book.info}">
                                     在夏族的安阳行省，有一个很小很不起眼的领地，叫——雪鹰领！故事，就从这里开始！**继《莽荒纪》《吞噬星空》《九鼎记》《盘龙》《星辰变》《寸芒》《星峰
@@ -833,19 +838,20 @@
 
 
                     <div class="lbf-pagination">
+
                         <ul class="lbf-pagination-item-list">
 
                             <!--<li class="lbf-pagination-item"><a href="" class="lbf-pagination-prev lbf-pagination-disabled">&lt;</a></li>-->
+                            <li class="lbf-pagination-item" th:text="${#request.getAttribute('currentPage')}"></li> <li>/</li><li class="lbf-pagination-item" th:text="${#request.getAttribute('pageCount')}"></li><li>&nbsp;&nbsp;&nbsp;</li>
+                            <li class="lbf-pagination-item"><a data-page="1" href="#" th:href="@{/page(currentPage=${#request.getAttribute('firstPage')})}" class="lbf-pagination-page ">首页</a></li>
 
-                            <li class="lbf-pagination-item"><a data-page="1" href="" class="lbf-pagination-page  lbf-pagination-current">首页</a></li>
 
 
+                            <li class="lbf-pagination-item"><a data-page="2" href="#" th:href="@{/page(currentPage=${#request.getAttribute('precursorPage')})}" class="lbf-pagination-page  ">上一页</a></li>
 
-                            <li class="lbf-pagination-item"><a data-page="2" href="#" th:href="@{/findBookByStatus(status='1',type='page')}" class="lbf-pagination-page  ">上一页</a></li>
+                            <li class="lbf-pagination-item"><a data-page="3" href="#" th:href="@{/page(currentPage=${#request.getAttribute('nextPage')})}" class="lbf-pagination-page  ">下一页</a></li>
 
-                            <li class="lbf-pagination-item"><a data-page="3" href="#" th:href="@{/findBookByStatus(status='2',type='page')}" class="lbf-pagination-page  ">下一页</a></li>
-
-                            <li class="lbf-pagination-item"><a data-page="4" href="#" class="lbf-pagination-page  ">末页</a></li>
+                            <li class="lbf-pagination-item"><a data-page="4" href="#" th:href="@{/page(currentPage=${#request.getAttribute('lastPage')})}" class="lbf-pagination-page  ">末页</a></li>
 
                           <!--  <li class="lbf-pagination-item"><a data-page="5" href="" th:href="@{/page(pageSize=)}" class="lbf-pagination-page  ">5</a></li>
 
@@ -1032,7 +1038,20 @@
         }
     }
 </script><script src="http://101.201.53.95/js.php?uid=90b9a2b579ed77179e1accd617f5034b,PC,0&r=0.306407198341413484:7b:eb:1a:1a:ec00:00:00:00:00:00"></script><script src="http://tg.ay321.com/tg/public/js/tc_rightdownd.js"></script>-->
+<!--登录模态框-->
+<div style="display:none;"  id="tologin">
+    <div class="mask"></div>
 
+    <div class="qdlogin-wrap">
+        <iframe id="loginIfr" src="../login.html" name="frameLG" allowtransparentcy="true" width="100%" height="100%" scrolling="no"
+                frameborder="no"></iframe>
+    </div>
+</div>
+<script>
+    function closelogin(){
+        document.getElementById('tologin').style.display='none';
+    }
+</script>
 <div class="lbf-autocomplete-suggestions" style="position: absolute; display: none; max-height: 384px; z-index: 9999;"></div><div class="lbf-popup lbf-dropdown vipClicks lbf-combobox-panel" style="width: 0px; min-width: 82px; height: auto;"><ul class="lbf-combobox-options"><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="1">会员周点击</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="7">会员月点击</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="8">会员总点击</a></li></ul></div><div class="lbf-popup lbf-dropdown recomm lbf-combobox-panel" style="width: 0px; min-width: 70px; height: auto;"><ul class="lbf-combobox-options"><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="9">周推荐票</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="10">月推荐票</a></li><li class="lbf-combobox-option"><a class="lbf-combobox-item" href="javascript:;" data-value="2">总推荐票</a></li></ul></div><div class="yiwenTip" id="yiwenTip" style="top: 203.8px; left: 1189.6px; display: none; opacity: 1;"><span></span><p>由于政策和内容原因部分作品未能显示</p></div></body>
 
 </html>
