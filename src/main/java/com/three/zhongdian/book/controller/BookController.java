@@ -3,6 +3,7 @@ package com.three.zhongdian.book.controller;
 import com.github.pagehelper.PageHelper;
 import com.three.zhongdian.book.po.BigType;
 import com.three.zhongdian.book.po.Book;
+import com.three.zhongdian.book.po.Comment;
 import com.three.zhongdian.book.po.Tag;
 import com.three.zhongdian.book.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,15 +13,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.*;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class BookController {
@@ -41,14 +41,6 @@ public class BookController {
 
         session.setAttribute("tags",tags);
         return page(request,null,session);
-        /*List<Book> books = bookService.findBookByMap(tags);
-        List<BigType> bigTypes = bookService.findBigType();
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("list");
-        mv.addObject("books",books);
-        mv.addObject("bigTypes",bigTypes);
-        mv.addObject("tags",tags);
-        return mv;*/
     }
 
 
@@ -105,19 +97,14 @@ public class BookController {
             Map map = new HashMap<String,Object>();
             session.setAttribute("tags",map);
 
+        }else if("orders".equals(type)){
+            Map<String,Object> tags = (Map)session.getAttribute("tags");
+            Tag tag = new Tag();
+            tag.setName(status);
+            tags.put("orders",tag);
+            session.setAttribute("tags",tags);
         }
 
-     /*   Map<String,Object> tags = (Map)session.getAttribute("tags");
-        List<Book> books = bookService.findBookByMap(tags);
-        List<BigType> bigTypes = bookService.findBigType();
-
-
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("list");
-        mv.addObject("books",books);
-        mv.addObject("bigTypes",bigTypes);
-        mv.addObject("tags",tags);
-        return mv;*/
         return  page(request,currentPage,session);
     }
     @RequestMapping("/searchBook")
@@ -135,22 +122,25 @@ public class BookController {
         mv.addObject("tags",tags);
         return mv;
     }
-    @RequestMapping("/findBookById")
+ /*   @RequestMapping("/findBookById")
     public ModelAndView findBookById(int id){
         Book book = bookService.findBookById(id);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("book");
         mv.addObject("book",book);
         return mv;
-    }
+    }*/
     @RequestMapping(value = "/testDownload", method = RequestMethod.GET)
     public void testDownload(HttpServletResponse res,String filepath) {
+        System.out.println(filepath);
         res.setHeader("content-type", "application/octet-stream");
         res.setContentType("application/octet-stream");
-        res.setHeader("Content-Disposition", "attachment;filename=" + filepath);
+        String name = UUID.randomUUID().toString();
+        res.setHeader("Content-Disposition", "attachment;filename=" + name+".txt");
         byte[] buff = new byte[1024];
         BufferedInputStream bis = null;
         OutputStream os = null;
+
         try {
             os = res.getOutputStream();
             bis = new BufferedInputStream(new FileInputStream(new File("d://book//"
@@ -243,6 +233,30 @@ public class BookController {
         mv.addObject("books",books);
         mv.addObject("bigTypes",bigTypes);
         mv.addObject("tags",tags);
+        return mv;
+    }
+
+
+    @RequestMapping("/saveComment")
+    @ResponseBody
+    public ModelAndView  saveComment(String content,Integer userid,Integer bookid){
+
+        Comment comment = new Comment();
+        comment.setContent(content);
+        comment.setBid(bookid);
+        comment.setDate(new Date());
+        comment.setUid(userid);
+        bookService.insertComment(comment);
+        return findBookById(bookid);
+    }
+    @RequestMapping("/findBookById")
+    public ModelAndView findBookById(Integer id){
+        List<Comment> comments = bookService.findComment(id);
+        Book book = bookService.findBookById(id);
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("book");
+        mv.addObject("book",book);
+        mv.addObject("comments",comments);
         return mv;
     }
 }
