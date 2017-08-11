@@ -76,21 +76,21 @@
 
     <select id="findBookByMap" parameterType="java.util.Map" resultMap="findAll">
          select
-            book.id,
-            book.name,
-            book.words,
-            book.author,
-            book.section,
-            book.click,
-            book.picpath,
-            book.filepath,
-            book.info,
-            book.status,
-            book.bid,
-            b.id bigtypeid,
-            b.name bigtypename
+        book.id,
+        book.name,
+        book.words,
+        book.author,
+        book.section,
+        book.click,
+        book.picpath,
+        book.filepath,
+        book.info,
+        book.status,
+        book.bid,
+        b.id bigtypeid,
+        b.name bigtypename
 
-          from  book book ,bigtype b where book.bid = b.id
+        from  book book ,bigtype b where book.bid = b.id
           <if test="type!=null">
                and b.id = #{type.id}
           </if>
@@ -99,6 +99,12 @@
         </if>
         <if test="words!=null">
             and book.words >#{words.min} and   #{words.max} > book.words
+        </if>
+        <if test="orders!=null">
+            ORDER BY ${orders.name} DESC
+        </if>
+        <if test="page!=null">
+            limit #{page.min},#{page.max}
         </if>
 
     </select>
@@ -123,6 +129,25 @@
             b.name bigtypename
 
           from  book book ,bigtype b where book.bid = b.id and  book.name LIKE '%${value}%'
+    </select>
+
+    <insert id="insertComment" parameterType="com.three.zhongdian.book.po.Comment">
+        insert into comment (content,date,uid,bid) values (#{content},#{date},#{uid},#{bid})
+    </insert>
+    
+    <resultMap id="findComment" type="com.three.zhongdian.book.po.Comment">
+        <id property="id" column="id"></id>
+        <result property="content" column="content"></result>
+        <result property="date" column="date"></result>
+        <association property="user" javaType="com.three.zhongdian.user.entity.User">
+            <result column="username" property="username"></result>
+            <result column="password" property="password"></result>
+            <result column="nickname" property="nickname"></result>
+        </association>
+    </resultMap>
+
+    <select id="findComment" parameterType="int" resultMap="findComment">
+        SELECT * from comment c,user u where c.uid = u.id and c.bid = #{id} order by date desc
     </select>
 
 </mapper>
