@@ -3,6 +3,7 @@ package com.three.zhongdian.book.service;
 import com.three.zhongdian.book.mapper.BookMapper;
 import com.three.zhongdian.book.po.BigType;
 import com.three.zhongdian.book.po.Book;
+import com.three.zhongdian.book.po.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -53,5 +54,15 @@ public class BookServiceImpl implements BookService {
     @Override
     public List<Book> findBookByName(String name) {
         return bookMapper.findBookByName(name);
+    }
+
+    @Override
+    public void insertComment(Comment comment) {
+        bookMapper.insertComment(comment);
+    }
+
+    @Override
+    public List<Comment> findComment(Integer bookid) {
+        return bookMapper.findComment(bookid);
     }
 }
