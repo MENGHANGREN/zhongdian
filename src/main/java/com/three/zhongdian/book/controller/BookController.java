@@ -104,7 +104,6 @@ public class BookController {
             tags.put("orders",tag);
             session.setAttribute("tags",tags);
         }
-
         return  page(request,currentPage,session);
     }
     @RequestMapping("/searchBook")
