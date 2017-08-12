@@ -106,18 +106,6 @@ public class BookController {
             session.setAttribute("tags",map);
 
         }
-
-     /*   Map<String,Object> tags = (Map)session.getAttribute("tags");
-        List<Book> books = bookService.findBookByMap(tags);
-        List<BigType> bigTypes = bookService.findBigType();
-
-
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("list");
-        mv.addObject("books",books);
-        mv.addObject("bigTypes",bigTypes);
-        mv.addObject("tags",tags);
-        return mv;*/
         return  page(request,currentPage,session);
     }
     @RequestMapping("/searchBook")
