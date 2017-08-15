@@ -19,6 +19,31 @@ public class AuthorController {
 
     @Autowired
     private AuthorService authorService;
+  
+   @RequestMapping("yzAuthorLogin")
+    @ResponseBody
+    public  String yzAuthorLogin(HttpSession session){
+        System.out.println("开始登陆");
+        if(session.getAttribute("loginUser")!=null){
+            System.out.println("登陆成功");
+            return "1";
+        }
+        return "0";
+    }
+  
+  @RequestMapping("wlogin")
+    public ModelAndView wlogin(HttpSession session){
+        ModelAndView mv = new ModelAndView();
+        ModelAndView mv2 = new ModelAndView();
+        if(session.getAttribute("loginUser")!=null){
+            System.out.println("已经登陆");
+            mv.setViewName("author");
+            return mv;
+        }
+        System.out.println("未登录");
+        mv2.setViewName("wlogin");
+        return mv;
+    }
 
     @RequestMapping("findByAuthorName")
     public String findByAuthorName(String name, Model model,HttpSession session){
@@ -45,5 +70,10 @@ public class AuthorController {
 
         return  "book";
     }
-
+   @RequestMapping("addAuthor")
+    public String addAuthor(Author author){
+        System.out.println("添加作者");
+        authorService.addAuthor(author);
+        return "author";
+    }
 }

@@ -26,5 +26,18 @@ public class AuthorServiceImpl implements AuthorService{
     @Override
     public List<Book> selectByAuthorName(String name) {
         return authorMapper.selectByAuthorName(name);
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+/**
+ * Created by 任梦杭 on 2017/08/11.
+ */
+@Service
+public class AuthorServiceImpl implements AuthorService {
+    @Autowired
+    private AuthorMapper authorMapper;
+    @Override
+    public void addAuthor(Author author) {
+        authorMapper.addAuthor(author);
     }
 }

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- 360安全游览器使用webkit极速核 -->
+    <meta name="renderer" content="webkit">
+    <!-- IE使用它支持的最高模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="小说阅读,精彩小说尽在创世小说.创世小说提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,职场小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说最新章节免费小说阅读小说下载txt,精彩尽在创世小说!2013年热门小说:无敌唤灵,无红色权力,无限曙光,余罪,兵临天下,盛唐风月,武帝,大官人,勇闯天涯,机甲天王">
+    <meta name="keywords" content="小说,小说网,言情小说,职场小说,玄幻小说,武侠小说,都市小说,历史小说,网络小说,小说下载,小说txt,小说全文阅读,原创网络文学">
+    <link rel="shortcut icon" type="image/x-icon" href="https://img1.write.qq.com/writer/p1/contentv2/aa_ico.ico">
+    <title>帐号登录-阅文作家专区</title>
+    <link rel="stylesheet" type="text/css" href="https://sta1.write.qq.com/writer/0803130612/css/merge/contentv2_base.css"><script type="text/javascript" src="https://sta1.write.qq.com/writer/0803130612/js/merge/contentv2_base.js"></script>    <!-- prevent dom xss -->
+    <script type="text/javascript" src="https://js.aq.qq.com/js/aq_common.js"></script>
+    <meta name="__hash__" content="6a55f9b92d0eaf671b62fc3a7ac18d6f_5b8b495674f0967cbd7df1b239aaa651"><link rel="stylesheet" type="text/css" href="https://sta1.write.qq.com/writer/0803130612/css/merge/contentv2_login.css">
+    <script src="https://sta.gtimg.com/c/=/qd/js/jquery-1.9.1.min.js,/qd/js/lulu/Checkbox.js,/js/front_login.js,/js/login_v2.js,/js/phoneAreaSortNew.js"></script>
+    <script src="https://qidian.gtimg.com/lbf/2.0.0/qidian/report.js"></script>
+</head>
+<body>
+<div class="wrap login">
+    <div class="header">
+        <div class="headBox pageCenter cf">
+            <a href="//write.qq.com"><img class="logo fl" src="https://img1.write.qq.com/writer/p1/contentv2/logo.png" width="225" height="28" alt="阅文·作家专区"></a>
+        </div>
+    </div>
+    <div class="loginWrap pageCenter">
+        <img src="https://img1.write.qq.com/writer/p1/contentv2/slogan.jpg" alt="">
+        <div class="login-box">
+            <iframe id="loginIframe" name="login_frame" src="" frameborder="0" scrolling="auto" width="406" height="450">
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费">
+                    <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
+                    <meta name="robots" content="all">
+                    <meta name="googlebot" content="all">
+                    <meta name="baiduspider" content="all">
+                    <meta http-equiv="mobile-agent" content="format=wml; url=http://m.qidian.com">
+                    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://m.qidian.com">
+                    <meta http-equiv="mobile-agent" content="format=html5; url=http://h5.qidian.com/bookstore.html">
+                    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+                    <meta name="renderer" content="webkit">
+                    <title>账号登录 | 起点中文网_起点中文网_阅文集团旗下网站</title>
+                    <link rel="stylesheet" type="text/css" href="https://sta.gtimg.com/c/=/qd2/css/cssreset.css,/qd2/css/header.css,/qd2/css/login.css,/qd2/css/layout.css,/qd2/css/sprites.css,/qd2/css/ui.css,/qd2/css/footer.css,/qd2/css/font.css,/qd2/css/reg.css,/qd2/css/pact.css">
+                    <link rel="shortcut icon" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.2.ico">
+                    <link rel="Bookmark" type="image/x-icon" href="//qidian.gtimg.com/qd/favicon/qd_icon.0.2.ico">
+                </head>
+                <body>
+                <style>
+                    body {
+                        background:none;
+                    }
+                </style>
+                <script>
+                    function login(){
+                        var username = $("#username").val();
+                        var password = $("#password").val();
+                        $.post("../user/tologin",{username:username,password:password},function(data){
+                            if(data=="1"){
+                                parent.closelogin();
+                                parent.location.reload();
+                            }else {
+                                alert("登录失败")
+                            }
+                        })
+
+                    }
+                </script>
+                <!-- start 登录区 -->
+
+
+                <script src="https://sta.gtimg.com/c/=/qd/js/jquery-1.9.1.min.js,/qd/js/lulu/Checkbox.js,/js/front_login.js,/js/login_v2.js,/js/phoneAreaSortNew.js"></script>
+                <script>
+                    $(function () {
+                        LoginV1.init({"appId":"34","areaId":"1006","format":"json","method":"","autoTime":14,"autoShow":"0","target":"top","autoLoginFlag":0,"returnUrl":"https:\/\/write.qq.com?artidx=0","loginfrom":"","tab":"qidian","ticket":1,"popup":1,"domain":"passport.qidian.com","baseUrl":"https:\/\/ptlogin.qidian.com","qqBaseUrl":"https:\/\/login.book.qq.com","qqDomain":".qq.com","cssPath":"https:\/\/sta.gtimg.com","isQidian":true,"ajaxdm":"","jumpdm":"qidian","style":0});
+                        LoginV1.initPhoneAreaSelect();
+                    });
+                </script><script src="https://qidian.gtimg.com/lbf/2.0.0/qidian/report.js"></script>
+                <script src="https://sta.gtimg.com/js/stat.js"></script>
+                <script>
+                    $(function () {
+                        Stat.init();
+                    });
+                </script>
+
+                </body>
+                </html>
+
+            </iframe>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="pageCenter">
+            <div id="contact-bubble" class="footer-bubble">
+                <em><i></i></em>
+                <ul>
+                    <li><a target="_blank" href="http://kf.qidian.com/Default.aspx">联系起点客服</a></li>
+                    <li><a target="_blank" href="http://kf.qq.com/product/chuangshi.html">联系创世客服</a></li>
+                </ul>
+            </div>
+            <a target="_blank" href="http://bbs.write.qq.com">作家论坛</a><span>|</span>
+            <a target="_blank" href="/about/help_center.html">帮助中心</a><span>|</span>
+            <a id="contact" href="javascript:;">联系客服</a><span>|</span><a target="_blank" href="http://join.book.qq.com/introduction.html">关于我们</a><span>|</span><a target="_blank" href="http://join.book.qq.com/social.html">诚聘英才</a><span>|</span><a target="_blank" href="/about/copyright.html">版权声明</a><span>|</span>Copyright
+            © 2017 All Rights Reserved 阅文集团 版权所有
+        </div>
+    </div>
+    <script type="text/javascript" src="https://sta1.write.qq.com/writer/0803130612/js/merge/contentv2_help_connectkefu.js"></script>
+</div>
+
+<script type="text/javascript" src="https://sta.book.qq.com/js/ywlogin_v1.js"></script>
+<script type="text/javascript">
+    function closelogin(){
+
+    }
+    if(window.top !== self)
+    {
+        window['top'].location=window['self'].location.href;
+    }
+
+$(window).load(function (){
+        var _dialog = CS.dialog;
+        var authortip="0";
+        _setIframe();
+        _isgrayauthor();
+
+        function _setIframe()
+        {
+            yw.setParams({
+                "appId": 34,
+                "areaId": 1006,
+                "popup_close":1,
+                "ticket":1,
+                // 可选回调页面
+                "returnUrl": "https://write.qq.com"+"?artidx=0" ,
+                "autoshow": 0,
+            });
+            var url=yw.getLoginIframeUrl();
+            $('#loginIframe').attr('src',"../login");
+        }
+        function _isgrayauthor()
+        {
+            if(authortip == '4')
+            {
+                _dialog.alert('作家信息不存在，请联系客服。');
+                return;
+            }
+            if(authortip=='3'){
+                _dialog.confirm('您的帐号已被锁定，如需解锁请点击确定按钮查看帮助',function(){
+                    window.open("https://write.qq.com/jump/url.html?token=AGUMdVstViNaP1EvUihQcgx6VSQJdQI1CGZRewAqBXYMaAxlUDtWMgAxBXpSZA40DGALIgxIBTsPYgckUBcCZQBjDHVbPFYhWipRZFJiUGMMbFUmCWkCLQgnUWMAdwV3DHkMPlAmVioALwUxUjoOawwrC24MYQUqD2sHM1A7AnIAdAxoWz1Wblo0UTVSPlAjDH1VMgl3AjwIZ1F2AG0FYww8DDBQYQ");
+                    return;
+                });
+                return;
+            }
+            if(authortip=='2')
+            {
+                _dialog.alert('您的数据正常处理中，暂时无法登录到新后台。');
+                return;
+            }
+            if(authortip != '0')
+            {
+                _dialog.alert('您的起点账号不在内测名单中，无法登录到新后台。');
+                return;
+            }
+        }
+
+        $.post("../yzAuthorLogin",function(data){
+
+            if(data=="1"){
+                window.location="../saveAuthor";
+            }
+        })
+
+
+    });
+</script>
+<script>
+    function reflash()
+    {
+        window.location.href=window.location.href;
+    }
+    </script>
+<!-- 数据统计 -->
+<script type="text/javascript">
+    $(function(){
+
+        var refreshKeyUrl = "https://passport.book.qq.com/index/refreshkey.html";
+
+        function _refreshKey(){
+            new Image().src = refreshKeyUrl;
+        }
+
+        setInterval(_refreshKey, 1800000); //30分钟
+
+        //public
+        $.getScript("https://tajs.qq.com/stats?sId=34321758");
+        //new write
+        $.getScript("https://tajs.qq.com/stats?sId=51056771");
+    });
+</script>
+
+
+</body>
+</html>

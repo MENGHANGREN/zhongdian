@@ -21,4 +21,10 @@ public interface AuthorService {
     @Transactional(readOnly =true)
     List<Book> selectByAuthorName(String name);
 
+
+/**
+ * Created by 任梦杭 on 2017/08/11.
+ */
+public interface AuthorService {
+    void addAuthor(Author author);
 }

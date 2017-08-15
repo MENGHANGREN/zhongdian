@@ -2,6 +2,7 @@ package com.three.zhongdian.book.mapper;
 
 import com.three.zhongdian.book.po.BigType;
 import com.three.zhongdian.book.po.Book;
+import com.three.zhongdian.book.po.Comment;
 import com.three.zhongdian.user.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
@@ -20,5 +21,7 @@ public interface BookMapper {
      List<Book> findBookByMap(Map<String,Object> map);
     Book findBookById(int id);
     List<Book> findBookByName(String name);
+    void insertComment(Comment comment);
+    List<Comment> findComment(Integer bookid);
 
 }

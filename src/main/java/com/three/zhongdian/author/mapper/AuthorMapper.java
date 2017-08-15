@@ -1,7 +1,9 @@
 package com.three.zhongdian.author.mapper;
 
 import com.three.zhongdian.author.entity.Author;
+
 import com.three.zhongdian.book.po.Book;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -13,7 +15,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Created by admin on 2017/8/7.
+ * Created by 任梦杭 on 2017/08/11.
  */
 @Mapper
 @Component
@@ -29,6 +31,6 @@ public interface AuthorMapper {
    // @Select("select a.*, b.name ,b.words ,b.section ,b.click  ,b.picpath ,b.filepath ,b.info  from author a,book b where a.id=b.aid and  a.name=#{name} ")
     List<Book> selectByAuthorName(String name);
 
-
-
+    @Insert("insert into author(authorNname,newPassword,repeatPassword,email,QQ,realName,sex,cardtype,cardId,tel_pre,province,address) values (#{authorNname},#{newPassword},#{repeatPassword},#{email},#{QQ},#{realName},#{sex},#{cardtype},#{cardId},#{tel_pre},#{province},#{address})")
+    void addAuthor(Author author);
 }

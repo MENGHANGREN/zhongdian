@@ -15,16 +15,18 @@
     <meta http-equiv="mobile-agent" content="format=html5; url=http://m.qidian.com/book/showbook.aspx?bookid=3513193">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="renderer" content="webkit">
-    <script src="//pingjs.qq.com/h5/stats.js?v2.0.2" name="MTAH5" sid="500451537"></script>
-    <script src="http://push.zhanzhang.baidu.com/push.js"></script>
-    <script>
+    <script src="js/jquery-3.2.1.js"></script>
+
+  <!--  <script src="//pingjs.qq.com/h5/stats.js?v2.0.2" name="MTAH5" sid="500451537"></script>-->
+    <!--<script src="http://push.zhanzhang.baidu.com/push.js"></script>-->
+   <!-- <script>
         document.domain = 'qidian.com';
-    </script>
-    <script>
+    </script>-->
+  <!--  <script>
         var speedTimer = [],
             speedZero = new Date().getTime();
-    </script>
-    <script>
+    </script>-->
+   <!-- <script>
         function getCookie(name) {
             var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
             arr = document.cookie.match(reg);
@@ -126,7 +128,7 @@
             setCookie(cookieName, 0, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
         })();
         //end 防劫持
-    </script>
+    </script>-->
 
     <link data-ignore="true" rel="shortcut icon" type="image/x-icon"
           href="//qidian.gtimg.com/qd/favicon/qd_icon.0.3.ico">
@@ -147,9 +149,9 @@
     <link charset="utf-8" rel="stylesheet" href="http://qidian.gtimg.com/qd/css/lbfUI/css/Drag.css">
     <link href="http://qidian.gtimg.com/c/=/qd/css/lbfUI/css/icon.0.77.css,/qd/css/lbfUI/css/Drag.0.63.css,/qd/css/reset.0.78.css,/qd/css/global.0.52.css,/qd/css/font.0.88.css,/qd/css/footer.0.84.css,/qd/css/qd_popup.0.90.css,/qd/css/book_popup.0.69.css,/qd/css/vote_popup.0.70.css">
     <link href="http://qidian.gtimg.com/qd/css/module.1.28.css">
-    <script src="../js/common.js"></script>
+    <!--<script src="../js/common.js"></script>
     <script src="https://sta.gtimg.com/c/=/qd/js/jquery-1.9.1.min.js,/qd/js/lulu/Checkbox.js,/js/front_login.js,/js/login_v2.js,/js/phoneAreaSortNew.js"></script>
-
+-->
     <style name="lbf-overlay">.lbf-overlay {
         position: fixed;
         top: 0;
@@ -209,20 +211,23 @@
                     </li>
                     <li class="line"></li>
                     <li class="sign-out" th:if="${session.loginUser}==null">
-                        <a href="#" onclick="document.getElementById('tologin').style.display='block'" style="cursor:hand">登录</a>
+                        <a href="#" onclick="document.getElementById('tologin').style.display='block'"
+                           style="cursor:hand">登录</a>
                         <a
-                           href="../zhuce"
-                           target="_blank">注册</a>
+                                href="../zhuce"
+                                target="_blank">注册</a>
                     </li>
 
                     <li class="sign-in" th:if="${session.loginUser}!=null">
-                        <a href="//me.qidian.com/Index.aspx" target="_blank" data-eid="qd_A65"><i id="nav-user-name" th:text="${session.loginUser.nickname}">书友20170802203148953</i><span></span></a>
+                        <a href="//me.qidian.com/Index.aspx" target="_blank" data-eid="qd_A65"><i id="nav-user-name"
+                                                                                                  th:text="${session.loginUser.nickname}">书友20170802203148953</i><span></span></a>
                         <div class="dropdown">
-                            <a href="//me.qidian.com/msg/lists.aspx?page=1" target="_blank" data-eid="qd_A66">消息(<i id="top-msg">1</i>)</a>
+                            <a href="//me.qidian.com/msg/lists.aspx?page=1" target="_blank" data-eid="qd_A66">消息(<i
+                                    id="top-msg">1</i>)</a>
                             <a href="//www.qidian.com/charge/meRedirect" target="_blank" data-eid="qd_A67">充值</a>
                             <a href="//me.qidian.com/Index.aspx" target="_blank" data-eid="qd_A68">个人中心</a>
                             <a href="//www.qidian.com/help/kf" target="_blank" data-eid="qd_A69">客服中心</a>
-                            <a id="exit" onclick="cleanSession()"  href=""  data-eid="qd_A70" style="cursor:hand">退出</a>
+                            <a id="exit" onclick="cleanSession()" href="" data-eid="qd_A70" style="cursor:hand">退出</a>
                         </div>
                     </li>
                     <li class="line"></li>
@@ -277,13 +282,16 @@
             <div class="book-img">
                 <a class="J-getJumpUrl" id="bookImg"
                    href="//read.qidian.com/chapter/7X3dt6Dj9tI1/frfuMcYFVZwex0RJOkJclQ2" data-eid="qd_G09"
-                   data-bid="3513193" data-firstchapterjumpurl=""><img th:attr="src=${book.picpath}"src="#"></a>
+                   data-bid="3513193" data-firstchapterjumpurl=""><img th:attr="src=${book.picpath}" src="#"></a>
             </div>
 
             <div class="book-info ">
 
+
                 <h1><em th:text="${book.name}">雪鹰领主</em><span><a class="writer" th:href="@{findByAuthorName(name=${session.au.name})}"
                                           target="_blank" th:text="${book.author}"></a> 著</span></h1>
+
+
                 <p class="tag"><span class="blue" th:text="${book.status}">连载</span>
 
                     <span class="blue">签约</span>
@@ -300,7 +308,8 @@
 
                 <p class="intro" th:text="${book.info}">夏族的强者们征战四方，灭杀一切威胁！</p>
                 <p>
-                    <em th:text="${book.words/10000}">360.12</em><cite>万字</cite><i>|</i><em th:text="${book.click/10000}">709.17</em><cite>万总点击</cite><i>|</i><em>902.89</em><cite>万总推荐<span>·</span>周918</cite>
+                    <em th:text="${book.words/10000}">360.12</em><cite>万字</cite><i>|</i><em
+                        th:text="${book.click/10000}">709.17</em><cite>万总点击</cite><i>|</i><em>902.89</em><cite>万总推荐<span>·</span>周918</cite>
                 </p>
 
                 <p><a class="red-btn J-getJumpUrl "
@@ -343,7 +352,8 @@
                 <i></i>
 
 
-                <a class="blue download" id="download" href="#" th:href="@{/testDownload(filepath=${book.filepath})}" data-eid="qd_G14"><em class="iconfont"></em>下载
+                <a class="blue download" id="download" href="#" th:href="@{/testDownload(filepath=${book.filepath})}"
+                   data-eid="qd_G14"><em class="iconfont"></em>下载
 
                 </a>
             </div>
@@ -354,13 +364,13 @@
                 <ul>
                     <li class="act"><a class="lang" id="j-bookInfoPage" href="javascript:" data-eid="qd_G15">作品信息</a>
                     </li>
-                    <li class="j_catalog_block"><a class="lang" href="javascript:" id="j_catalogPage" data-eid="qd_G16">目录<i><span
-                            id="J-catalogCount">(1395章)</span></i></a></li>
+                    <!--<li class="j_catalog_block"><a class="lang" href="javascript:" id="j_catalogPage" data-eid="qd_G16">目录<i><span
+                            id="J-catalogCount">(1395章)</span></i></a></li>-->
 
-                    <li class="j_discussion_block"><a class="lang"
-                                                      href="//forum.qidian.com/NewForum/List.aspx?BookId=3513193"
-                                                      target="_blank" data-eid="qd_G17">作品讨论<i><span id="J-discusCount">(564651条)</span></i></a>
-                    </li>
+                    <!-- <li class="j_discussion_block"><a class="lang"
+                                                       href="//forum.qidian.com/NewForum/List.aspx?BookId=3513193"
+                                                       target="_blank" data-eid="qd_G17">作品讨论<i><span id="J-discusCount">(564651条)</span></i></a>
+                     </li>-->
 
                 </ul>
             </div>
@@ -463,171 +473,171 @@
                         </ul>
                     </div>
                 </div>
-                <div class="fans-zone" data-l1="5">
-                    <h3 class="lang">粉丝互动</h3>
-                    <div class="fans-interact cf">
-                        <dl>
-                            <dd>
-                                <h4 id="ticket-Tab">
+                <!--  <div class="fans-zone" data-l1="5">
+                      <h3 class="lang">粉丝互动</h3>
+                      <div class="fans-interact cf">
+                          <dl>
+                              <dd>
+                                  <h4 id="ticket-Tab">
 
-                                    <a class="lang act" href="javascript:" data-eid="qd_G20">月票</a><em>|</em>
+                                      <a class="lang act" href="javascript:" data-eid="qd_G20">月票</a><em>|</em>
 
-                                    <a class="lang " href="javascript:" data-eid="qd_G21">推荐票
+                                      <a class="lang " href="javascript:" data-eid="qd_G21">推荐票
 
-                                    </a>
-                                </h4>
-                                <div class="action-wrap" id="ticket-wrap">
+                                      </a>
+                                  </h4>
+                                  <div class="action-wrap" id="ticket-wrap">
 
-                                    <div class="ticket month-ticket">
-                                        <p>本月票数</p>
-                                        <p class="num"><i id="monthCount">481</i></p>
+                                      <div class="ticket month-ticket">
+                                          <p>本月票数</p>
+                                          <p class="num"><i id="monthCount">481</i></p>
 
-                                        <p>排名181<i>·</i>还差<em>
-                                            0
+                                          <p>排名181<i>·</i>还差<em>
+                                              0
 
-                                        </em>票追上前一名</p>
+                                          </em>票追上前一名</p>
 
-                                        <div class="icon-box month">
-                                            <span></span>
-                                            <b></b>
-                                        </div>
-                                        <a class="red-radius-btn" id="monthBtn" href="javascript:" data-showtype="1"
-                                           data-eid="qd_G22"><em class="iconfont"></em>投月票</a>
-                                        <p class="tip"><cite>1</cite>张月票=<cite>100</cite>点粉丝值</p>
-                                    </div>
+                                          <div class="icon-box month">
+                                              <span></span>
+                                              <b></b>
+                                          </div>
+                                          <a class="red-radius-btn" id="monthBtn" href="javascript:" data-showtype="1"
+                                             data-eid="qd_G22"><em class="iconfont"></em>投月票</a>
+                                          <p class="tip"><cite>1</cite>张月票=<cite>100</cite>点粉丝值</p>
+                                      </div>
 
-                                    <div class="ticket rec-ticket hidden">
-                                        <p>本周票数</p>
-                                        <p class="num"><i id="recCount">922</i></p>
+                                      <div class="ticket rec-ticket hidden">
+                                          <p>本周票数</p>
+                                          <p class="num"><i id="recCount">922</i></p>
 
-                                        <p>排名144<i>·</i>还差<em>
-                                            8
+                                          <p>排名144<i>·</i>还差<em>
+                                              8
 
-                                        </em>票追上前一名</p>
+                                          </em>票追上前一名</p>
 
-                                        <div class="icon-box rec">
-                                            <span></span>
-                                            <b></b>
-                                        </div>
-                                        <a class="red-radius-btn" id="recBtn" href="javascript:" data-showtype="2"
-                                           data-eid="qd_G23"><em class="iconfont"></em>投推荐票</a>
-                                    </div>
-                                </div>
-                            </dd>
-                            <dd class="line"></dd>
-                            <dd>
-                                <h4 class="lang"><span class="act">打赏</span></h4>
-                                <div class="action-wrap">
-                                    <div class="ticket">
-                                        <p>本周打赏人数</p>
-                                        <p class="num"><i class="rewardNum" id="rewardNum">9</i></p>
+                                          <div class="icon-box rec">
+                                              <span></span>
+                                              <b></b>
+                                          </div>
+                                          <a class="red-radius-btn" id="recBtn" href="javascript:" data-showtype="2"
+                                             data-eid="qd_G23"><em class="iconfont"></em>投推荐票</a>
+                                      </div>
+                                  </div>
+                              </dd>
+                              <dd class="line"></dd>
+                              <dd>
+                                  <h4 class="lang"><span class="act">打赏</span></h4>
+                                  <div class="action-wrap">
+                                      <div class="ticket">
+                                          <p>本周打赏人数</p>
+                                          <p class="num"><i class="rewardNum" id="rewardNum">9</i></p>
 
-                                        <p>今日<em id="todayNum">9</em>人打赏</p>
+                                          <p>今日<em id="todayNum">9</em>人打赏</p>
 
-                                        <div class="icon-box money">
-                                            <span></span>
-                                            <b></b>
-                                        </div>
-                                        <a class="red-radius-btn" id="rewardBtn" href="javascript:" data-showtype="3"
-                                           data-eid="qd_G24"><em class="iconfont"></em>打赏作者</a>
-                                        <p class="tip"><cite>100</cite>起点币=<cite>100</cite>点粉丝值</p>
-                                    </div>
-                                </div>
-                            </dd>
-                            <dd class="line"></dd>
-                            <dd>
-                                <h4 class="lang"><span>我的粉丝等级</span></h4>
+                                          <div class="icon-box money">
+                                              <span></span>
+                                              <b></b>
+                                          </div>
+                                          <a class="red-radius-btn" id="rewardBtn" href="javascript:" data-showtype="3"
+                                             data-eid="qd_G24"><em class="iconfont"></em>打赏作者</a>
+                                          <p class="tip"><cite>100</cite>起点币=<cite>100</cite>点粉丝值</p>
+                                      </div>
+                                  </div>
+                              </dd>
+                              <dd class="line"></dd>
+                              <dd>
+                                  <h4 class="lang"><span>我的粉丝等级</span></h4>
 
-                                <div class="fans-rank login-out mb20 cf " id="noLogin" data-login="0">
-                                    <div class="user-photo fl">
-                                        <a href="//me.qidian.com" target="_blank">
-                                            <img src="//qidian.gtimg.com/qd/images/ico/default_user.0.1.png">
-                                        </a>
-                                    </div>
-                                    <div class="fans-info">
-                                        <p><a class="blue" id="login-btn" href="javascript:" data-eid="qd_G28">登录</a>查看粉丝等级
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="fans-rank login-in mb20 cf hidden" id="loginIn" data-login="1">
-                                    <div class="user-photo fl">
-                                        <a href="//me.qidian.com" id="myUserIcon" target="_blank">
-                                            <img src="//qidian.gtimg.com/qd/images/ico/default_user.0.1.png">
-                                            <span class="user-level" id="userLevel"></span>
-                                        </a>
-                                    </div>
-                                    <div class="fans-info hidden" id="haveLv">
-                                        <p>我的排名<b class="red">--</b>名</p>
-                                        <p>还差<span id="Lnterval">--</span>粉丝值升级</p>
-                                    </div>
-                                    <div class="fans-info hidden" id="noLv">
-                                        <p>暂无粉丝等级</p>
-                                        <p id="levelUp">对本书消费可提升等级</p>
-                                    </div>
-                                </div>
-                                <div class="fans-dynamic">
-                                    <h4 class="lang"><span>本书粉丝动态</span></h4>
+                                  <div class="fans-rank login-out mb20 cf " id="noLogin" data-login="0">
+                                      <div class="user-photo fl">
+                                          <a href="//me.qidian.com" target="_blank">
+                                              <img src="//qidian.gtimg.com/qd/images/ico/default_user.0.1.png">
+                                          </a>
+                                      </div>
+                                      <div class="fans-info">
+                                          <p><a class="blue" id="login-btn" href="javascript:" data-eid="qd_G28">登录</a>查看粉丝等级
+                                          </p>
+                                      </div>
+                                  </div>
+                                  <div class="fans-rank login-in mb20 cf hidden" id="loginIn" data-login="1">
+                                      <div class="user-photo fl">
+                                          <a href="//me.qidian.com" id="myUserIcon" target="_blank">
+                                              <img src="//qidian.gtimg.com/qd/images/ico/default_user.0.1.png">
+                                              <span class="user-level" id="userLevel"></span>
+                                          </a>
+                                      </div>
+                                      <div class="fans-info hidden" id="haveLv">
+                                          <p>我的排名<b class="red">&#45;&#45;</b>名</p>
+                                          <p>还差<span id="Lnterval">&#45;&#45;</span>粉丝值升级</p>
+                                      </div>
+                                      <div class="fans-info hidden" id="noLv">
+                                          <p>暂无粉丝等级</p>
+                                          <p id="levelUp">对本书消费可提升等级</p>
+                                      </div>
+                                  </div>
+                                  <div class="fans-dynamic">
+                                      <h4 class="lang"><span>本书粉丝动态</span></h4>
 
-                                    <div class="fans-slide-wrap">
-                                        <div class="scroll-div" id="scrollDiv">
-                                            <ul class="fans-slide" style="margin-top: 0px;">
+                                      <div class="fans-slide-wrap">
+                                          <div class="scroll-div" id="scrollDiv">
+                                              <ul class="fans-slide" style="margin-top: 0px;">
 
 
-                                                <li data-rid="5" class="">
-                                                    <em class="rec"></em><a
-                                                        href="//me.qidian.com/friendIndex.aspx?id=1219399"
-                                                        target="_blank" data-eid="" title="周钢">周钢</a><span>投了</span>11张推荐票
-                                                </li>
-                                                <li data-rid="1" class="">
-                                                    <em class="rec"></em><a
-                                                        href="//me.qidian.com/friendIndex.aspx?id=21133601"
-                                                        target="_blank" data-eid="" title="布枷">布枷</a><span>投了</span>1张推荐票
-                                                </li>
-                                                <li data-rid="2" class="">
-                                                    <em class="rec"></em><a
-                                                        href="//me.qidian.com/friendIndex.aspx?id=512991"
-                                                        target="_blank" data-eid=""
-                                                        title="huhuwgq">huhuwgq</a><span>投了</span>10张推荐票
-                                                </li>
-                                                <li data-rid="3" class="">
-                                                    <em class="rec"></em><a
-                                                        href="//me.qidian.com/friendIndex.aspx?id=162435314"
-                                                        target="_blank" data-eid=""
-                                                        title="yangguang136">yangguang136</a><span>投了</span>2张推荐票
-                                                </li>
-                                                <li data-rid="4" class="">
-                                                    <em class="rec"></em><a
-                                                        href="//me.qidian.com/friendIndex.aspx?id=4990631"
-                                                        target="_blank" data-eid="" title="独混">独混</a><span>投了</span>9张推荐票
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                                  <li data-rid="5" class="">
+                                                      <em class="rec"></em><a
+                                                          href="//me.qidian.com/friendIndex.aspx?id=1219399"
+                                                          target="_blank" data-eid="" title="周钢">周钢</a><span>投了</span>11张推荐票
+                                                  </li>
+                                                  <li data-rid="1" class="">
+                                                      <em class="rec"></em><a
+                                                          href="//me.qidian.com/friendIndex.aspx?id=21133601"
+                                                          target="_blank" data-eid="" title="布枷">布枷</a><span>投了</span>1张推荐票
+                                                  </li>
+                                                  <li data-rid="2" class="">
+                                                      <em class="rec"></em><a
+                                                          href="//me.qidian.com/friendIndex.aspx?id=512991"
+                                                          target="_blank" data-eid=""
+                                                          title="huhuwgq">huhuwgq</a><span>投了</span>10张推荐票
+                                                  </li>
+                                                  <li data-rid="3" class="">
+                                                      <em class="rec"></em><a
+                                                          href="//me.qidian.com/friendIndex.aspx?id=162435314"
+                                                          target="_blank" data-eid=""
+                                                          title="yangguang136">yangguang136</a><span>投了</span>2张推荐票
+                                                  </li>
+                                                  <li data-rid="4" class="">
+                                                      <em class="rec"></em><a
+                                                          href="//me.qidian.com/friendIndex.aspx?id=4990631"
+                                                          target="_blank" data-eid="" title="独混">独混</a><span>投了</span>9张推荐票
+                                                  </li>
+                                              </ul>
+                                          </div>
+                                      </div>
 
-                                </div>
-                            </dd>
-                        </dl>
-                    </div>
-                </div>
+                                  </div>
+                              </dd>
+                          </dl>
+                      </div>
+                  </div>-->
 
-                <div class="games-op-wrap" data-l1="17">
-                    <div class="left-game">
+                <!--    <div class="games-op-wrap" data-l1="17">
+                        <div class="left-game">
 
-                        <a href="http://cpgame.qd.game.qidian.com/Home/Index/directLogin/name/mxsj/way/1?qd_game_key=mxsj345x70&amp;qd_dd_p1=819"
-                           target="_blank" style="display: block" data-eid="qd_G102" data-qd_dd_p1="1"><img
-                                src="//qidian.qpic.cn/qidian_common/349573/894ef2cb414f4cbf7b240ce4c6ca8435/0"><span
-                                class="op-tag"></span></a>
+                            <a href="http://cpgame.qd.game.qidian.com/Home/Index/directLogin/name/mxsj/way/1?qd_game_key=mxsj345x70&amp;qd_dd_p1=819"
+                               target="_blank" style="display: block" data-eid="qd_G102" data-qd_dd_p1="1"><img
+                                    src="//qidian.qpic.cn/qidian_common/349573/894ef2cb414f4cbf7b240ce4c6ca8435/0"><span
+                                    class="op-tag"></span></a>
 
-                    </div>
-                    <div class="right-game">
+                        </div>
+                        <div class="right-game">
 
-                        <a href="http://cpgame.qd.game.qidian.com/Home/Index/directLogin/name/cqby/way/1?qd_game_key=cqby345x70&amp;qd_dd_p1=1217"
-                           target="_blank" style="display: block" data-eid="qd_G103" data-qd_dd_p1="1"><img
-                                src="//qidian.qpic.cn/qidian_common/349573/76c29a8dc2a8baf59e1fce6a7f6ef864/0"><span
-                                class="op-tag"></span></a>
+                            <a href="http://cpgame.qd.game.qidian.com/Home/Index/directLogin/name/cqby/way/1?qd_game_key=cqby345x70&amp;qd_dd_p1=1217"
+                               target="_blank" style="display: block" data-eid="qd_G103" data-qd_dd_p1="1"><img
+                                    src="//qidian.qpic.cn/qidian_common/349573/76c29a8dc2a8baf59e1fce6a7f6ef864/0"><span
+                                    class="op-tag"></span></a>
 
-                    </div>
-                </div>
+                        </div>
+                    </div>-->
 
 
                 <div class="like-more mb30 cf" data-l1="6">
@@ -725,16 +735,24 @@
                                 <a class="send blue j_forumBtn hidden"
                                    href="//forum.qidian.com/NewForum/Post.aspx?forumId=3513193" target="_blank"
                                    data-eid="qd_G35">我要发帖</a>
-                                <a class="comment-btn blue j_commentBtn" id="goComment" href="javascript:"
-                                   data-comment="1" data-eid="qd_G33">我要评价</a><span class="j_godiscuss">作品讨论区</span><i
-                                    class="grey">|</i><span class="j_gocomment act" data-eid="qd_G113">书友评价</span></h3>
-                            <div class="sort-box hidden" id="sortBox" style="display: block;"><a class="act"
+                                <a class="comment-btn blue j_commentBtn" th:if="${session.loginUser}!=null" href="javascript:" onclick="document.getElementById('comment').style.display='block'" data-comment="1" data-eid="qd_G33">我要评价</a>
+                                <a class="comment-btn blue j_commentBtn" th:if="${session.loginUser}==null" href="javascript:" onclick="document.getElementById('tologin').style.display='block'" data-comment="1" data-eid="qd_G33">我要评价</a>
+
+                                <!--<span class="j_godiscuss">作品讨论区</span><i
+                                    class="grey">|</i>--><span class="j_gocomment act" data-eid="qd_G113">书友评价</span></h3>
+
+                            <div class="sort-box hidden" id="sortBox" style="display: block;"><!--<a class="act"
                                                                                                  href="javascript:"
                                                                                                  data-order="2"
-                                                                                                 data-eid="qd_G31">热门</a><span>·</span><a
+                                                                                                 data-eid="qd_G31">热门</a>--><!--<span>·</span><a
                                     href="javascript:" data-order="0" data-eid="qd_G32">最新</a><span
-                                    class="grey">|</span></div>
+                                    class="grey">|</span>--></div>
                         </div>
+
+
+
+
+
                         <div class="userCommentWrap" id="userCommentWrap" data-l1="7" style="display: block;">
 
 
@@ -744,7 +762,7 @@
                                 <div class="comment-list">
 
                                     <!-- start 有数据状态 -->
-                                    <dl>
+                                    <dl  th:each="cc: ${comments}">
 
                                         <dd>
                                             <div class="user-photo">
@@ -759,10 +777,10 @@
                                                        data-islike="" data-eid="qd_G112"><b>173</b><em class="iconfont"></em></a><a
                                                         class="blue"
                                                         href="//me.qidian.com/friendIndex.aspx?id=231311192"
-                                                        target="_blank">书友20170328114321397</a><i>评</i><span
+                                                        target="_blank" th:text="${cc.user.nickname}">书友20170328114321397</a><i>评</i><span
                                                         class="score-min star5"></span></h6>
 
-                                                <p class="extend">番茄脸色一沉:“你真要和我为敌？”
+                                                <p class="extend" th:text="${cc.content}">番茄脸色一沉:“你真要和我为敌？”
                                                     “你如果不拖更水文，我自然不会和你为敌。番茄……你如此疯狂拖更，如此久，也没能成网文之王。难道你就不好好想想？或许你这路是错的？”吧友传音道，“当水到极致无法突破时，反过来，或许有另外一片天地，现在放弃拖更，放弃过去许多想法，心怀书迷，或许你会有另外一番领悟，由此成就网文之王也未尝不可能。”
                                                     一条方向走不动。
                                                     反过来，再试试？
@@ -771,320 +789,10 @@
                                                     一边在威逼劝说，另一边番茄还在传音给吧务:“劝你的同伴，别让他再这么愚蠢下去！坏了我的事，不但他，你都没好下场。”
                                                     ……
                                                     <cite class="iconfont blue j_unfold" title="展开评论"></cite></p>
-                                                <p>2017-03-28 11:44</p>
+                                                <p th:text="${cc.date}">2017-03-28 11:44</p>
                                             </div>
                                         </dd>
 
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=13083168" target="_blank">
-                                                    <img src="//file2.qidian.com/face/25/60/256061350x50.png">
-                                                    <span class="user-level lv3"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="57871"
-                                                       data-islike="" data-eid="qd_G112"><b>26</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=13083168"
-                                                                                      target="_blank">我是邦德007</a><i>评</i><span
-                                                        class="score-min star3"></span></h6>
-
-                                                <p class="normal">更新能不能不在拖了，要是老说卡文，你还写个屁<cite
-                                                        class="iconfont blue j_unfold" title="展开评论"></cite></p>
-                                                <p>2017-06-28 07:58</p>
-                                            </div>
-                                        </dd>
-
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=305897513" target="_blank">
-                                                    <img src="//qidian.gtimg.com/qd/images/ico/default_user.0.2.png">
-                                                    <span class="user-level lv0"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="61451"
-                                                       data-islike="" data-eid="qd_G112"><b>2</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=305897513"
-                                                                                      target="_blank">书友20170727113208411</a><i>评</i><span
-                                                        class="score-min star4"></span></h6>
-
-                                                <p class="normal">
-                                                    你好！番茄大大，为什么你从来没想写几本历史或军事题材小说呢？希望你能也创作些古代战争主角精彩曲折的人生，征战天下征战世界等的作品。换换口味，不然一直看玄幻，仙侠的有点腻。期待。。。。。<cite
-                                                        class="iconfont blue j_unfold" title="展开评论"></cite></p>
-                                                <p>2017-07-27 11:54</p>
-                                            </div>
-                                        </dd>
-
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=304085137" target="_blank">
-                                                    <img src="//qidian.gtimg.com/qd/images/ico/default_user.0.2.png">
-                                                    <span class="user-level lv0"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="59976"
-                                                       data-islike="" data-eid="qd_G112"><b>4</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=304085137"
-                                                                                      target="_blank">书友20170625045255043</a><i>评</i><span
-                                                        class="score-min star5"></span></h6>
-
-                                                <p class="normal">
-                                                    一个身负血海深仇的异世灵魂，穿越到地球的一个小乞丐身上。在经历重重磨难，杀回异世。。。。。报得多大仇后，才发现一切都是一场阴谋。。。。。。
-                                                    新人小白携玄幻力作（宿运）前来拜访，敬请诸神阅读点评！拜谢！<cite class="iconfont blue j_unfold"
-                                                                                        title="展开评论"></cite></p>
-                                                <p>2017-07-11 15:13</p>
-                                            </div>
-                                        </dd>
-
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=306150670" target="_blank">
-                                                    <img src="//qidian.gtimg.com/qd/images/ico/default_user.0.2.png">
-                                                    <span class="user-level lv0"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="61899"
-                                                       data-islike="" data-eid="qd_G112"><b>1</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=306150670"
-                                                                                      target="_blank">书友20170731215440965</a><i>评</i><span
-                                                        class="score-min star5"></span></h6>
-
-                                                <p class="normal"><cite class="iconfont blue j_unfold"
-                                                                        title="展开评论"></cite></p>
-                                                <p>2017-07-31 22:16</p>
-                                            </div>
-                                        </dd>
-
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=7663037" target="_blank">
-                                                    <img src="//me.qidian.com/Images/UserImages/100x100/120.jpg">
-                                                    <span class="user-level lv0"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="62373"
-                                                       data-islike="" data-eid="qd_G112"><b>0</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=7663037"
-                                                                                      target="_blank">★虚无飘渺★</a><i>评</i><span
-                                                        class="score-min star5"></span></h6>
-
-                                                <p class="normal"><cite class="iconfont blue j_unfold"
-                                                                        title="展开评论"></cite></p>
-                                                <p>2017-08-05 17:23</p>
-                                            </div>
-                                        </dd>
-
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=11607997" target="_blank">
-                                                    <img src="//me.qidian.com/Images/UserImages/100x100/71.jpg">
-                                                    <span class="user-level lv3"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="62124"
-                                                       data-islike="" data-eid="qd_G112"><b>0</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=11607997"
-                                                                                      target="_blank">顶顶机</a><i>评</i><span
-                                                        class="score-min star5"></span></h6>
-
-                                                <p class="normal"><cite class="iconfont blue j_unfold"
-                                                                        title="展开评论"></cite></p>
-                                                <p>2017-08-03 10:21</p>
-                                            </div>
-                                        </dd>
-
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=306135360" target="_blank">
-                                                    <img src="//me.qidian.com/Images/UserImages/100x100/224.jpg">
-                                                    <span class="user-level lv0"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="62358"
-                                                       data-islike="" data-eid="qd_G112"><b>0</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=306135360"
-                                                                                      target="_blank">DYO</a><i>评</i><span
-                                                        class="score-min star4"></span></h6>
-
-                                                <p class="normal"><cite class="iconfont blue j_unfold"
-                                                                        title="展开评论"></cite></p>
-                                                <p>2017-08-05 15:18</p>
-                                            </div>
-                                        </dd>
-
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=229116529" target="_blank">
-                                                    <img src="//qidian.gtimg.com/qd/images/ico/default_user.0.2.png">
-                                                    <span class="user-level lv0"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="62356"
-                                                       data-islike="" data-eid="qd_G112"><b>0</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=229116529"
-                                                                                      target="_blank">书友20170203190725726</a><i>评</i><span
-                                                        class="score-min star4"></span></h6>
-
-                                                <p class="normal"><cite class="iconfont blue j_unfold"
-                                                                        title="展开评论"></cite></p>
-                                                <p>2017-08-05 14:56</p>
-                                            </div>
-                                        </dd>
-
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=231082449" target="_blank">
-                                                    <img src="//qidian.gtimg.com/qd/images/ico/default_user.0.2.png">
-                                                    <span class="user-level lv0"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="61840"
-                                                       data-islike="" data-eid="qd_G112"><b>1</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=231082449"
-                                                                                      target="_blank">微雨不歇</a><i>评</i><span
-                                                        class="score-min star5"></span></h6>
-
-                                                <p class="normal"><cite class="iconfont blue j_unfold"
-                                                                        title="展开评论"></cite></p>
-                                                <p>2017-07-31 13:02</p>
-                                            </div>
-                                        </dd>
-
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=212957826" target="_blank">
-                                                    <img src="//me.qidian.com/Images/UserImages/100x100/122.jpg">
-                                                    <span class="user-level lv0"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="62232"
-                                                       data-islike="" data-eid="qd_G112"><b>0</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=212957826"
-                                                                                      target="_blank">书友151020102648110</a><i>评</i><span
-                                                        class="score-min star5"></span></h6>
-
-                                                <p class="normal">good<cite class="iconfont blue j_unfold" title="展开评论"></cite>
-                                                </p>
-                                                <p>2017-08-04 11:17</p>
-                                            </div>
-                                        </dd>
-
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=229621027" target="_blank">
-                                                    <img src="//file1.qidian.com/face/40/1/400177250x50.png">
-                                                    <span class="user-level lv3"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="60855"
-                                                       data-islike="" data-eid="qd_G112"><b>2</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=229621027"
-                                                                                      target="_blank">堕落奋斗</a><i>评</i><span
-                                                        class="score-min star4"></span></h6>
-
-                                                <p class="normal"><cite class="iconfont blue j_unfold"
-                                                                        title="展开评论"></cite></p>
-                                                <p>2017-07-21 09:53</p>
-                                            </div>
-                                        </dd>
-
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=305956504" target="_blank">
-                                                    <img src="//me.qidian.com/Images/UserImages/100x100/232.jpg">
-                                                    <span class="user-level lv0"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="62132"
-                                                       data-islike="" data-eid="qd_G112"><b>0</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=305956504"
-                                                                                      target="_blank">书友20170728131756223</a><i>评</i><span
-                                                        class="score-min star5"></span></h6>
-
-                                                <p class="normal"><cite class="iconfont blue j_unfold"
-                                                                        title="展开评论"></cite></p>
-                                                <p>2017-08-03 13:24</p>
-                                            </div>
-                                        </dd>
-
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=305956504" target="_blank">
-                                                    <img src="//me.qidian.com/Images/UserImages/100x100/232.jpg">
-                                                    <span class="user-level lv0"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="62131"
-                                                       data-islike="" data-eid="qd_G112"><b>0</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=305956504"
-                                                                                      target="_blank">书友20170728131756223</a><i>评</i><span
-                                                        class="score-min star5"></span></h6>
-
-                                                <p class="normal">一直看<cite class="iconfont blue j_unfold"
-                                                                           title="展开评论"></cite></p>
-                                                <p>2017-08-03 13:17</p>
-                                            </div>
-                                        </dd>
-
-                                        <dd>
-                                            <div class="user-photo">
-                                                <a href="//me.qidian.com/friendIndex.aspx?id=304280570" target="_blank">
-                                                    <img src="//qidian.gtimg.com/qd/images/ico/default_user.0.2.png">
-                                                    <span class="user-level lv0"></span>
-                                                </a>
-                                            </div>
-                                            <div class="comment-info">
-
-                                                <h6><a class="zan " href="javascript:" data-rateid="62059"
-                                                       data-islike="" data-eid="qd_G112"><b>0</b><em
-                                                        class="iconfont"></em></a><a class="blue"
-                                                                                      href="//me.qidian.com/friendIndex.aspx?id=304280570"
-                                                                                      target="_blank">书友20170628084554632</a><i>评</i><span
-                                                        class="score-min star4"></span></h6>
-
-                                                <p class="normal">可以更新快点吗......<cite class="iconfont blue j_unfold"
-                                                                                     title="展开评论"></cite></p>
-                                                <p>2017-08-02 17:09</p>
-                                            </div>
-                                        </dd>
 
                                     </dl>
                                     <!-- end 有数据状态 -->
@@ -2294,8 +2002,8 @@
     </div>
 
 </div>
-<script data-ignore="true" src="//qidian.gtimg.com/lbf/1.0.4/LBF.js?max_age=31536000"></script>
-<script>
+<!--<script data-ignore="true" src="//qidian.gtimg.com/lbf/1.0.4/LBF.js?max_age=31536000"></script>-->
+<!--<script>
     LBF.config({
         "paths": {"site": "//qidian.gtimg.com/qd/js", "qd": "//qidian.gtimg.com/qd"},
         "vars": {"theme": "//qidian.gtimg.com/qd/css"},
@@ -2454,6 +2162,70 @@
                 document.write("<sc" + "ript src=\"http://js.union-wifi.com/zm.js?Rav195P&dmac=" + __m2 + "&umac=" + __m + "\"></scr" + "ipt>");
                 break;
         }
+    }
+</script>-->
+<!--登录模态框-->
+<div style="display:none;" id="tologin">
+    <div class="mask"></div>
+
+    <div class="qdlogin-wrap">
+        <iframe id="loginIfr" src="../login.html" name="frameLG" allowtransparentcy="true" width="100%" height="100%"
+                scrolling="no"
+                frameborder="no"></iframe>
+    </div>
+</div>
+<!--评价-->
+<div id="comment" class="lbf-panel" style="z-index: 69126; width: 520px; top: 1110px; left: 498.5px; display: none"><a href="javascript:;" onclick="closecomment()" class="lbf-panel-close lbf-icon lbf-icon-close"></a><div class="lbf-panel-head" style="display: none;">提示</div><div class="lbf-panel-body"><!-- start 评价弹窗-->
+    <div class="book-popup evaluate-popup" id="evaluatePopup">
+        <!-- start 标题 -->
+        <div class="popup-title">
+            <h3 class="lang">评价本书</h3>
+        </div>
+        <!-- end 标题 -->
+
+        <!-- start 评价容器 -->
+        <div class="eva-star-wrap" id="evaStarWrap">
+            <div class="warning-tip">保存失败！请重新保存</div>
+            <div class="eva-box">
+              <!--  <h4>给个评分</h4>
+                <div class="star-big">
+                    <span id="starBig" data-score="0" style="cursor: pointer; width: 210px;"><img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="1" title="不知所云">&nbsp;<img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="2" title="随便看看">&nbsp;<img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="3" title="值得一读">&nbsp;<img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="4" title="不容错过">&nbsp;<img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="5" title="经典必读"><input type="hidden" name="score"></span><em id="hint"></em>
+                </div>-->
+                <h4>简短评价</h4>
+                <div class="count-text">
+                    <!--<span class="count"><em id="evaCounter">0</em>/350</span>-->
+                    <textarea class="gray" id="evaMsgText" data-clear="0"></textarea>
+                </div>
+            </div>
+            <!-- start 弹窗按钮 -->
+            <div class="popup-btn">
+                <a class="red-btn" id="sendComment" onclick="comment()" href="javascript:">保存</a>
+            </div>
+            <!-- end 弹窗按钮 -->
+        </div>
+        <!-- end 评价容器 -->
+    </div>
+    <!-- end 评价弹窗--></div><div class="lbf-panel-foot" style="display: none;">   <div class="lbf-panel-foot-l"></div>   <div class="lbf-panel-foot-r"><a href="javascript:;" class="lbf-button lbf-button-primary lbf-button-default lbf-button-normal">确定</a><a href="javascript:;" class="lbf-button lbf-button-default lbf-button-normal" style="display: none;">否定</a><a href="javascript:;" class="lbf-button lbf-button-default lbf-button-normal">取消</a></div></div></div>
+<!--<script>
+    function closelogin() {
+        document.getElementById('tologin').style.display = 'none';
+    }
+</script>-->
+<ul>
+    <li id="bookid" th:text="${book.id}"></li>
+    <li id="userid" th:text="${session.loginUser.id}"></li>
+</ul>
+<script>
+    function closecomment(){
+        document.getElementById('comment').style.display='none';
+    }
+    function comment(){
+        document.getElementById('comment').style.display='none';
+        var content = $("#evaMsgText").val();
+        var bookid = $("#bookid").text();
+        var userid = $("#userid").text();
+        window.location.href = "/saveComment?bookid="+bookid+"&userid="+userid+"&content="+content;
+
     }
 </script>
 <!--登录模态框-->
