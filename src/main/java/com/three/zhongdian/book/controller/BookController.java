@@ -1,6 +1,8 @@
 package com.three.zhongdian.book.controller;
 
 import com.github.pagehelper.PageHelper;
+import com.three.zhongdian.author.entity.Author;
+import com.three.zhongdian.author.service.AuthorService;
 import com.three.zhongdian.book.po.BigType;
 import com.three.zhongdian.book.po.Book;
 import com.three.zhongdian.book.po.Comment;
@@ -24,6 +26,8 @@ import java.util.*;
 
 @Controller
 public class BookController {
+    @Autowired
+    private AuthorService authorService;
 
     @Autowired
     private BookService bookService;
@@ -121,11 +125,16 @@ public class BookController {
         mv.addObject("tags",tags);
         return mv;
     }
+
+    @RequestMapping("/findBookById")
+    public ModelAndView findBookById(int id,String name,HttpSession session){
  /*   @RequestMapping("/findBookById")
     public ModelAndView findBookById(int id){
         Book book = bookService.findBookById(id);
         ModelAndView mv = new ModelAndView();
         mv.setViewName("book");
+        Author au = authorService.findByAuthorName(book.getAuthor());
+        session.setAttribute("au",au);
         mv.addObject("book",book);
         return mv;
     }*/
@@ -166,7 +175,7 @@ public class BookController {
 
     @RequestMapping("/page")
     public ModelAndView page(HttpServletRequest request, Integer currentPage, HttpSession session){
-        Map<String,Object>tags = (Map)session.getAttribute("tags");
+        Map<String,Object> tags = (Map)session.getAttribute("tags");
         List<Book> books_size = bookService.findBookByMap(tags);
         int listCount = books_size.size();
         int pageSize = 6;

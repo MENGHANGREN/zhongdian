@@ -286,10 +286,12 @@
             </div>
 
             <div class="book-info ">
-                <h1><em th:text="${book.name}">雪鹰领主</em><span><a class="writer"
-                                                                 href="//me.qidian.com/authorIndex.aspx?id=4362096"
-                                                                 target="_blank" data-eid="qd_G08"
-                                                                 th:text="${book.author}">我吃西红柿</a> 著</span></h1>
+
+
+                <h1><em th:text="${book.name}">雪鹰领主</em><span><a class="writer" th:href="@{findByAuthorName(name=${session.au.name})}"
+                                          target="_blank" th:text="${book.author}"></a> 著</span></h1>
+
+
                 <p class="tag"><span class="blue" th:text="${book.status}">连载</span>
 
                     <span class="blue">签约</span>
@@ -1410,14 +1412,14 @@
                                 <span class="platina">白金</span>
 
                             </div>
-                            <p><a href="//me.qidian.com/authorIndex.aspx?id=4362096" target="_blank">我吃西红柿</a>
+                            <p><a href="//me.qidian.com/authorIndex.aspx?id=4362096" target="_blank" th:text="${book.author}"></a>
 
                                 <a class="god-light lv3" href="http://t.qidian.com/Dszg/DszgDetail.php?authorId=4362096"
                                    title="大神之光：已经有1728人获得" target="_blank" data-eid="qd_G39"></a>
 
                             </p>
 
-                            <p class="">阅文集团白金作家，网络文学代表人物之一，富豪榜榜上作家，作品留下无数神话般的纪录。
+                            <p class="" th:text="${session.au.authorintroduce}">
                                 <cite class="iconfont blue j_infoUnfold" title="展开介绍"></cite>
                             </p>
 
@@ -1427,17 +1429,17 @@
                                 <li>
                                     <span class="book"></span>
                                     <p>作品总数</p>
-                                    <em>8</em>
+                                    <em th:text="${session.au.productionCount}"></em>
                                 </li>
                                 <li>
                                     <span class="word"></span>
                                     <p>累计字数</p>
-                                    <em>2418.82万</em>
+                                    <em th:text="${session.au.wordsCount}"></em>
                                 </li>
                                 <li>
                                     <span class="coffee"></span>
-                                    <p>创作天数</p>
-                                    <em>3700</em>
+                                    <p >创作天数</p>
+                                    <em th:text="${session.au.writeDays}"></em>
                                 </li>
                             </ul>
                         </div>
