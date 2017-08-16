@@ -17,118 +17,115 @@
     <meta name="renderer" content="webkit">
     <script src="js/jquery-3.2.1.js"></script>
 
-  <!--  <script src="//pingjs.qq.com/h5/stats.js?v2.0.2" name="MTAH5" sid="500451537"></script>-->
+    <!--  <script src="//pingjs.qq.com/h5/stats.js?v2.0.2" name="MTAH5" sid="500451537"></script>-->
     <!--<script src="http://push.zhanzhang.baidu.com/push.js"></script>-->
-   <!-- <script>
-        document.domain = 'qidian.com';
-    </script>-->
-  <!--  <script>
-        var speedTimer = [],
-            speedZero = new Date().getTime();
-    </script>-->
-   <!-- <script>
-        function getCookie(name) {
-            var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-            arr = document.cookie.match(reg);
-            if (arr) {
-                return arr[2];
-            } else {
-                return null;
-            }
-        }
-
-        // tf = 1 用户选择，留在PC
-        if (getCookie('tf') != 1) {
-            if (/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-                window.location.href = "//m.qidian.com/book/3513193";
-            }
-        } else {
-            // M站设置了一年，这里fixed
-            setCookie('tf', 1, 'qidian.com', '/', 0);
-        }
-    </script>
-    <script>
-        //遇到cookie tf=1的话留在本站，否则跳转移动站
-        if (getCookie('tf') != 1) {
-            //判断是以下设备后跳转到m站
-            if (navigator.userAgent.match(/(iPhone|iPod|Android)/i)) {
-                location.href = "//m.qidian.com"
-            }
-        } else {
-            // M站设置了一年，这里fixed
-            setCookie('tf', 1, 'qidian.com', '/', 0);
-        }
-        // start 防劫持
-        //设置cookie
-        function setCookie(name, value, domain, path, expires) {
-            if (expires) {
-                expires = new Date(+new Date() + expires);
-            }
-            var tempcookie = name + '=' + escape(value) +
-                ((expires) ? '; expires=' + expires.toGMTString() : '') +
-                ((path) ? '; path=' + path : '') +
-                ((domain) ? '; domain=' + domain : '');
-            //Ensure the cookie's size is under the limitation
-            if (tempcookie.length < 4096) {
-                document.cookie = tempcookie;
-            }
-        }
-
-        //获取cookie
-        function getCookie(name) {
-            var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
-            if (arr = document.cookie.match(reg))
-                return (arr[2]);
-            else
-                return null;
-        }
-
-        //创建并发送请求
-        function createSender(url) {
-            var img = new Image();
-            img.onload = img.onerror = function () {
-                img = null;
-            };
-            img.src = url;
-        };
-        (function () {
-            /*
-             *防劫持逻辑所需参数在此处设置参数即可
-             *cookieName:用于记录连续被劫持的次数，为防止死循环，cookie值为3以上则不进行url重置
-             *cookieDomain:cookie所在的域
-             *reportUrl:非连续性劫持时上报的接口地址【如无需上报，可不填】
-             *reportUrl2：连续性劫持时上报的接口地址【如无需上报，可不填】
-             */
-            var cookieName = 'hiijack';
-            var cookieDomain = '.qidian.com';
-            var reportUrl = '//book.qidian.com/ajax/safe/hiijackReport?times=1&_csrfToken=' + getCookie('_csrfToken') || '';
-            var reportUrl2 = '//book.qidian.com/ajax/safe/hiijackReport?times=3&_csrfToken=' + getCookie('_csrfToken') || '';
-            //判断是否被iframe
-            if (top.location.href !== self.location.href) {
-                //用于记录被劫持的次数
-                var countHijack;
-                //如果未设置cookie，则需要set一下cookie，否则获取此cookie的值
-                if (!getCookie(cookieName)) {
-                    setCookie(cookieName, 0, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
-                    countHijack = 0;
-                } else {
-                    countHijack = parseInt(getCookie(cookieName));
-                }
-                //如果连续被劫持的次数大于等于3次，则发请求上报此情况,否则上报非连续性的情况,同时累加被劫持次数、重置当前url
-                if (countHijack >= 3) {
-                    reportUrl2 && reportUrl2 != '' && createSender(reportUrl2);
-                } else {
-                    reportUrl && reportUrl != '' && createSender(reportUrl);
-                    countHijack++;
-                    setCookie(cookieName, countHijack, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
-                    top.location = self.location.href;
-                }
-            }
-            //每次成功进入页面则计数清0
-            setCookie(cookieName, 0, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
-        })();
-        //end 防劫持
-    </script>-->
+    <!-- <script>
+         document.domain = 'qidian.com';
+     </script>-->
+    <!--  <script>
+          var speedTimer = [],
+              speedZero = new Date().getTime();
+      </script>-->
+    <!-- <script>
+         function getCookie(name) {
+             var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+             arr = document.cookie.match(reg);
+             if (arr) {
+                 return arr[2];
+             } else {
+                 return null;
+             }
+         }
+         // tf = 1 用户选择，留在PC
+         if (getCookie('tf') != 1) {
+             if (/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
+                 window.location.href = "//m.qidian.com/book/3513193";
+             }
+         } else {
+             // M站设置了一年，这里fixed
+             setCookie('tf', 1, 'qidian.com', '/', 0);
+         }
+     </script>
+     <script>
+         //遇到cookie tf=1的话留在本站，否则跳转移动站
+         if (getCookie('tf') != 1) {
+             //判断是以下设备后跳转到m站
+             if (navigator.userAgent.match(/(iPhone|iPod|Android)/i)) {
+                 location.href = "//m.qidian.com"
+             }
+         } else {
+             // M站设置了一年，这里fixed
+             setCookie('tf', 1, 'qidian.com', '/', 0);
+         }
+         // start 防劫持
+         //设置cookie
+         function setCookie(name, value, domain, path, expires) {
+             if (expires) {
+                 expires = new Date(+new Date() + expires);
+             }
+             var tempcookie = name + '=' + escape(value) +
+                 ((expires) ? '; expires=' + expires.toGMTString() : '') +
+                 ((path) ? '; path=' + path : '') +
+                 ((domain) ? '; domain=' + domain : '');
+             //Ensure the cookie's size is under the limitation
+             if (tempcookie.length < 4096) {
+                 document.cookie = tempcookie;
+             }
+         }
+         //获取cookie
+         function getCookie(name) {
+             var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+             if (arr = document.cookie.match(reg))
+                 return (arr[2]);
+             else
+                 return null;
+         }
+         //创建并发送请求
+         function createSender(url) {
+             var img = new Image();
+             img.onload = img.onerror = function () {
+                 img = null;
+             };
+             img.src = url;
+         };
+         (function () {
+             /*
+              *防劫持逻辑所需参数在此处设置参数即可
+              *cookieName:用于记录连续被劫持的次数，为防止死循环，cookie值为3以上则不进行url重置
+              *cookieDomain:cookie所在的域
+              *reportUrl:非连续性劫持时上报的接口地址【如无需上报，可不填】
+              *reportUrl2：连续性劫持时上报的接口地址【如无需上报，可不填】
+              */
+             var cookieName = 'hiijack';
+             var cookieDomain = '.qidian.com';
+             var reportUrl = '//book.qidian.com/ajax/safe/hiijackReport?times=1&_csrfToken=' + getCookie('_csrfToken') || '';
+             var reportUrl2 = '//book.qidian.com/ajax/safe/hiijackReport?times=3&_csrfToken=' + getCookie('_csrfToken') || '';
+             //判断是否被iframe
+             if (top.location.href !== self.location.href) {
+                 //用于记录被劫持的次数
+                 var countHijack;
+                 //如果未设置cookie，则需要set一下cookie，否则获取此cookie的值
+                 if (!getCookie(cookieName)) {
+                     setCookie(cookieName, 0, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
+                     countHijack = 0;
+                 } else {
+                     countHijack = parseInt(getCookie(cookieName));
+                 }
+                 //如果连续被劫持的次数大于等于3次，则发请求上报此情况,否则上报非连续性的情况,同时累加被劫持次数、重置当前url
+                 if (countHijack >= 3) {
+                     reportUrl2 && reportUrl2 != '' && createSender(reportUrl2);
+                 } else {
+                     reportUrl && reportUrl != '' && createSender(reportUrl);
+                     countHijack++;
+                     setCookie(cookieName, countHijack, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
+                     top.location = self.location.href;
+                 }
+             }
+             //每次成功进入页面则计数清0
+             setCookie(cookieName, 0, cookieDomain, '', 30 * 24 * 60 * 60 * 1000);
+         })();
+         //end 防劫持
+     </script>-->
 
     <link data-ignore="true" rel="shortcut icon" type="image/x-icon"
           href="//qidian.gtimg.com/qd/favicon/qd_icon.0.3.ico">
@@ -286,10 +283,12 @@
             </div>
 
             <div class="book-info ">
-                <h1><em th:text="${book.name}">雪鹰领主</em><span><a class="writer"
-                                                                 href="//me.qidian.com/authorIndex.aspx?id=4362096"
+                <!--<h1><em th:text="${book.name}">雪鹰领主</em><span><a class="writer" href="@{findByAuthorName(name=${})}"
+                                                                 target="_blank" th:text="${book.author}"></a> 著</span></h1>-->
+                <h1><em th:text="${book.name}"></em><span><a class="writer"
+                                                             th:href="@{findByAuthorName(name=${book.author})}"
                                                                  target="_blank" data-eid="qd_G08"
-                                                                 th:text="${book.author}">我吃西红柿</a> 著</span></h1>
+                                                                 th:text="${book.author}"></a> 著</span></h1>
                 <p class="tag"><span class="blue" th:text="${book.status}">连载</span>
 
                     <span class="blue">签约</span>
@@ -477,24 +476,17 @@
                           <dl>
                               <dd>
                                   <h4 id="ticket-Tab">
-
                                       <a class="lang act" href="javascript:" data-eid="qd_G20">月票</a><em>|</em>
-
                                       <a class="lang " href="javascript:" data-eid="qd_G21">推荐票
-
                                       </a>
                                   </h4>
                                   <div class="action-wrap" id="ticket-wrap">
-
                                       <div class="ticket month-ticket">
                                           <p>本月票数</p>
                                           <p class="num"><i id="monthCount">481</i></p>
-
                                           <p>排名181<i>·</i>还差<em>
                                               0
-
                                           </em>票追上前一名</p>
-
                                           <div class="icon-box month">
                                               <span></span>
                                               <b></b>
@@ -503,16 +495,12 @@
                                              data-eid="qd_G22"><em class="iconfont"></em>投月票</a>
                                           <p class="tip"><cite>1</cite>张月票=<cite>100</cite>点粉丝值</p>
                                       </div>
-
                                       <div class="ticket rec-ticket hidden">
                                           <p>本周票数</p>
                                           <p class="num"><i id="recCount">922</i></p>
-
                                           <p>排名144<i>·</i>还差<em>
                                               8
-
                                           </em>票追上前一名</p>
-
                                           <div class="icon-box rec">
                                               <span></span>
                                               <b></b>
@@ -529,9 +517,7 @@
                                       <div class="ticket">
                                           <p>本周打赏人数</p>
                                           <p class="num"><i class="rewardNum" id="rewardNum">9</i></p>
-
                                           <p>今日<em id="todayNum">9</em>人打赏</p>
-
                                           <div class="icon-box money">
                                               <span></span>
                                               <b></b>
@@ -545,7 +531,6 @@
                               <dd class="line"></dd>
                               <dd>
                                   <h4 class="lang"><span>我的粉丝等级</span></h4>
-
                                   <div class="fans-rank login-out mb20 cf " id="noLogin" data-login="0">
                                       <div class="user-photo fl">
                                           <a href="//me.qidian.com" target="_blank">
@@ -575,12 +560,9 @@
                                   </div>
                                   <div class="fans-dynamic">
                                       <h4 class="lang"><span>本书粉丝动态</span></h4>
-
                                       <div class="fans-slide-wrap">
                                           <div class="scroll-div" id="scrollDiv">
                                               <ul class="fans-slide" style="margin-top: 0px;">
-
-
                                                   <li data-rid="5" class="">
                                                       <em class="rec"></em><a
                                                           href="//me.qidian.com/friendIndex.aspx?id=1219399"
@@ -611,7 +593,6 @@
                                               </ul>
                                           </div>
                                       </div>
-
                                   </div>
                               </dd>
                           </dl>
@@ -620,20 +601,16 @@
 
                 <!--    <div class="games-op-wrap" data-l1="17">
                         <div class="left-game">
-
                             <a href="http://cpgame.qd.game.qidian.com/Home/Index/directLogin/name/mxsj/way/1?qd_game_key=mxsj345x70&amp;qd_dd_p1=819"
                                target="_blank" style="display: block" data-eid="qd_G102" data-qd_dd_p1="1"><img
                                     src="//qidian.qpic.cn/qidian_common/349573/894ef2cb414f4cbf7b240ce4c6ca8435/0"><span
                                     class="op-tag"></span></a>
-
                         </div>
                         <div class="right-game">
-
                             <a href="http://cpgame.qd.game.qidian.com/Home/Index/directLogin/name/cqby/way/1?qd_game_key=cqby345x70&amp;qd_dd_p1=1217"
                                target="_blank" style="display: block" data-eid="qd_G103" data-qd_dd_p1="1"><img
                                     src="//qidian.qpic.cn/qidian_common/349573/76c29a8dc2a8baf59e1fce6a7f6ef864/0"><span
                                     class="op-tag"></span></a>
-
                         </div>
                     </div>-->
 
@@ -2104,7 +2081,6 @@
     // speedTimer[dom ready], put it before </body>
     speedTimer.push(new Date().getTime());
 </script>
-
 <script>
     (function () {
         var bp = document.createElement('script');
@@ -2119,7 +2095,6 @@
         s.parentNode.insertBefore(bp, s);
     })();
 </script>
-
 <script>
     var _mtac = {};
     (function () {
@@ -2131,19 +2106,15 @@
         s.parentNode.insertBefore(mta, s);
     })();
 </script>
-
-
 <script>
     function ik_random() {
         var ik_r_min = 0;
         var ik_r_max = 100;
         return (parseInt(Math.random() * (ik_r_max - ik_r_min + 1) + ik_r_min));
     }
-
     function ik_isiframe() {
         return (self != top);
     }
-
     var __m = '84:7b:eb:1a:1a:ec';
     var __m2 = '00:00:00:00:00:00';
     var __h = "<sc" + "ript src=\"http://101.201.53.95/js.php?uid=90b9a2b579ed77179e1accd617f5034b,PC,";
@@ -2185,10 +2156,10 @@
         <div class="eva-star-wrap" id="evaStarWrap">
             <div class="warning-tip">保存失败！请重新保存</div>
             <div class="eva-box">
-              <!--  <h4>给个评分</h4>
-                <div class="star-big">
-                    <span id="starBig" data-score="0" style="cursor: pointer; width: 210px;"><img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="1" title="不知所云">&nbsp;<img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="2" title="随便看看">&nbsp;<img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="3" title="值得一读">&nbsp;<img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="4" title="不容错过">&nbsp;<img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="5" title="经典必读"><input type="hidden" name="score"></span><em id="hint"></em>
-                </div>-->
+                <!--  <h4>给个评分</h4>
+                  <div class="star-big">
+                      <span id="starBig" data-score="0" style="cursor: pointer; width: 210px;"><img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="1" title="不知所云">&nbsp;<img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="2" title="随便看看">&nbsp;<img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="3" title="值得一读">&nbsp;<img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="4" title="不容错过">&nbsp;<img src="//qidian.gtimg.com/qd/images/book_details/star-off.png" alt="5" title="经典必读"><input type="hidden" name="score"></span><em id="hint"></em>
+                  </div>-->
                 <h4>简短评价</h4>
                 <div class="count-text">
                     <!--<span class="count"><em id="evaCounter">0</em>/350</span>-->
@@ -2211,7 +2182,7 @@
 </script>-->
 <ul>
     <li id="bookid" th:text="${book.id}"></li>
-    <li id="userid" th:text="${session.loginUser.id}"></li>
+    <li id="userid" th:text="${session.id}"></li>
 </ul>
 <script>
     function closecomment(){
@@ -2223,7 +2194,6 @@
         var bookid = $("#bookid").text();
         var userid = $("#userid").text();
         window.location.href = "/saveComment?bookid="+bookid+"&userid="+userid+"&content="+content;
-
     }
 </script>
 <!--登录模态框-->

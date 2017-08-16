@@ -6,7 +6,6 @@ import com.three.zhongdian.util.PhoneUtil;
 import com.three.zhongdian.util.ValidateCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -100,11 +99,10 @@ public class UserController {
     }
     /*用户注册的方法*/
     @RequestMapping("saveUser")
-    public String saveUser(User user, Model model){
+    public String saveUser(User user){
      userService.saveUser(user);
         System.out.println("添加成功");
-        model.addAttribute("user",user);
-     return "success";
+     return "index";
     }
 
 

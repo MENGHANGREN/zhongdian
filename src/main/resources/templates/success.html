@@ -1,4 +1,4 @@
-<html xmlns:th="http://www.w3.org/1999/xhtml"><head>
+<html><head>
     <meta charset="UTF-8">
 <meta name="description" content="小说阅读,精彩小说尽在起点中文网. 起点中文网提供玄幻小说,武侠小说,原创小说,网游小说,都市小说,言情小说,青春小说,历史小说,军事小说,网游小说,科幻小说,恐怖小说,首发小说,最新章节免费">
 <meta name="keywords" content="小说,小说网,玄幻小说,武侠小说,都市小说,历史小说,网络小说,言情小说,青春小说,原创网络文学">
@@ -38,7 +38,7 @@
                     <h3>注册成功</h3>
                     <div class="sprite ok"></div>
                     <p>你的账号：</p>
-                    <h4 class="red" th:text="${user.phone}"></h4>
+                    <h4 class="red">15201317689</h4>
                     <p>90%的书友会设置安全认证，抵御盗号风险</p>
                     <p><a class="blue" href="http://anquan.qidian.com">前往安全中心</a></p>
                     <p><span class="red" id="jumpTime">3</span>秒后跳转</p>
@@ -79,7 +79,7 @@
             count--;
             if (count <= 0) {
                 clearInterval(interval);
-                window.location.href = 'http://localhost:8080/index';
+                window.location.href = 'http://www.qidian.com?ywregister=1&ticket=ttd0cb4e3b90ec4a33afe726ac7c9cb14d&ywguid=854004695754';
             }
             else {
                 $("#jumpTime").html(count);
