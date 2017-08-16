@@ -163,7 +163,7 @@ public class BookController {
         byte[] buf = new byte[1024];
         int len = 0;
 
-        response.reset(); // 非常重要
+        response.reset(); 
         if (isOnLine) { // 在线打开方式
             URL u = new URL("d://book" + filePath);
             response.setContentType(u.openConnection().getContentType());

@@ -7,6 +7,7 @@ import lombok.Data;
  */
 @Data
 public class Author {
+
     private Integer aid;
     private String authorNname;
     private String newPassword;
@@ -30,4 +31,5 @@ public class Author {
     private Integer fans;//粉丝
     private String designation;//称号
     private Integer uid;
+
 }
